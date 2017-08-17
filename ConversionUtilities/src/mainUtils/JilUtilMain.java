@@ -1,11 +1,10 @@
 package mainUtils;
 
 import java.io.BufferedWriter;
-import java.io.Console;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +17,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import aeUtilities.AEAPIUtils;
 import excelUtils.ExcelReader;
+import jmoUtilities.JMOExtractAnalyzer;
 
 public class JilUtilMain 
 {
@@ -39,14 +39,69 @@ public class JilUtilMain
 		System.out.println("1. Get FT Jobs from instance");
 		System.out.println("2. Read Excel for Top Level Boxes");
 		System.out.println("3. Create Missing objects from jil (Resources and Machines)");
-		System.out.println("4. Get ");
-		AEAPIUtils aeApi = new AEAPIUtils();
-		List<String> ftJobList=aeApi.getJobList("D:\\github\\java_code\\JilUtilities\\as_server.properties", "FT");
-		logger.info(ftJobList);
+		System.out.println("4. JMO Extract Analyzer");
+		
 		Scanner conScanner = new Scanner(System.in);
-		System.out.println("Enter the full path to the JIL File");
-		String jilInput=conScanner.nextLine();
-		jilFileUtils.ShredJilFile shredder = new jilFileUtils.ShredJilFile();
+		System.out.println("Select an option:");
+		int user_Choice = Integer.parseInt(conScanner.nextLine());
+		switch(user_Choice)
+		{
+			case 1:
+				AEAPIUtils aeApi = new AEAPIUtils();
+				List<String> ftJobList=aeApi.getJobList("D:\\github\\java_code\\JilUtilities\\as_server.properties", "FT");
+				logger.info(ftJobList);
+				break;
+			case 2:
+				excelUtils.ExcelReader excelUtil = new ExcelReader();
+				// OOM ERROR with large excel files
+				System.out.println("Enter the full path to the excel sheet");
+				Scanner excelScanner = new Scanner(System.in);
+				String excelPath=excelScanner.nextLine();
+				System.out.println("Enter the sheet name to read");
+				String excelSheetName=excelScanner.nextLine();
+				excelUtil.readExcel(excelPath,excelSheetName);
+				break;
+			case 3:
+				jilFileUtils.ShredJilFile shredder = new jilFileUtils.ShredJilFile();
+				System.out.println("Enter the full path to the JIL File");
+				String jilInput=conScanner.nextLine();
+				try 
+				{
+					shredder.readJilToGetJobNames(jilInput);
+				} 
+				catch (IOException e) 
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			case 4:
+				JMOExtractAnalyzer jmo = new JMOExtractAnalyzer();
+				System.out.println("1. Check predecessors");
+				System.out.println("2. Create JMO Object Report only");
+				Scanner jmoScanner = new Scanner(System.in);
+				String jmoOption = jmoScanner.nextLine();
+				System.out.println("Enter the full path to the JMO Extract");
+				String jmoPath = jmoScanner.nextLine();
+				File jmoFile = new File(jmoPath);
+				boolean fileExists = jmoFile.exists();
+				if(!fileExists)
+				{
+					System.out.println("File does not exist. Exiting...");
+					System.exit(4);
+				}
+				else
+				{
+					jmo.readJMOExtractHighLevel(jmoPath);
+				}
+				if(jmoOption.equals("1"))
+				{
+					jmo.checkJobPredecessors(jmoPath);
+				}
+				
+				
+		}
+		
+		
 		/*Map<String, List<String>> calendarMap=shredder.putFileTriggersIntoBox("D:\\github\\java_code\\JilUtilities\\as_server.properties");
 		Iterator calendarIterator = calendarMap.entrySet().iterator();
 		while(calendarIterator.hasNext())
@@ -66,18 +121,10 @@ public class JilUtilMain
 			}
 			
 		}*/
-		excelUtils.ExcelReader excelUtil = new ExcelReader();
-		// OOM ERROR with large excel files
-		excelUtil.readExcel("C:\\jmofiles\\Tranche4JobstoBeConverted-Final.xlsx","Manually Entered Data");
-		try 
-		{
-			shredder.readJilToGetJobNames(jilInput);
-		} 
-		catch (IOException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		
+		
+		
 		// TODO Auto-generated method stub
 
 	}

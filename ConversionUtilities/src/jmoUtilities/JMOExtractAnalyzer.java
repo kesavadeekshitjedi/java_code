@@ -68,6 +68,20 @@ public class JMOExtractAnalyzer
 						jobList.add(myJobName);
 						logger.debug("Job: "+myJobName+" added to jobList...");
 					}
+					if(!(jobsetJobMap.containsKey(jobsetName)))
+					{
+						List<String> jobsForJobset = new ArrayList<String>();
+						jobsForJobset.add(myJobName);
+						jobsetJobMap.put(jobsetName, jobsForJobset);
+					}
+					else
+					{
+						List<String> jobsForJobset = new ArrayList<String>();
+						jobsForJobset = jobsetJobMap.get(jobsetName);
+						jobsForJobset.add(myJobName);
+						jobsetJobMap.put(jobsetName, jobsForJobset);
+						
+					}
 				}
 				else if (jmoLine.contains(jobsetDefString))
 				{
@@ -179,14 +193,19 @@ public class JMOExtractAnalyzer
 					}
 					else if ((jmoLine.contains("PSET") && (!jmoLine.contains("PJOB"))))
 					{
+						logger.info("Job Depends on jobset only. Not on job.");
 						endIndex=jmoLine.indexOf("PSET");
 					}
 					else if (jmoLine.contains("TRID"))
 					{
-						
+						logger.info("Job Depends on Trigger.");
 					}
 				}
 			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
 		}
 	}
 }
