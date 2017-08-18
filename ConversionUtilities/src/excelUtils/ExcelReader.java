@@ -1,24 +1,172 @@
 package excelUtils;
 
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import mainUtils.JilUtilMain;
+import workerUtilities.WorkerUtils;
 
 public class ExcelReader 
 {
+	public static WorkerUtils wUtils;
+	public static Map<String,String> jmo2AEJobsetMap = new HashMap<String, String>();
+	
+	public static void ExcelReader()
+	{
+		wUtils = new WorkerUtils();
+	}
 	static Logger logger = Logger.getRootLogger();
+	public void createOnlyTopBoxFromExcel_JPMC(String excelInput, String sheetName) throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		Map<String,String> boxCreationMap = new HashMap<String,String>();
+		logger=Logger.getLogger("JilUtilities.ExcelUtils.createOnlyTopBoxFromExcel_JPMC");
+		logger.info("Reading Excel File: "+excelInput+" to create just Top Level JIL");
+		Workbook excelWorkbook = null;
+		excelWorkbook=WorkbookFactory.create(new File(excelInput));
+		Sheet myExcelSheet = excelWorkbook.getSheet(sheetName);
+		logger.info("Excel worksheet" + sheetName+" open");
+		String topBoxName="";
+		String topLevelBoxCalendar="";
+		String topLevelBoxStartTime="";
+		String jobsetInTopBox="";
+		Iterator<Row> rowIterator = myExcelSheet.iterator();
+		List<String> jobsetsinTopBox=new ArrayList<String>();
+		File myFolder = new File("C:\\JMOFiles\\TopBox\\"+JilUtilMain.myTime);
+		myFolder.mkdir();
+		while(rowIterator.hasNext())
+		{
+			Row myRow=rowIterator.next();
+			Iterator<Cell> cellIterator=myRow.cellIterator();
+			while(cellIterator.hasNext())
+			{
+				Cell myCell = cellIterator.next();
+				if(myRow.getRowNum()==1 ||  (myCell.getColumnIndex()>=5))
+				{
+					logger.info("Skipping row/column: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+					
+				}
+				else
+				{
+					
+					// Column 1 is not useful for us. Skip this one 
+					
+					if(((myRow.getRowNum()>1)) && myCell.getColumnIndex()==0)
+					{
+						logger.debug("Reading Cell: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+						// This is the top box name
+						topBoxName=myCell.getStringCellValue();
+						//logger.debug("Jobset "+jobsetName+" goes into Top Box: "+topBoxName);
+						if(topBoxName.contains(" "))
+						{
+							topBoxName=topBoxName.replace(" ","-");
+						}
+						topBoxName=topBoxName.trim();
+					}
+					if(((myRow.getRowNum()>1)) && myCell.getColumnIndex()==1)
+					{
+						logger.debug("Reading Cell: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+						// This is the start time
+						topLevelBoxStartTime= myCell.getStringCellValue();
+						if(topLevelBoxStartTime=="")
+						{
+							topLevelBoxStartTime="18:45";
+						}
+						logger.debug("Top Box: "+topBoxName+" starts at "+topLevelBoxStartTime);
+					}
+					if(((myRow.getRowNum()>1)) && myCell.getColumnIndex()==2)
+					{
+						logger.debug("Reading Cell: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+						// This is the calendar name
+						topLevelBoxCalendar=myCell.getStringCellValue();
+						logger.debug("Top Box: "+topBoxName+" starts at "+topLevelBoxStartTime+" and uses calendar: "+topLevelBoxCalendar);
+					}
+					if((myRow.getRowNum()>1) && myCell.getColumnIndex()==3)
+					{
+						logger.debug("Reading Cell: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+						// This is the calendar name
+						jobsetInTopBox=myCell.getStringCellValue().trim();
+						logger.debug("Top Box: "+topBoxName+" starts at "+topLevelBoxStartTime+" and uses calendar: "+topLevelBoxCalendar+". Jobset "+jobsetInTopBox+" is part of "+topBoxName);
+						if(!jmo2AEJobsetMap.containsKey(topBoxName))
+						{
+							jobsetsinTopBox=new ArrayList<String>();
+							jobsetsinTopBox.add(jobsetInTopBox);
+							jmo2AEJobsetMap.put(jobsetInTopBox,topBoxName);
+							//jmo2AEJobsetMap.put(topBoxName, jobsetInTopBox); - This was the original. Swapped it to make it a longer Map, but definitely unique??
+						}
+						else
+						{
+							//jobsetsinTopBox=new ArrayList<String>();
+							//jobsetsinTopBox=jmo2AEJobsetMap.get(topBoxName);
+							//jobsetsinTopBox.add(jobsetInTopBox);
+							jmo2AEJobsetMap.put(jobsetInTopBox,topBoxName);
+							//jmo2AEJobsetMap.put(topBoxName, jobsetInTopBox);
+						}
+					}
+				}
+			}
+			logger.info("Top Box: "+topBoxName+" TopBoxCalendar: "+topLevelBoxCalendar+" TopBox Start Time: "+topLevelBoxStartTime);
+			
+			if(!boxCreationMap.containsKey(topBoxName))
+			{
+				
+				boxCreationMap.put(topBoxName, "False");
+				
+			}
+			String boxCreated = boxCreationMap.get(topBoxName);
+			if(!(topBoxName=="") && ((boxCreated.equals("False"))))
+			{
+				String topLevelBoxFileName=myFolder+"\\"+"TopBoxDefinitions.jil";
+				
+				logger.info("Creating "+topLevelBoxFileName);
+				writeToFile(topLevelBoxFileName,"#------"+topBoxName+"------#");
+				writeToFile(topLevelBoxFileName,"\n");
+				writeToFile(topLevelBoxFileName,"insert_job: "+topBoxName.trim()+"\n");
+				writeToFile(topLevelBoxFileName,"job_type: BOX"+"\n");
+				writeToFile(topLevelBoxFileName,"date_conditions:1"+"\n");
+				writeToFile(topLevelBoxFileName,"start_times: \""+topLevelBoxStartTime+"\"\n");
+				writeToFile(topLevelBoxFileName,"run_calendar: "+topLevelBoxCalendar+"\n");
+				writeToFile(topLevelBoxFileName,"\n");
+				boxCreationMap.put(topBoxName, "True");
+			}
+		}
+	}
+	public void writeToFile(String fileName, String content) throws IOException
+	{
+		FileWriter myFile=null;
+		BufferedWriter fileWriter=null;
+		try
+		{
+		myFile = new FileWriter(fileName,true);
+		fileWriter = new BufferedWriter(myFile);
+		fileWriter.write(content);
+		}
+		catch(FileNotFoundException fe)
+		{
+			fe.printStackTrace();
+		}
+		finally
+		{
+			fileWriter.close();
+			myFile.close();
+		}
+	}
 	public void readExcel(String excelInput,String sheetName) throws IOException, EncryptedDocumentException, InvalidFormatException
 	{
 		logger=Logger.getLogger("JilUtilities.ExcelUtils.readExcel");

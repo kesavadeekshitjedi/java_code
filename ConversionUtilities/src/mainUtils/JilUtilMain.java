@@ -4,7 +4,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +20,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import aeUtilities.AEAPIUtils;
 import excelUtils.ExcelReader;
+import jilFileUtils.ShredJilFile;
 import jmoUtilities.JMOExtractAnalyzer;
 
 public class JilUtilMain 
@@ -24,6 +28,9 @@ public class JilUtilMain
 	List<String> jobNameList=new ArrayList<String>();
 	List<String> jobsetNameList=new ArrayList<String>();
 	Map<String, List<String>> jobsetMap = new LinkedHashMap<String, List<String>>(); 
+	public static Date now;
+	public static SimpleDateFormat sdf;
+	public static String myTime;
 	static Logger logger = Logger.getRootLogger();
 
 	public static void writeToFile(String outputFile, String line) throws IOException
@@ -33,6 +40,10 @@ public class JilUtilMain
 	}
 	public static void main(String[] args) throws IOException, EncryptedDocumentException, InvalidFormatException 
 	{
+		now = new Date();
+		sdf = new SimpleDateFormat("YYYY-MM-d-hh-mm-ss");
+		myTime = sdf.format(now);
+		
 		String log4jLocation = "resources/log4j.properties";
 		PropertyConfigurator.configure(log4jLocation);
 		logger=Logger.getLogger("JilUtilities.main");
@@ -40,7 +51,7 @@ public class JilUtilMain
 		System.out.println("2. Read Excel for Top Level Boxes");
 		System.out.println("3. Create Missing objects from jil (Resources and Machines)");
 		System.out.println("4. JMO Extract Analyzer");
-		
+		System.out.println("5. Read JIL to put jobs in TopBoxes.");
 		Scanner conScanner = new Scanner(System.in);
 		System.out.println("Select an option:");
 		int user_Choice = Integer.parseInt(conScanner.nextLine());
@@ -58,8 +69,9 @@ public class JilUtilMain
 				Scanner excelScanner = new Scanner(System.in);
 				String excelPath=excelScanner.nextLine();
 				System.out.println("Enter the sheet name to read");
+				
 				String excelSheetName=excelScanner.nextLine();
-				excelUtil.readExcel(excelPath,excelSheetName);
+				excelUtil.createOnlyTopBoxFromExcel_JPMC(excelPath,excelSheetName);
 				break;
 			case 3:
 				jilFileUtils.ShredJilFile shredder = new jilFileUtils.ShredJilFile();
@@ -97,7 +109,30 @@ public class JilUtilMain
 				{
 					jmo.checkJobPredecessors(jmoPath);
 				}
+			case 5:
+				excelUtils.ExcelReader excelUtil1 = new ExcelReader();
+				System.out.println("This option will need to read the excel sheet for top boxes first");
+				System.out.println("Enter the full path to the excel sheet");
+				Scanner excelScanner1 = new Scanner(System.in);
+				String excelPath1=excelScanner1.nextLine();
+				System.out.println("Enter the sheet name to read");
 				
+				String excelSheetName1=excelScanner1.nextLine();
+				System.out.println("Enter the full path to the jil file to read");
+				String jilInputFile=excelScanner1.nextLine();
+				excelUtil1.createOnlyTopBoxFromExcel_JPMC(excelPath1,excelSheetName1);
+				ShredJilFile jilShred = new ShredJilFile();
+				Map<String, String> excelMap = ExcelReader.jmo2AEJobsetMap;
+				Iterator excelMapIterator = excelMap.entrySet().iterator();
+				while(excelMapIterator.hasNext())
+				{
+					Map.Entry topBoxPair = (Map.Entry) excelMapIterator.next();
+					String jobInTopBox=(String) topBoxPair.getKey();
+					String topBoxName=excelMap.get(jobInTopBox);
+					
+					jilShred.readJilToUpdateJobNames(jilInputFile, jobInTopBox);
+					
+				}
 				
 		}
 		
