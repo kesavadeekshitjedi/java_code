@@ -21,10 +21,13 @@ public class JMOExtractAnalyzer
 	static String jobPredDefString="DEFINE JOBPRED ID=";
 	static String jobsetPredDefString="DEFINE JOBSETPRED ID=";
 	static List<String> jobList=new ArrayList<String>();
+	static List<String> fullJobList = new ArrayList<String>();
 	static List<String> machineList = new ArrayList<String>();
 	static List<String> jobsetList = new ArrayList<String>();
 	static List<String> triggerList = new ArrayList<String>();
 	static List<String> calendarList = new ArrayList<String>();
+	static Map<String, String> predecessorJobStatus = new HashMap<String, String>();
+	static Map<String, String> predecessorJobsetStatus = new HashMap<String, String>();
 	static Map<String, List<String>> jobsetJobMap = new HashMap<String, List<String>>();
 	static Map<String, List<String>> calendarJobMap = new HashMap<String, List<String>>();
 	static Map<String, List<String>> jobDependencyMap = new HashMap<String, List<String>>();
@@ -52,15 +55,31 @@ public class JMOExtractAnalyzer
 				if(jmoLine.contains(jobDefString))
 				{
 					logger.info("Job Found");
+					//logger.debug(jmoLine);
 					startIndex=jmoLine.indexOf(jobDefString)+jobDefString.length();
-					endIndex=jmoLine.indexOf("FAILCOND");
+					if(jmoLine.contains("DESCRIPTION") && !(jmoLine.contains("FAILCOND")))
+					{
+						endIndex=jmoLine.indexOf("DESCRIPTION");
+					}
+					else if(jmoLine.contains("FAILCOND"))
+					{
+						endIndex=jmoLine.indexOf("FAILCOND");
+					}
+					else if(jmoLine.contains("STATION"))
+					{
+						endIndex=jmoLine.indexOf("STATION");
+					}
 					tempString=jmoLine.substring(startIndex, endIndex).trim();
+					fullJobList.add(jmoLine);
+					logger.info("Full Job Line added to fulljobList "+jmoLine);
+					// Job extraction is complete at this point.
+					
 					String[] jobTuple=tempString.split(",");
 					String jobName=jobTuple[1].trim();
 					String jobNumber=jobTuple[2].replace(")","").trim();
 					String jobsetName=jobTuple[0].replace("(", "");
 					logger.debug("Jobset : "+jobsetName);
-					
+					// This code here is creating the relationship between the jobset (as the key) and the job^jobNumber as the list of values.
 					String myJobName=jobName+"^"+jobNumber;
 					logger.debug("Job and Job Number: "+myJobName);
 					if(!(jobList.contains(myJobName)))
@@ -140,6 +159,8 @@ public class JMOExtractAnalyzer
 				}
 				
 			}
+			logger.info("Parsing JMO Extract is complete.");
+			checkJobPredecessors(jmoFile);
 		}
 		catch(IOException fnfe)
 		{
@@ -186,9 +207,19 @@ public class JMOExtractAnalyzer
 						String predecessorJobsetName=jmoLine.substring(startIndex, endIndex).trim();
 						startIndex=jmoLine.indexOf("PJNO")+"PJNO=".length();
 						endIndex=jmoLine.indexOf("WORKDAY");
-						String predecessorJobNumber=jmoLine.substring(startIndex, endIndex);
-						String checkString = "DEFINE JOB ID=("+predecessorJobsetName+","+predecessorJobName+","+predecessorJobNumber+")";
-						logger.info("Checking for "+checkString+" in ");
+						String predecessorJobNumber=jmoLine.substring(startIndex, endIndex).trim();
+						String checkString = "("+predecessorJobsetName+","+predecessorJobName+","+predecessorJobNumber+")";
+						logger.info("Checking for "+checkString+" in jobs List");
+						if(fullJobList.contains(checkString))
+						{
+							logger.info("Job Pred: "+checkString+" exists");
+							predecessorJobStatus.put(predecessorJobName, "Exists");
+						}
+						else
+						{
+							logger.error("Job Pred: "+checkString+" doesnt exist");
+							predecessorJobStatus.put(predecessorJobName, "NotExists");
+						}
 						
 					}
 					else if ((jmoLine.contains("PSET") && (!jmoLine.contains("PJOB"))))
@@ -199,6 +230,28 @@ public class JMOExtractAnalyzer
 					else if (jmoLine.contains("TRID"))
 					{
 						logger.info("Job Depends on Trigger.");
+						startIndex=jmoLine.indexOf(jobPredDefString)+jobPredDefString.length();
+						if(jmoLine.contains("WORKDAY"))
+						{
+							endIndex=jmoLine.indexOf("WORKDAY");
+							String tempJobString=jmoLine.substring(startIndex, endIndex).trim();
+							String[] tempJobTuple=tempJobString.split(",");
+							String jobsetName=tempJobTuple[0].replace("(", "");
+							String jobName=tempJobTuple[1].trim();
+							String jobNumber=tempJobTuple[2].replace(")", "");
+							endIndex=jmoLine.indexOf("TREV");
+							
+						}
+						else if(jmoLine.contains("TREV"))
+						{
+							endIndex=jmoLine.indexOf("TREV");
+							//String triggerType=jmoLine.substring(startIndex,endIndex).trim();
+							String tempJobString=jmoLine.substring(startIndex, endIndex).trim();
+							String[] tempJobTuple=tempJobString.split(",");
+							String jobsetName=tempJobTuple[0].replace("(", "");
+							String jobName=tempJobTuple[1].trim();
+							String jobNumber=tempJobTuple[2].replace(")", "");
+						}
 					}
 				}
 			}

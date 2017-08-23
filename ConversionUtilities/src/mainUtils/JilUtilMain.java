@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,7 +19,13 @@ import org.apache.log4j.PropertyConfigurator;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
+import com.ca.eiam.SafeBackendServerException;
+import com.ca.eiam.SafeException;
+import com.ca.eiam.SafePasswordException;
+
 import aeUtilities.AEAPIUtils;
+import aeUtilities.AEDatabaseUtils;
+import eemUtils.Connect2EEM;
 import excelUtils.ExcelReader;
 import jilFileUtils.ShredJilFile;
 import jmoUtilities.JMOExtractAnalyzer;
@@ -38,7 +45,7 @@ public class JilUtilMain
 		BufferedWriter jilWriter = new BufferedWriter(new FileWriter(outputFile));
 		jilWriter.write(line+"\n");
 	}
-	public static void main(String[] args) throws IOException, EncryptedDocumentException, InvalidFormatException 
+	public static void main(String[] args) throws IOException, EncryptedDocumentException, InvalidFormatException, ClassNotFoundException, SQLException, SafePasswordException, SafeBackendServerException, SafeException 
 	{
 		now = new Date();
 		sdf = new SimpleDateFormat("YYYY-MM-d-hh-mm-ss");
@@ -52,6 +59,7 @@ public class JilUtilMain
 		System.out.println("3. Create Missing objects from jil (Resources and Machines)");
 		System.out.println("4. JMO Extract Analyzer");
 		System.out.println("5. Read JIL to put jobs in TopBoxes.");
+		System.out.println("6. Get Job Status from DB");
 		Scanner conScanner = new Scanner(System.in);
 		System.out.println("Select an option:");
 		int user_Choice = Integer.parseInt(conScanner.nextLine());
@@ -59,7 +67,7 @@ public class JilUtilMain
 		{
 			case 1:
 				AEAPIUtils aeApi = new AEAPIUtils();
-				List<String> ftJobList=aeApi.getJobList("D:\\github\\java_code\\JilUtilities\\as_server.properties", "FT");
+				List<String> ftJobList=aeApi.getJobList("resources/as_server.properties", "FT");
 				logger.info(ftJobList);
 				break;
 			case 2:
@@ -133,6 +141,13 @@ public class JilUtilMain
 					jilShred.readJilToUpdateJobNames(jilInputFile, jobInTopBox);
 					
 				}
+			case 6:
+				logger.info("Reading AutoSys DB Information from DB.properties file");
+				AEDatabaseUtils aedbUtils = new AEDatabaseUtils();
+				aedbUtils.getDBProperties("resources/DB.properties");
+			case 7:
+				Connect2EEM eem = new Connect2EEM();
+				eem.connectToEEM("EEM-POC", "EiamAdmin", "ejmswat1", "WorkloadAutomationAE");
 				
 		}
 		
