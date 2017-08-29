@@ -28,6 +28,7 @@ public class ExcelReader
 	public static WorkerUtils wUtils;
 	public static Map<String,String> jmo2AEJobsetMap = new HashMap<String, String>();
 	
+	
 	public static void ExcelReader()
 	{
 		wUtils = new WorkerUtils();
@@ -166,6 +167,74 @@ public class ExcelReader
 			fileWriter.close();
 			myFile.close();
 		}
+	}
+	public String getCrossReferencedJPMName(String excelFile, String sheetName, String jobName) throws EncryptedDocumentException, InvalidFormatException, IOException
+	{
+		
+		
+		// This method reads the excel sheet for the unmodified job name and gets the JPMC'ed or cross referenced job name 
+		// and passes it back to the ShredJilFile class to update the missing dependencies
+		String jmoCrossReferencedName="";
+		
+		Workbook excelWorkbook = null;
+		String fileExtension=excelFile.substring(excelFile.indexOf("."));
+		
+		excelWorkbook=WorkbookFactory.create(new File(excelFile));
+		logger.info("Excel workbook open");
+		Sheet myExcelSheet = excelWorkbook.getSheet(sheetName);
+		logger.info("Excel worksheet open");
+		Iterator<Row> rowIterator = myExcelSheet.iterator();
+		logger.info("Reading rows...");
+		boolean foundConditionJob=false;
+		while(rowIterator.hasNext())
+		{
+			foundConditionJob=false;
+			Row myRow=rowIterator.next();
+			Iterator<Cell> cellIterator=myRow.cellIterator();
+			while(cellIterator.hasNext())
+			{
+				Cell myCell = cellIterator.next();
+				if(myRow.getRowNum()<1 || ((myCell.getColumnIndex()==0) || (myCell.getColumnIndex()>=4)))
+				{
+					logger.info("Skipping row/column: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+					
+				}
+				else
+				{
+					logger.info("row/column: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+					//2 is the 3rd column.
+					System.out.println(myCell.getStringCellValue().trim());
+					if(((myRow.getRowNum()>=1)) && myCell.getColumnIndex()==2)
+					{
+						logger.debug("Reading Cell: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+						// This is the jobset name that goes into the top box.
+						String jmoQuestionJob=myCell.getStringCellValue().trim();
+						if(jmoQuestionJob.equals(jobName))
+						{
+							foundConditionJob=true;
+							logger.debug("Job in question Identified :"+jmoQuestionJob);
+						}
+						
+					}
+					// Column 1 is not useful for us. Skip this one 
+					if(((myRow.getRowNum()>=1)) && myCell.getColumnIndex()==3 && foundConditionJob==true)
+					{
+						logger.debug("Reading Cell: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+						// This is the jobset name that goes into the top box.
+						jmoCrossReferencedName=myCell.getStringCellValue().trim();
+						logger.debug("Cross Referenced Job Identified :"+jmoCrossReferencedName);
+						
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+		
+		
+		return jmoCrossReferencedName;
 	}
 	public void readExcel(String excelInput,String sheetName) throws IOException, EncryptedDocumentException, InvalidFormatException
 	{

@@ -60,6 +60,8 @@ public class JilUtilMain
 		System.out.println("4. JMO Extract Analyzer");
 		System.out.println("5. Read JIL to put jobs in TopBoxes.");
 		System.out.println("6. Get Job Status from DB");
+		System.out.println("7. EEM Connection Tests - Just bleh util");
+		System.out.println("8. Get Conditions for jobs in JIL");
 		Scanner conScanner = new Scanner(System.in);
 		System.out.println("Select an option:");
 		int user_Choice = Integer.parseInt(conScanner.nextLine());
@@ -96,8 +98,9 @@ public class JilUtilMain
 				}
 			case 4:
 				JMOExtractAnalyzer jmo = new JMOExtractAnalyzer();
-				System.out.println("1. Check predecessors");
+				System.out.println("1. Check predecessors (also runs the Object Report)");
 				System.out.println("2. Create JMO Object Report only");
+				
 				Scanner jmoScanner = new Scanner(System.in);
 				String jmoOption = jmoScanner.nextLine();
 				System.out.println("Enter the full path to the JMO Extract");
@@ -109,13 +112,17 @@ public class JilUtilMain
 					System.out.println("File does not exist. Exiting...");
 					System.exit(4);
 				}
-				else
+				/*else
+				{
+					jmo.readJMOExtractHighLevel(jmoPath);
+				}*/
+				if(jmoOption.equals("1"))
 				{
 					jmo.readJMOExtractHighLevel(jmoPath);
 				}
-				if(jmoOption.equals("1"))
+				else if(jmoOption.equals("2"))
 				{
-					jmo.checkJobPredecessors(jmoPath);
+					jmo.createReport(jmoPath);
 				}
 			case 5:
 				excelUtils.ExcelReader excelUtil1 = new ExcelReader();
@@ -148,7 +155,12 @@ public class JilUtilMain
 			case 7:
 				Connect2EEM eem = new Connect2EEM();
 				eem.connectToEEM("EEM-POC", "EiamAdmin", "ejmswat1", "WorkloadAutomationAE");
-				
+			case 8:
+				ShredJilFile jilShred2 = new ShredJilFile();
+				System.out.println("Enter the full path to the jil file to read");
+				Scanner excelScanner3 = new Scanner(System.in);
+				String jilInputFile2=excelScanner3.nextLine();
+				jilShred2.getConditionsOnJob(jilInputFile2);
 		}
 		
 		
