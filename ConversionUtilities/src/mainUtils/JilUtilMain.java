@@ -68,9 +68,24 @@ public class JilUtilMain
 		switch(user_Choice)
 		{
 			case 1:
+				System.out.println("1. Get Job Status to create jil with status attribute");
+				System.out.println("2. Get all File Trigger Jobs");
+				System.out.println("Enter choice: ");
 				AEAPIUtils aeApi = new AEAPIUtils();
-				List<String> ftJobList=aeApi.getJobList("resources/as_server.properties", "FT");
-				logger.info(ftJobList);
+				Scanner aeConsole = new Scanner(System.in);
+				String user_sub_choice=aeConsole.nextLine();
+				logger.debug(user_sub_choice);
+				if(user_sub_choice.equalsIgnoreCase("1"))
+				{
+					List<String> jobStatusList = aeApi.getJobStatus("resources/as_server.properties");
+					logger.info(jobStatusList);
+				}
+				else
+					if(user_sub_choice.equalsIgnoreCase("2"))
+					{
+						List<String> ftJobList=aeApi.getJobList("resources/as_server.properties", "FT");
+						logger.info(ftJobList);
+					}
 				break;
 			case 2:
 				excelUtils.ExcelReader excelUtil = new ExcelReader();
