@@ -30,8 +30,7 @@ public class AEAPIUtils
 	Map<Integer,String> statusMap=new HashMap<Integer,String>();
 	public List<String> getJobStatus(String propertiesFile) throws FileNotFoundException, IOException
 	{
-		statusMap.put(8, "IN");
-		statusMap.put(key, value)
+		
 		List<String> jobStatusList=new ArrayList<String>();
 		logger=Logger.getLogger("JilUtilities.AEAPIUtils.getJobStatuses");
 		Properties props = new Properties();

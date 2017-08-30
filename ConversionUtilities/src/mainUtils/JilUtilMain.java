@@ -2,6 +2,7 @@ package mainUtils;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -111,6 +113,7 @@ public class JilUtilMain
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				break;
 			case 4:
 				JMOExtractAnalyzer jmo = new JMOExtractAnalyzer();
 				System.out.println("1. Check predecessors (also runs the Object Report)");
@@ -118,13 +121,22 @@ public class JilUtilMain
 				
 				Scanner jmoScanner = new Scanner(System.in);
 				String jmoOption = jmoScanner.nextLine();
-				System.out.println("Enter the full path to the JMO Extract");
-				String jmoPath = jmoScanner.nextLine();
+				/*Properties props = new Properties();
+				props.load(new FileInputStream("resources/jmoFiles.properties"));
+				String jmoPath=props.getProperty("JMO_EXTRACT_FILE_PATH");
+				if(jmoPath.equalsIgnoreCase("") || jmoPath==null)
+				{
+					System.out.println("JMO_EXTRACT_FILE_PATH key in the resources/jmoFiles.properties file cannot be blank. EC=2");
+					System.exit(2);
+				}
+				logger.info("Looking for :"+jmoPath);*/
+				System.out.print("Enter the full path to the JMO File:");
+				String jmoPath=jmoScanner.nextLine();
 				File jmoFile = new File(jmoPath);
 				boolean fileExists = jmoFile.exists();
 				if(!fileExists)
 				{
-					System.out.println("File does not exist. Exiting...");
+					System.out.println("File does not exist. Exiting...EC=4");
 					System.exit(4);
 				}
 				/*else
@@ -139,6 +151,7 @@ public class JilUtilMain
 				{
 					jmo.createReport(jmoPath);
 				}
+				break;
 			case 5:
 				excelUtils.ExcelReader excelUtil1 = new ExcelReader();
 				System.out.println("This option will need to read the excel sheet for top boxes first");
@@ -163,19 +176,23 @@ public class JilUtilMain
 					jilShred.readJilToUpdateJobNames(jilInputFile, jobInTopBox);
 					
 				}
+				break;
 			case 6:
 				logger.info("Reading AutoSys DB Information from DB.properties file");
 				AEDatabaseUtils aedbUtils = new AEDatabaseUtils();
 				aedbUtils.getDBProperties("resources/DB.properties");
+				break;
 			case 7:
 				Connect2EEM eem = new Connect2EEM();
 				eem.connectToEEM("EEM-POC", "EiamAdmin", "ejmswat1", "WorkloadAutomationAE");
+				break;
 			case 8:
 				ShredJilFile jilShred2 = new ShredJilFile();
 				System.out.println("Enter the full path to the jil file to read");
 				Scanner excelScanner3 = new Scanner(System.in);
 				String jilInputFile2=excelScanner3.nextLine();
 				jilShred2.getConditionsOnJob(jilInputFile2);
+				break;
 		}
 		
 		

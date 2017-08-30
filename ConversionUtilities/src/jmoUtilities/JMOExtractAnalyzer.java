@@ -11,6 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -141,7 +142,7 @@ public class JMOExtractAnalyzer
 							endIndex=jmoLine.indexOf("STATION");
 						}
 						tempString=jmoLine.substring(startIndex, endIndex).trim();
-						fullJobList.add(jmoLine);
+						fullJobList.add(tempString);
 						logger.info("Full Job Line added to fulljobList "+jmoLine);
 						// Job extraction is complete at this point.
 						
@@ -189,6 +190,7 @@ public class JMOExtractAnalyzer
 				}
 				else if(jmoLine.contains(triggerDefString))
 				{
+					logger.debug(jmoLine);
 					triggerWriter.write(jmoLine+"\n");
 					logger.info("Trigger found");
 					startIndex=jmoLine.indexOf(triggerDefString)+triggerDefString.length();
@@ -196,19 +198,14 @@ public class JMOExtractAnalyzer
 					{
 						endIndex=jmoLine.indexOf("DESCRIPTION");
 					}
-					else if(jmoLine.contains("CRITKEYS"))
-					{
-						endIndex=jmoLine.indexOf("CRITKEYS");
-					}
-					else if(jmoLine.contains("STATION"))
-					{
-						endIndex=jmoLine.indexOf("STATION");
-						
-					}
+					
 					tempString=jmoLine.substring(startIndex, endIndex).trim();
-					if(!triggerList.contains(tempString))
+					String[] triggerTuple=tempString.split(",");
+					String triggerName=triggerTuple[0].replace("(","").trim();
+					String triggerType=triggerTuple[1].replace(")","").trim();
+					if(!triggerList.contains(triggerName))
 					{
-						triggerList.add(tempString);
+						triggerList.add(triggerName);
 					}
 				}
 				else if(jmoLine.contains(machineDefString))
@@ -247,26 +244,18 @@ public class JMOExtractAnalyzer
 				{
 					resourceWriter.write(jmoLine+"\n");
 					startIndex=jmoLine.indexOf(resourceDefString)+resourceDefString.length();
-					String[] lineTuple=jmoLine.split(" ");
-					int amtIndex=jmoLine.indexOf("AMOUNT");
+					
+					endIndex=jmoLine.indexOf("AMOUNT");
 					String resName="";
 					String resMach="";
-					String amt="";
-					for(int k=0;k<lineTuple.length;k++)
-					{
-						if(lineTuple[k].contains("AMOUNT"))
-						{
-							amt=lineTuple[k];
-							
-						}
-						if(lineTuple[k].contains("("))
-						{
-							String tempRes=lineTuple[k];
-							String[] resTuple=tempRes.split(",");
-							resName=resTuple[0].replaceAll("(", "").trim();
-							resMach=resTuple[1].replaceAll(")", "").trim();
-						}
-					}
+					String resAmt="";
+					String tempResLine=jmoLine.substring(startIndex,endIndex).trim();
+					String[] tempResTuple=tempResLine.split(",");
+					resName=tempResTuple[0].replace("(", "").trim();
+					resMach=tempResTuple[1].replace(")", "").trim();
+					startIndex=jmoLine.indexOf("AMOUNT");
+					endIndex=jmoLine.indexOf("WEIGHT");
+					resAmt=jmoLine.substring(startIndex,endIndex).trim();
 					if(!resourceList.contains(resName))
 					{
 						resourceList.add(resName+"="+resMach);
@@ -296,7 +285,7 @@ public class JMOExtractAnalyzer
 			int stationCount=machineList.size();
 			int calendarCount=calendarList.size();
 			jmoReportWriter.write("------------------------------------------------"+"\n");
-			jmoReportWriter.write("                JMO Object Report - "+JilUtilMain.myTime+"-------------"+"\n");
+			jmoReportWriter.write("------------------------JMO Object Report created @ "+JilUtilMain.myTime+"------------------------"+"\n");
 			jmoReportWriter.write("JMO Extract File: "+jmoFile);
 			jmoReportWriter.write("Report File Location: "+jmoReportFile+"\n");
 			jmoReportWriter.write("\n");
@@ -307,12 +296,47 @@ public class JMOExtractAnalyzer
 			jmoReportWriter.write("Total Number of Stations: "+stationCount+" \n");
 			jmoReportWriter.write("Total Number of Calendars: "+calendarCount+" \n");
 			jmoReportWriter.write("\n");
+			jmoReportWriter.write("------------------------Job Predecessor Report------------------------"+"\n");
+			System.out.println("All files and buffers closed. Report buffer still pending...");
+			
+			System.gc();
+			checkJobPredecessors(jmoFile);
+			checkJobsetPredecessors(jmoFile);
+			logger.info("Writing Job Predecessor checks in report");
+			Iterator it = predecessorJobStatus.entrySet().iterator();
+			while(it.hasNext())
+			{
+				Map.Entry kvPair = (Map.Entry)it.next();
+				String jobName=(String) kvPair.getKey();
+				String predCheckValue = (String) kvPair.getValue();
+				if(predCheckValue.equalsIgnoreCase("NotExist")|| predCheckValue.equalsIgnoreCase("PREDCHECKFAIL"))
+				{
+					jmoReportWriter.write(jobName+"   "+predCheckValue+"\n");
+				}
+			}
+			jmoReportWriter.write("\n");
+			jmoReportWriter.write("------------------------ End of Job Predecessor Report------------------------"+"\n");
+			jmoReportWriter.write("\n");
+			jmoReportWriter.write("\n");
+			jmoReportWriter.write("------------------------Jobset Predecessor Report------------------------"+"\n");
+			logger.info("Writing Jobset Predecessor checks in report");
+			it=predecessorJobsetStatus.entrySet().iterator();
+			while(it.hasNext())
+			{
+				Map.Entry kvPair = (Map.Entry)it.next();
+				String jobsetName=(String) kvPair.getKey();
+				String predCheckValue = (String) kvPair.getValue();
+				if(predCheckValue.equalsIgnoreCase("NotExists") || predCheckValue.equalsIgnoreCase("PREDCHECKFAIL"))
+				{
+					jmoReportWriter.write(jobsetName+"   "+predCheckValue+"\n");
+				}
+			}
+			jmoReportWriter.write("------------------------ End Jobset Predecessor Report------------------------"+"\n");
+			jmoReportWriter.write("\n");
 			jmoReportWriter.close();
 			jmoReportFileWriter.close();
 			System.out.println("All files and buffers closed.");
 			
-			System.gc();
-			checkJobPredecessors(jmoFile);
 		}
 		catch(IOException fnfe)
 		{
@@ -416,7 +440,7 @@ public class JMOExtractAnalyzer
 							endIndex=jmoLine.indexOf("STATION");
 						}
 						tempString=jmoLine.substring(startIndex, endIndex).trim();
-						fullJobList.add(jmoLine);
+						fullJobList.add(tempString);
 						logger.info("Full Job Line added to fulljobList "+jmoLine);
 						// Job extraction is complete at this point.
 						
@@ -553,8 +577,8 @@ public class JMOExtractAnalyzer
 						{
 							String tempRes=lineTuple[k];
 							String[] resTuple=tempRes.split(",");
-							resName=resTuple[0].replaceAll("(", "").trim();
-							resMach=resTuple[1].replaceAll(")", "").trim();
+							resName=resTuple[0].replace("(", "").trim();
+							resMach=resTuple[1].replace(")", "").trim();
 						}
 					}
 					if(!resourceList.contains(resName))
@@ -638,6 +662,7 @@ public class JMOExtractAnalyzer
 						String jobsetName=tempJobTuple[0].replace("(", "");
 						String jobName=tempJobTuple[1].trim();
 						String jobNumber=tempJobTuple[2].replace(")", "");
+						String overallJobName="("+jobsetName+","+jobName+","+jobNumber+")";
 						startIndex=jmoLine.indexOf("PJOB")+"PJOB=".length();
 						endIndex=jmoLine.indexOf("PSET");
 						String predecessorJobName=jmoLine.substring(startIndex,endIndex).trim();
@@ -652,19 +677,46 @@ public class JMOExtractAnalyzer
 						if(fullJobList.contains(checkString))
 						{
 							logger.info("Job Pred: "+checkString+" exists");
-							predecessorJobStatus.put(predecessorJobName, "Exists");
+							predecessorJobStatus.put(checkString, "Exists");
 						}
 						else
 						{
 							logger.error("Job Pred: "+checkString+" doesnt exist");
-							predecessorJobStatus.put(predecessorJobName, "NotExists");
+							logger.error(jmoLine);
+							predecessorJobStatus.put(overallJobName,"PREDCHECKFAIL");
+							predecessorJobStatus.put(checkString, "NotExists");
 						}
 						
 					}
 					else if ((jmoLine.contains("PSET") && (!jmoLine.contains("PJOB"))))
 					{
 						logger.info("Job Depends on jobset only. Not on job.");
+						
 						endIndex=jmoLine.indexOf("PSET");
+						String tempJobString=jmoLine.substring(startIndex, endIndex).trim();
+						String[] tempJobTuple=tempJobString.split(",");
+						String jobsetName=tempJobTuple[0].replace("(", "");
+						String jobName=tempJobTuple[1].trim();
+						String jobNumber=tempJobTuple[2].replace(")", "");
+						String overallJobName="("+jobsetName+","+jobName+","+jobNumber+")";
+						startIndex=jmoLine.indexOf("PSET=")+"PSET=".length();
+						endIndex=jmoLine.indexOf("WORKDAY");
+						String tempPSETString=jmoLine.substring(startIndex, endIndex).trim();
+						String checkString=tempPSETString.trim();
+						logger.info("Checking for "+checkString+" in the jobset list");
+						if(jobsetList.contains(checkString))
+						{
+							logger.info("Job Pred: "+checkString+" exists");
+							predecessorJobStatus.put(checkString, "Exists");
+						}
+						else
+						{
+							logger.error("Job Pred: "+checkString+" doesnt exist");
+							logger.error(jmoLine);
+							predecessorJobStatus.put(overallJobName,"PREDCHECKFAIL");
+							predecessorJobStatus.put(checkString, "NotExists");
+						}
+						
 					}
 					else if (jmoLine.contains("TRID"))
 					{
@@ -678,10 +730,28 @@ public class JMOExtractAnalyzer
 							String jobsetName=tempJobTuple[0].replace("(", "");
 							String jobName=tempJobTuple[1].trim();
 							String jobNumber=tempJobTuple[2].replace(")", "");
-							endIndex=jmoLine.indexOf("TREV");
-							
+							String overallJobName="("+jobsetName+","+jobName+","+jobNumber+")";
+							startIndex=jmoLine.indexOf("TREV")+"TREV=".length();
+							endIndex=jmoLine.indexOf("TRID");
+							String predTriggerType=jmoLine.substring(startIndex,endIndex).trim();
+							startIndex=jmoLine.indexOf("TRID")+"TRID=".length();
+							String predTriggerName=jmoLine.substring(startIndex).trim();
+							String checkString=predTriggerName;
+							logger.info("Checking for Trigger: "+checkString+" in Trigger List");
+							if(triggerList.contains(checkString))
+							{
+								logger.info("Job Pred: "+checkString+" exists");
+								predecessorJobStatus.put(checkString, "Exists");
+							}
+							else
+							{
+								logger.error("Job Pred: "+checkString+" doesnt exist");
+								logger.error(jmoLine);
+								predecessorJobStatus.put(overallJobName,"PREDCHECKFAIL");
+								predecessorJobStatus.put(checkString, "NotExists");
+							}
 						}
-						else if(jmoLine.contains("TREV"))
+						/*else if(jmoLine.contains("TREV"))
 						{
 							endIndex=jmoLine.indexOf("TREV");
 							//String triggerType=jmoLine.substring(startIndex,endIndex).trim();
@@ -690,14 +760,133 @@ public class JMOExtractAnalyzer
 							String jobsetName=tempJobTuple[0].replace("(", "");
 							String jobName=tempJobTuple[1].trim();
 							String jobNumber=tempJobTuple[2].replace(")", "");
-						}
+						}*/
 					}
 				}
 			}
+		}
+		
+		
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		logger.info("Done with job predecessor checks");
+		
+	}
+	
+	public void checkJobsetPredecessors(String jmoFile)
+	{
+		logger=Logger.getLogger("ConversionUtilities.jmoUtilities.checkJobsetPredecessors");
+		FileReader jmoExtractReader;
+		BufferedReader jmoBuffer;
+		String currentJMOLine="";
+		int startIndex=0;
+		int endIndex=0;
+		String tempString="";
+		try
+		{
+			jmoExtractReader = new FileReader(jmoFile);
+			jmoBuffer = new BufferedReader(jmoExtractReader);
+			while((currentJMOLine=jmoBuffer.readLine())!=null)
+			{
+				
+				String jmoLine=currentJMOLine.trim();
+				if(jmoLine.contains(jobsetPredDefString))
+				{
+					logger.info("Jobset Predecessor found");
+					logger.debug(jmoLine);
+					if(jmoLine.contains("PSET") && !jmoLine.contains("PJOB")) 
+					{
+						
+						startIndex=jmoLine.indexOf(jobsetPredDefString)+jobsetPredDefString.length();
+						endIndex=jmoLine.indexOf("PSET");
+						String jobsetName=jmoLine.substring(startIndex, endIndex).trim();
+						startIndex=jmoLine.indexOf("PSET")+"PSET=".length();
+						endIndex=jmoLine.indexOf("WORKDAY");
+						String predecessorJobset=jmoLine.substring(startIndex, endIndex).trim();
+						String checkString=predecessorJobset;
+						logger.info("Checking for "+checkString+" in jobsets list");
+						if(jobsetList.contains(checkString))
+						{
+							logger.info("Jobset Pred: "+checkString+" exists");
+							predecessorJobsetStatus.put(checkString, "Exists");
+						}
+						else
+						{
+							logger.error("Jobset Pred: "+checkString+" doesnt exist");
+							logger.error(jmoLine);
+							predecessorJobsetStatus.put(jobsetName,"PREDCHECKFAIL");
+							predecessorJobsetStatus.put(checkString, "NotExists");
+						}
+						
+						
+						
+					}
+					else if(jmoLine.contains("PJOB"))
+					{
+						startIndex=jmoLine.indexOf(jobsetPredDefString)+jobsetPredDefString.length();
+						endIndex=jmoLine.indexOf("PJOB");
+						String jobsetName=jmoLine.substring(startIndex, endIndex).trim();
+						startIndex=jmoLine.indexOf("PJOB")+"PJOB=".length();
+						endIndex=jmoLine.indexOf("PSET");
+						String predecessorJobName=jmoLine.substring(startIndex,endIndex).trim();
+						startIndex=jmoLine.indexOf("PSET")+"PSET=".length();
+						endIndex=jmoLine.indexOf("PJNO");
+						String predecessorJobsetName=jmoLine.substring(startIndex,endIndex).trim();
+						startIndex=jmoLine.indexOf("PJNO")+"PJNO=".length();
+						endIndex=jmoLine.indexOf("WORKDAY");
+						String predecessorJobNumber=jmoLine.substring(startIndex, endIndex).trim();
+						String checkString="("+predecessorJobsetName+","+predecessorJobName+","+predecessorJobNumber+")";
+						logger.info("Checking for "+checkString+" in jobs list");
+						if(jobList.contains(checkString))
+						{
+							logger.info("Jobset Pred: "+checkString+" exists");
+							predecessorJobsetStatus.put(checkString, "Exists");
+						}
+						else
+						{
+							logger.error("Jobset Pred: "+checkString+" doesnt exist");
+							logger.error(jmoLine);
+							predecessorJobsetStatus.put(jobsetName,"PREDCHECKFAIL");
+							predecessorJobsetStatus.put(checkString, "NotExists");
+						}
+						
+					}
+					else if(jmoLine.contains("TRID"))
+					{
+						startIndex=jmoLine.indexOf(jobsetPredDefString)+jobsetPredDefString.length();
+						endIndex=jmoLine.indexOf("WORKDAY");
+						String jobsetName=jmoLine.substring(startIndex, endIndex).trim();
+						startIndex=jmoLine.indexOf("TREV")+"TREV=".length();
+						endIndex=jmoLine.indexOf("TRID");
+						String predecessorTriggerType=jmoLine.substring(startIndex, endIndex).trim();
+						startIndex=jmoLine.indexOf("TRID")+"TRID=".length();
+						String predeceesorTriggerName=jmoLine.substring(startIndex).trim();
+						String checkString=predeceesorTriggerName;
+						logger.info("Checking for "+checkString+" in Trigger List");
+						if(triggerList.contains(checkString))
+						{
+							logger.info("Jobset Pred: "+checkString+" exists");
+							predecessorJobsetStatus.put(checkString, "Exists");
+						}
+						else
+						{
+							logger.error("Jobset Pred: "+checkString+" doesnt exist");
+							logger.error(jmoLine);
+							predecessorJobsetStatus.put(jobsetName,"PREDCHECKFAIL");
+							predecessorJobsetStatus.put(checkString, "NotExists");
+						}
+					}
+				}
+					
+			}
+			
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
+		logger.info("Done with jobset predecessor checks");
 	}
 }
