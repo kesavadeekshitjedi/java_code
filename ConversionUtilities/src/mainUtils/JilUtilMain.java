@@ -64,6 +64,7 @@ public class JilUtilMain
 		System.out.println("6. Get Job Status from DB");
 		System.out.println("7. EEM Connection Tests - Just bleh util");
 		System.out.println("8. Get Conditions for jobs in JIL");
+		System.out.println("10. Get Jobs per machine from AutoSys instance (Instance info from DB.properties file");
 		Scanner conScanner = new Scanner(System.in);
 		System.out.println("Select an option:");
 		int user_Choice = Integer.parseInt(conScanner.nextLine());
@@ -98,7 +99,16 @@ public class JilUtilMain
 				System.out.println("Enter the sheet name to read");
 				
 				String excelSheetName=excelScanner.nextLine();
+				System.out.println("T2 or regular?");
+				String t2Choice=excelScanner.nextLine();
+				if(t2Choice.equals("2"))
+				{
+					excelUtil.readExcelToSetJobsInTopBox(excelPath, excelSheetName);
+				}
+				else
+				{
 				excelUtil.createOnlyTopBoxFromExcel_JPMC(excelPath,excelSheetName);
+				}
 				break;
 			case 3:
 				jilFileUtils.ShredJilFile shredder = new jilFileUtils.ShredJilFile();
@@ -118,6 +128,7 @@ public class JilUtilMain
 				JMOExtractAnalyzer jmo = new JMOExtractAnalyzer();
 				System.out.println("1. Check predecessors (also runs the Object Report)");
 				System.out.println("2. Create JMO Object Report only");
+				System.out.println("3. Run conversion");
 				
 				Scanner jmoScanner = new Scanner(System.in);
 				String jmoOption = jmoScanner.nextLine();
@@ -151,6 +162,10 @@ public class JilUtilMain
 				{
 					jmo.createReport(jmoPath);
 				}
+				/*else if(jmoOption.equals("3"))
+				{
+					jmo.readExtractToCreateJobStructure(jmoPath);
+				}*/
 				break;
 			case 5:
 				excelUtils.ExcelReader excelUtil1 = new ExcelReader();
@@ -193,6 +208,10 @@ public class JilUtilMain
 				String jilInputFile2=excelScanner3.nextLine();
 				jilShred2.getConditionsOnJob(jilInputFile2);
 				break;
+			case 10:
+				AEDatabaseUtils getjobs = new AEDatabaseUtils();
+				getjobs.getJobsPerMachine("resources/DB.properties");
+				break;
 		}
 		
 		
@@ -223,4 +242,5 @@ public class JilUtilMain
 
 	}
 
+	
 }

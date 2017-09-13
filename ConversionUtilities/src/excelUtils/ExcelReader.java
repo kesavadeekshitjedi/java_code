@@ -20,6 +20,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
+import jilFileUtils.ShredJilFile;
 import mainUtils.JilUtilMain;
 import workerUtilities.WorkerUtils;
 
@@ -34,6 +35,101 @@ public class ExcelReader
 		wUtils = new WorkerUtils();
 	}
 	static Logger logger = Logger.getRootLogger();
+	public void readExcelToSetJobsInTopBox(String excelInput, String sheetName) throws EncryptedDocumentException, InvalidFormatException, IOException 
+	{
+		ShredJilFile sf = new ShredJilFile();
+		FileWriter fw;
+		BufferedWriter bw;
+		Map<String, List<String>> topBoxJobMap = new HashMap<String, List<String>>();
+		logger=Logger.getLogger("ConversionUtilities.ExcelUtils.readExcelToSetJobsInTopBox");
+		logger.info("Reading Excel File: "+excelInput+" to create update statements for autosys jobs to be set into top boxes with start time and calendars");
+		Workbook excelWorkbook = null;
+		excelWorkbook=WorkbookFactory.create(new File(excelInput));
+		Sheet myExcelSheet = excelWorkbook.getSheet(sheetName);
+		logger.info("Excel worksheet" + sheetName+" open");
+		String topBoxName="";
+		String topLevelBoxCalendar="";
+		String topLevelBoxStartTime="";
+		List<String> jobsTopBox=new ArrayList<String>();
+		String jobName="";
+		Iterator<Row> rowIterator = myExcelSheet.iterator();
+		File myFolder = new File("C:\\JMOFiles\\TopBox_T2\\"+JilUtilMain.myTime);
+		myFolder.mkdir();
+		fw = new FileWriter(myFolder+"\\T2_TopLevel.txt");
+		bw = new BufferedWriter(fw);
+		System.out.println("Folder created: "+myFolder);
+		while(rowIterator.hasNext())
+		{
+			Row myRow=rowIterator.next();
+			Iterator<Cell> cellIterator=myRow.cellIterator();
+			while(cellIterator.hasNext())
+			{
+				Cell myCell = cellIterator.next();
+				if(myRow.getRowNum()==0 ||  (myCell.getColumnIndex()<5) || (myCell.getColumnIndex()>10))
+				{
+					logger.info("Skipping row/column: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+					
+				}
+				else
+				{
+					
+					// Column 1 is not useful for us. Skip this one 
+					
+					if(((myRow.getRowNum()>=1)) && myCell.getColumnIndex()==6)
+					{
+						logger.debug("Reading Cell: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+						// This is the top box name
+						topLevelBoxStartTime=myCell.getStringCellValue();
+						//logger.debug("Jobset "+jobsetName+" goes into Top Box: "+topBoxName);
+						
+						topLevelBoxStartTime=topLevelBoxStartTime.trim();
+					}
+					if(((myRow.getRowNum()>=1)) && myCell.getColumnIndex()==8)
+					{
+						logger.debug("Reading Cell: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+						// This is the start time
+						topLevelBoxCalendar= myCell.getStringCellValue();
+						topLevelBoxCalendar=topLevelBoxCalendar.trim();
+						logger.debug("Top Box: "+topBoxName+" starts at "+topLevelBoxStartTime);
+					}
+					if(((myRow.getRowNum()>=1)) && myCell.getColumnIndex()==9)
+					{
+						logger.debug("Reading Cell: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+						// This is the calendar name
+						topBoxName=myCell.getStringCellValue();
+						topBoxName=topBoxName.trim();
+						logger.debug("Top Box: "+topBoxName+" starts at "+topLevelBoxStartTime+" and uses calendar: "+topLevelBoxCalendar);
+					}
+					if((myRow.getRowNum()>=1) && myCell.getColumnIndex()==10)
+					{
+						logger.debug("Reading Cell: {"+myRow.getRowNum()+","+myCell.getColumnIndex()+"}");
+						// This is the calendar name
+						jobName=myCell.getStringCellValue().trim();
+						logger.debug("Top Box: "+topBoxName+" starts at "+topLevelBoxStartTime+" and uses calendar: "+topLevelBoxCalendar+". Job "+jobName+" is part of "+topBoxName);
+						System.out.println("update_job: "+jobName+"\n");
+						System.out.println("date_conditions: 1"+"\n");
+						System.out.println("run_calendar: "+topLevelBoxCalendar+"\n");
+						System.out.println("box_name: "+topBoxName+"\n");
+						System.out.println("start_times: \""+topLevelBoxStartTime+"\""+"\n");
+						bw.write("update_job: "+jobName+"\n");
+						bw.write("date_conditions: 1"+"\n");
+						bw.write("run_calendar: "+topLevelBoxCalendar+"\n");
+						bw.write("box_name: "+topBoxName+"\n");
+						bw.write("start_times: \""+topLevelBoxStartTime+"\""+"\n");
+						String jobCommand=sf.getCommandForJob("C:\\JMOFiles\\T2_CommandUpdates.jil", jobName);
+						bw.write("command: "+jobCommand);
+						bw.write("\n");
+					}
+					
+				}
+			}
+		}
+		bw.close();
+		fw.close();
+		logger.debug("Writers closed");
+		
+	}
+	
 	public void createOnlyTopBoxFromExcel_JPMC(String excelInput, String sheetName) throws EncryptedDocumentException, InvalidFormatException, IOException
 	{
 		Map<String,String> boxCreationMap = new HashMap<String,String>();

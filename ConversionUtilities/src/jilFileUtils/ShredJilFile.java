@@ -62,7 +62,56 @@ public class ShredJilFile
 		excelUtils=new ExcelReader();
 		
 	}
-	
+	public String getCommandForJob(String jilFile, String jobSearchName) throws IOException
+	{
+		Properties fileProps = new Properties();
+		fileProps.load(new FileInputStream("resources/jmoFiles.properties"));
+		String jobCommand="";
+		
+		FileReader jilFileReader=new FileReader(jilFile);
+		BufferedReader jilBuffer = new BufferedReader(jilFileReader);
+		String currentJilLine="";
+		String jobName="";
+		String jilLine="";
+		String jobType="";
+		boolean jobFound=false;
+		while((currentJilLine=jilBuffer.readLine())!=null)
+		{
+			jobConditionList = new ArrayList<String>();
+			jilLine=currentJilLine.trim();
+			if(jilLine.contains("insert_job") || (jilLine.contains("update_job")))
+			{
+				logger.info("Job Line found..");
+				if(jilLine.contains("insert_job:"))
+				{
+					jobName=jilLine.substring("insert_job:".length(),jilLine.indexOf("job_type:")).trim();
+				}
+				else
+				{
+					jobName=jilLine.substring("update_job:".length(),jilLine.indexOf("job_type:")).trim();
+					jobType="";
+				}
+				logger.info("Job Name: "+jobName.trim());
+				if(!jobType.equals(""))
+				{
+				jobType=jilLine.substring(jilLine.indexOf("job_type:")).trim();
+				logger.info("Job Type: "+jobType);
+				}
+				if(jobName.equals(jobSearchName))
+				{
+					jobFound=true;
+				}
+			}
+			if(jilLine.contains("command:") && jobFound==true)
+			{
+				String tempCommand=jilLine.substring("command:".length()).trim();
+				jobCommand=tempCommand;
+				logger.debug("Job: "+jobName+" -- Command: "+jobCommand);
+				break;
+			}
+		}
+		return jobCommand;
+	}
 	public void getConditionsOnJob(String jilFile) throws IOException, EncryptedDocumentException, InvalidFormatException
 	{
 		
@@ -121,7 +170,7 @@ public class ShredJilFile
 						{
 							logger.info("Job needs a cross reference update:"+jobCondition);
 							String tempJobName=jobCondition.replace("s(", "");
-							String tempJobName2=tempJobName.replace(",24.00)", "");
+							String tempJobName2=tempJobName.replace(",24.00)", ""); // Removing the lookback condition here for jpmc
 							logger.debug("Checking in the cross ref file for: "+tempJobName2);
 							String crossName=ex.getCrossReferencedJPMName("C:\\JMOFiles\\T4_CrossRef.xlsx", "Sheet1", tempJobName2);
 							if(crossName=="")

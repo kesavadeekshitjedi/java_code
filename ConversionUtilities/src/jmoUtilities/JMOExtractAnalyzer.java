@@ -18,10 +18,13 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.rsa.cryptoj.o.en;
+
 import mainUtils.JilUtilMain;
 
 public class JMOExtractAnalyzer 
 {
+	static String jobSeperator=".";
 	static Logger logger = Logger.getRootLogger();
 	static String jobDefString="DEFINE JOB ID=";
 	static String jobsetDefString="DEFINE JOBSET ID=";
@@ -47,8 +50,10 @@ public class JMOExtractAnalyzer
 	static Map<String, String> machineMap = new HashMap<String,String>();
 	static Map<String, List<String>> stationGroupMap = new HashMap<String, List<String>>();
 	
+	
 	public void readJMOExtractHighLevel(String jmoFile) throws IOException
 	{
+		logger=Logger.getLogger("ConversionUtilities.jmoUtilities.readJMOExtractHighLevel");
 		BufferedWriter jobWriter;
 		BufferedWriter jobsetWriter;
 		BufferedWriter triggerWriter;
@@ -283,6 +288,8 @@ public class JMOExtractAnalyzer
 				}
 			}
 			logger.info("Parsing JMO Extract is complete.");
+			jmoBuffer.close();
+			jmoExtractReader.close();
 			jobWriter.close();
 			jobsetWriter.close();
 			triggerWriter.close();
@@ -366,6 +373,7 @@ public class JMOExtractAnalyzer
 
 	public boolean checkIfPredExists(String checkString, String checkFile) throws IOException
 	{
+		logger=Logger.getLogger("ConversionUtilities.jmoUtilities.checkIfPredExists");
 		boolean doesPredExist=false;
 		FileReader checkFileReader = new FileReader(checkFile);
 		BufferedReader checkFileBuffer = new BufferedReader(checkFileReader);
@@ -390,6 +398,7 @@ public class JMOExtractAnalyzer
 	}
 	public void createReport(String jmoFile) throws IOException
 	{
+		logger=Logger.getLogger("ConversionUtilities.jmoUtilities.createReport");
 		BufferedWriter jobWriter;
 		BufferedWriter jobsetWriter;
 		BufferedWriter triggerWriter;
@@ -677,6 +686,7 @@ public class JMOExtractAnalyzer
 	}
 	public void checkJobPredecessors(String jmoFile, String jobFile) throws IOException
 	{
+		logger=Logger.getLogger("ConversionUtilities.jmoUtilities.checkJobPredecessors");
 		FileWriter jobPredecessorWriter;
 		BufferedWriter jobPredBuffer;
 		Path p = Paths.get(jmoFile);
@@ -693,6 +703,15 @@ public class JMOExtractAnalyzer
 		String currentJMOLine="";
 		int startIndex=0;
 		int endIndex=0;
+		int pJobIndex=0;
+		int pJobsetIndex=0;
+		int pJobNumberIndex=0;
+		int tempIndex=0;
+		int tridIndex=0;
+		int trevIndex=0;
+		int workdayIndex=0;
+		
+		
 		String tempString="";
 		try
 		{
@@ -702,18 +721,55 @@ public class JMOExtractAnalyzer
 			{
 				
 				String jmoLine=currentJMOLine.trim();
-				if(jmoLine.contains("DEFINE JOBPRED ID=(srp_ipb_fib,FIB_caller_ALL,0004)"))
+				if(jmoLine.contains("DEFINE JOBPRED ID=(ASETransfer_GVA,ASETransfer_GVA,0001) WORKDAY=CURRENT PSET=ASETransfer_GVA PJOB=ASETransfer_GVA PJNO=0020"))
 				{
 					logger.info("bralksjlkajflsdkj");
 				}
 				if(jmoLine.contains(jobPredDefString))
 				{
+					if(jmoLine.contains("WORKDAY"))
+					{
+						workdayIndex=jmoLine.indexOf("WORKDAY");
+					}
 					logger.info("Job Predecessor Found");
 					logger.debug(jmoLine);
 					startIndex=jmoLine.indexOf(jobPredDefString)+jobPredDefString.length();
 					if(jmoLine.contains("PJOB"))
 					{
-						endIndex=jmoLine.indexOf("PJOB");
+						pJobIndex=jmoLine.indexOf("PJOB");
+						pJobsetIndex=jmoLine.indexOf("PSET");
+						pJobNumberIndex=jmoLine.indexOf("PJNO");
+						
+						/*if(pJobIndex < pJobsetIndex && pJobIndex < pJobNumberIndex && pJobIndex < workdayIndex)
+						{
+							tempIndex=pJobIndex;
+							endIndex=tempIndex;
+						}
+						else if(pJobsetIndex < pJobIndex && pJobsetIndex < pJobNumberIndex && pJobIndex < workdayIndex)
+						{
+							tempIndex=pJobsetIndex;
+							endIndex=tempIndex;
+						}
+						else if(pJobNumberIndex < pJobsetIndex && pJobNumberIndex < pJobIndex && pJobIndex < workdayIndex)
+						{
+							tempIndex=pJobNumberIndex;
+							endIndex=tempIndex;
+						}
+						else if(workdayIndex <  pJobsetIndex && workdayIndex < pJobIndex && workdayIndex < pJobNumberIndex)
+						{
+							tempIndex=workdayIndex;
+							endIndex=tempIndex;
+						}*/
+							
+						tempIndex=Math.min(Math.min(pJobIndex, pJobsetIndex), pJobNumberIndex);
+						if(workdayIndex!=0)
+						{
+						endIndex=Math.min(workdayIndex,tempIndex);
+						}
+						else
+						{
+							endIndex=tempIndex;
+						}
 						String tempJobString=jmoLine.substring(startIndex, endIndex).trim();
 						String[] tempJobTuple=tempJobString.split(",");
 						String jobsetName=tempJobTuple[0].replace("(", "");
@@ -776,7 +832,16 @@ public class JMOExtractAnalyzer
 						String jobNumber=tempJobTuple[2].replace(")", "");
 						String overallJobName="("+jobsetName+","+jobName+","+jobNumber+")";
 						startIndex=jmoLine.indexOf("PSET=")+"PSET=".length();
-						endIndex=jmoLine.indexOf("WORKDAY");
+						workdayIndex=jmoLine.indexOf("WORKDAY");
+						if(startIndex > workdayIndex)
+						{
+							tempIndex=Math.min(pJobIndex, pJobNumberIndex);
+						}
+						else if(workdayIndex!=0 && startIndex < workdayIndex)
+						{
+							tempIndex=Math.min(Math.min(pJobIndex, pJobNumberIndex), workdayIndex);
+						}
+						endIndex=tempIndex;
 						String tempPSETString=jmoLine.substring(startIndex, endIndex).trim();
 						String checkString=tempPSETString.trim();
 						logger.info("Checking for "+checkString+" in the file: "+jobFile);
@@ -815,11 +880,34 @@ public class JMOExtractAnalyzer
 					}
 					else if (jmoLine.contains("TRID"))
 					{
+						tridIndex=jmoLine.indexOf("TRID");
+						trevIndex=jmoLine.indexOf("TREV");
 						logger.info("Job Depends on Trigger.");
 						startIndex=jmoLine.indexOf(jobPredDefString)+jobPredDefString.length();
 						if(jmoLine.contains("WORKDAY"))
 						{
-							endIndex=jmoLine.indexOf("WORKDAY");
+							workdayIndex=jmoLine.indexOf("WORKDAY");
+							/*if(tridIndex < trevIndex && tridIndex < workdayIndex)
+							{
+								endIndex=tridIndex;
+							}
+							else if(trevIndex < workdayIndex && trevIndex < tridIndex)
+							{
+								endIndex=trevIndex;
+							}
+							else if(workdayIndex < tridIndex && workdayIndex < trevIndex)
+							{
+								endIndex=workdayIndex;
+							}*/
+							tempIndex=Math.min(tridIndex, trevIndex);
+							if(workdayIndex!=0)
+							{
+								endIndex=Math.min(tempIndex, workdayIndex);
+							}
+							else
+							{
+								endIndex=tempIndex;
+							}
 							String tempJobString=jmoLine.substring(startIndex, endIndex).trim();
 							String[] tempJobTuple=tempJobString.split(",");
 							String jobsetName=tempJobTuple[0].replace("(", "");
@@ -879,7 +967,9 @@ public class JMOExtractAnalyzer
 				}
 			}
 			jobPredBuffer.close();
-			jobPredecessorWriter.close();			
+			jobPredecessorWriter.close();
+			jmoBuffer.close();
+			jmoExtractReader.close();
 		}
 		
 		
@@ -894,6 +984,7 @@ public class JMOExtractAnalyzer
 	
 	public void checkJobsetPredecessors(String jmoFile) throws IOException
 	{
+		logger=Logger.getLogger("ConversionUtilities.jmoUtilities.checkJobsetPredecessors");
 		FileWriter jobsetPredecessorWriter;
 		BufferedWriter jobsetPredBuffer;
 		Path p = Paths.get(jmoFile);
@@ -911,6 +1002,13 @@ public class JMOExtractAnalyzer
 		String currentJMOLine="";
 		int startIndex=0;
 		int endIndex=0;
+		int pJobIndex=0;
+		int pJobsetIndex=0;
+		int pJobNumberIndex=0;
+		int tempIndex=0;
+		int tridIndex=0;
+		int trevIndex=0;
+		int workdayIndex=0;
 		String tempString="";
 		try
 		{
@@ -973,8 +1071,47 @@ public class JMOExtractAnalyzer
 					}
 					else if(jmoLine.contains("PJOB"))
 					{
+						
+						workdayIndex=jmoLine.indexOf("WORKDAY");
+						if(jmoLine.contains("DEFINE JOBSETPRED ID=aar_dashboard_alert_gva WORKDAY=CURRENT PSET=aar_load_batch_gva PJOB=UpdateBatchEndTime PJNO=0591"))
+						{
+							System.out.println("bling");
+						}
 						startIndex=jmoLine.indexOf(jobsetPredDefString)+jobsetPredDefString.length();
-						endIndex=jmoLine.indexOf("PJOB");
+						pJobIndex=jmoLine.indexOf("PJOB");
+						pJobsetIndex=jmoLine.indexOf("PSET");
+						pJobNumberIndex=jmoLine.indexOf("PJNO");
+						
+						/*if(pJobIndex < pJobsetIndex && pJobIndex < pJobNumberIndex && pJobIndex < workdayIndex)
+						{
+							tempIndex=pJobIndex;
+							endIndex=tempIndex;
+						}
+						else if(pJobsetIndex < pJobIndex && pJobsetIndex < pJobNumberIndex && pJobIndex < workdayIndex)
+						{
+							tempIndex=pJobsetIndex;
+							endIndex=tempIndex;
+						}
+						else if(pJobNumberIndex < pJobsetIndex && pJobNumberIndex < pJobIndex && pJobIndex < workdayIndex)
+						{
+							tempIndex=pJobNumberIndex;
+							endIndex=tempIndex;
+						}
+						else if(workdayIndex <  pJobsetIndex && workdayIndex < pJobIndex && workdayIndex < pJobNumberIndex)
+						{
+							tempIndex=workdayIndex;
+							endIndex=tempIndex;
+						}*/
+						//endIndex=jmoLine.indexOf("PJOB");
+						tempIndex=Math.min(Math.min(pJobIndex, pJobsetIndex), pJobNumberIndex);
+						if(workdayIndex!=0)
+						{
+						endIndex=Math.min(workdayIndex,tempIndex);
+						}
+						else
+						{
+							endIndex=tempIndex;
+						}
 						String jobsetName=jmoLine.substring(startIndex, endIndex).trim();
 						startIndex=jmoLine.indexOf("PJOB")+"PJOB=".length();
 						endIndex=jmoLine.indexOf("PSET");
@@ -1023,8 +1160,23 @@ public class JMOExtractAnalyzer
 					}
 					else if(jmoLine.contains("TRID"))
 					{
+						tridIndex=jmoLine.indexOf("TRID");
+						trevIndex=jmoLine.indexOf("TREV");
+						if(jmoLine.contains("WORKDAY"))
+						{
+							workdayIndex=jmoLine.indexOf("WORKDAY");
+						}
 						startIndex=jmoLine.indexOf(jobsetPredDefString)+jobsetPredDefString.length();
-						endIndex=jmoLine.indexOf("WORKDAY");
+						//endIndex=jmoLine.indexOf("WORKDAY");
+						tempIndex=Math.min(tridIndex, trevIndex);
+						if(workdayIndex!=0)
+						{
+							endIndex=Math.min(tempIndex, workdayIndex);
+						}
+						else
+						{
+							endIndex=tempIndex;
+						}
 						String jobsetName=jmoLine.substring(startIndex, endIndex).trim();
 						startIndex=jmoLine.indexOf("TREV")+"TREV=".length();
 						endIndex=jmoLine.indexOf("TRID");
@@ -1070,6 +1222,8 @@ public class JMOExtractAnalyzer
 			}
 			jobsetPredBuffer.close();
 			jobsetPredecessorWriter.close();
+			jmoBuffer.close();
+			jmoExtractReader.close();
 		}
 		catch(Exception e)
 		{
