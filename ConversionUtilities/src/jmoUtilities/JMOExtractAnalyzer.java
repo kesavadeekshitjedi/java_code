@@ -824,7 +824,16 @@ public class JMOExtractAnalyzer
 					{
 						logger.info("Job Depends on jobset only. Not on job.");
 						
-						endIndex=jmoLine.indexOf("PSET");
+						if(jmoLine.contains("WORKDAY"))
+						{
+							workdayIndex=jmoLine.indexOf("WORKDAY");
+						}
+						if(jmoLine.contains("PSET"))
+						{
+							pJobsetIndex=jmoLine.indexOf("PSET");
+						}
+						tempIndex=Math.min(pJobsetIndex,workdayIndex);
+						endIndex=tempIndex;
 						String tempJobString=jmoLine.substring(startIndex, endIndex).trim();
 						String[] tempJobTuple=tempJobString.split(",");
 						String jobsetName=tempJobTuple[0].replace("(", "");
@@ -915,10 +924,45 @@ public class JMOExtractAnalyzer
 							String jobNumber=tempJobTuple[2].replace(")", "");
 							String overallJobName="("+jobsetName+","+jobName+","+jobNumber+")";
 							startIndex=jmoLine.indexOf("TREV")+"TREV=".length();
-							endIndex=jmoLine.indexOf("TRID");
-							String predTriggerType=jmoLine.substring(startIndex,endIndex).trim();
+							String predTriggerType="";
+							//endIndex=jmoLine.indexOf("TRID");
+							//predTriggerType=jmoLine.substring(startIndex,endIndex).trim();
+							
+							if(tridIndex<trevIndex && workdayIndex<trevIndex)
+							{
+								predTriggerType=jmoLine.substring(startIndex).trim();
+							}
+							else if(workdayIndex>trevIndex && workdayIndex<tridIndex)
+								{
+									
+									endIndex=workdayIndex;
+									predTriggerType=jmoLine.substring(startIndex,endIndex).trim();
+								}
+							else if(workdayIndex<trevIndex && workdayIndex<tridIndex && trevIndex<tridIndex)
+							{
+								predTriggerType=jmoLine.substring(startIndex).trim();
+							}
 							startIndex=jmoLine.indexOf("TRID")+"TRID=".length();
-							String predTriggerName=jmoLine.substring(startIndex).trim();
+							tempIndex=Math.max(tridIndex, trevIndex);
+							String predTriggerName="";
+							if(workdayIndex<tridIndex && workdayIndex<trevIndex)
+							{
+								endIndex=tempIndex;
+								predTriggerName=jmoLine.substring(startIndex,endIndex).trim();
+							}
+							else
+								if(workdayIndex>tempIndex)
+								{
+									endIndex=workdayIndex;
+								
+									predTriggerName=jmoLine.substring(startIndex,endIndex).trim();
+								}
+								else if(workdayIndex<tridIndex && workdayIndex<trevIndex && trevIndex<tridIndex)
+								{
+									predTriggerType=jmoLine.substring(startIndex).trim();
+								}
+							
+							
 							String checkString=predTriggerName;
 							logger.info("Checking for "+checkString+" in the file: "+jobFile);
 							boolean doesPredExist = checkIfPredExists(checkString, jobFile);
@@ -1024,13 +1068,28 @@ public class JMOExtractAnalyzer
 					logger.debug(jmoLine);
 					if(jmoLine.contains("PSET") && !jmoLine.contains("PJOB")) 
 					{
-						
+						pJobsetIndex=jmoLine.indexOf("PSET");
+						if(jmoLine.contains("WORKDAY"))
+						{
+							workdayIndex=jmoLine.indexOf("WORKDAY");
+						}
 						startIndex=jmoLine.indexOf(jobsetPredDefString)+jobsetPredDefString.length();
-						endIndex=jmoLine.indexOf("PSET");
+						//endIndex=jmoLine.indexOf("PSET");
+						endIndex=Math.min(workdayIndex, pJobsetIndex);
 						String jobsetName=jmoLine.substring(startIndex, endIndex).trim();
 						startIndex=jmoLine.indexOf("PSET")+"PSET=".length();
-						endIndex=jmoLine.indexOf("WORKDAY");
-						String predecessorJobset=jmoLine.substring(startIndex, endIndex).trim();
+						//endIndex=jmoLine.indexOf("WORKDAY");
+						endIndex=Math.max(workdayIndex, pJobsetIndex);
+						String predecessorJobset="";
+						//predecessorJobset=jmoLine.substring(startIndex, endIndex).trim();
+						if(startIndex>endIndex)
+						{
+							predecessorJobset=jmoLine.substring(startIndex).trim();
+						}
+						else
+						{
+							predecessorJobset=jmoLine.substring(startIndex, endIndex).trim();
+						}
 						String checkString=predecessorJobset;
 						//logger.info("Checking for "+checkString+" in jobsets list");
 						logger.info("Checking for "+checkString+" in the file: "+jmoFile);
@@ -1081,6 +1140,28 @@ public class JMOExtractAnalyzer
 						pJobIndex=jmoLine.indexOf("PJOB");
 						pJobsetIndex=jmoLine.indexOf("PSET");
 						pJobNumberIndex=jmoLine.indexOf("PJNO");
+						if(jmoLine.contains("WORKDAY"))
+						{
+							workdayIndex=jmoLine.indexOf("WORKDAY");
+						}
+						int highestIndex=Math.max(Math.max(Math.max(workdayIndex, pJobNumberIndex), pJobsetIndex), pJobIndex);
+						if(highestIndex==workdayIndex)
+						{
+							logger.debug("Highest Index: "+workdayIndex);
+						}
+						else if(highestIndex==pJobNumberIndex)
+						{
+							logger.debug("Highest Index: "+pJobNumberIndex);
+						}
+						else if(highestIndex==pJobsetIndex)
+						{
+							logger.debug("Highest Index: "+pJobsetIndex);
+						}
+						else if(highestIndex==pJobIndex)
+						{
+							logger.debug("Highest Index: "+pJobIndex);
+						}
+						int lowestIndex=Math.min(Math.min(Math.min(workdayIndex, pJobNumberIndex), pJobsetIndex), pJobIndex);
 						
 						/*if(pJobIndex < pJobsetIndex && pJobIndex < pJobNumberIndex && pJobIndex < workdayIndex)
 						{
@@ -1114,14 +1195,47 @@ public class JMOExtractAnalyzer
 						}
 						String jobsetName=jmoLine.substring(startIndex, endIndex).trim();
 						startIndex=jmoLine.indexOf("PJOB")+"PJOB=".length();
-						endIndex=jmoLine.indexOf("PSET");
-						String predecessorJobName=jmoLine.substring(startIndex,endIndex).trim();
+						//endIndex=jmoLine.indexOf("PSET");
+						
+						String predecessorJobName="";
+						if(pJobsetIndex<pJobIndex && pJobsetIndex<pJobNumberIndex && pJobIndex<pJobNumberIndex)
+						{
+							endIndex=pJobNumberIndex;
+							predecessorJobName=jmoLine.substring(startIndex,endIndex).trim();
+						}
+						
 						startIndex=jmoLine.indexOf("PSET")+"PSET=".length();
-						endIndex=jmoLine.indexOf("PJNO");
-						String predecessorJobsetName=jmoLine.substring(startIndex,endIndex).trim();
+						//endIndex=jmoLine.indexOf("PJNO");
+						String predecessorJobsetName="";
+						if(pJobsetIndex==highestIndex)
+						{
+							
+							predecessorJobsetName=jmoLine.substring(startIndex).trim();
+						}
+						else if(pJobNumberIndex==highestIndex && pJobsetIndex<pJobIndex)
+						{
+							endIndex=pJobNumberIndex;
+							predecessorJobsetName=jmoLine.substring(startIndex,endIndex).trim();
+						}
+						if(pJobIndex>pJobsetIndex && pJobIndex<pJobNumberIndex)
+						{
+							endIndex=pJobIndex;
+							predecessorJobsetName=jmoLine.substring(startIndex,endIndex).trim();
+						}
+						
 						startIndex=jmoLine.indexOf("PJNO")+"PJNO=".length();
-						endIndex=jmoLine.indexOf("WORKDAY");
-						String predecessorJobNumber=jmoLine.substring(startIndex, endIndex).trim();
+						String predecessorJobNumber="";
+						//endIndex=jmoLine.indexOf("WORKDAY");
+						if(pJobNumberIndex==highestIndex)
+						{
+							predecessorJobNumber=jmoLine.substring(startIndex).trim();
+						}
+						else if(pJobNumberIndex==highestIndex && pJobsetIndex<pJobIndex)
+						{
+							endIndex=pJobNumberIndex;
+							predecessorJobNumber=jmoLine.substring(startIndex,endIndex).trim();
+						}
+						//String predecessorJobNumber=jmoLine.substring(startIndex, endIndex).trim();
 						String checkString="("+predecessorJobsetName+","+predecessorJobName+","+predecessorJobNumber+")";
 						logger.info("Checking for "+checkString+" in the file: "+jmoFile);
 						boolean doesPredExist = checkIfPredExists(checkString, jmoFile);
@@ -1178,11 +1292,37 @@ public class JMOExtractAnalyzer
 							endIndex=tempIndex;
 						}
 						String jobsetName=jmoLine.substring(startIndex, endIndex).trim();
-						startIndex=jmoLine.indexOf("TREV")+"TREV=".length();
+						/*startIndex=jmoLine.indexOf("TREV")+"TREV=".length();
 						endIndex=jmoLine.indexOf("TRID");
 						String predecessorTriggerType=jmoLine.substring(startIndex, endIndex).trim();
 						startIndex=jmoLine.indexOf("TRID")+"TRID=".length();
-						String predeceesorTriggerName=jmoLine.substring(startIndex).trim();
+						String predeceesorTriggerName=jmoLine.substring(startIndex).trim();*/
+						startIndex=jmoLine.indexOf("TREV")+"TREV=".length();
+						String predecessorTriggerType="";
+						if(trevIndex>tridIndex && trevIndex>workdayIndex)
+						{
+							predecessorTriggerType=jmoLine.substring(startIndex).trim();
+						}
+						else
+							if(workdayIndex<tridIndex && workdayIndex<trevIndex && tridIndex<trevIndex)
+							{
+								endIndex=trevIndex;
+								predecessorTriggerType=jmoLine.substring(startIndex, endIndex).trim();
+							}
+							else if(tridIndex<trevIndex && tridIndex<workdayIndex && workdayIndex<trevIndex)
+							{
+								endIndex=workdayIndex;
+								predecessorTriggerType=jmoLine.substring(startIndex, endIndex).trim();
+							}
+						//endIndex=jmoLine.indexOf("TRID");
+						
+						startIndex=jmoLine.indexOf("TRID")+"TRID=".length();
+						String predeceesorTriggerName="";
+						if(tridIndex<trevIndex && workdayIndex<tridIndex)
+						{
+							endIndex=trevIndex;
+							predeceesorTriggerName=jmoLine.substring(startIndex, endIndex).trim();
+						}
 						String checkString=predeceesorTriggerName;
 						logger.info("Checking for "+checkString+" in the file: "+jmoFile);
 						boolean doesPredExist = checkIfPredExists(checkString, jmoFile);
