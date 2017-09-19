@@ -64,10 +64,7 @@ public class AEDatabaseUtils
 			if(!oraConnection.isClosed())
 			{
 				logger.info("Oracle connection open");
-				DatabaseMetaData meta = oraConnection.getMetaData();
-				System.out.println("Driver Information: "+meta.getDriverName());
-				System.out.println("Vendor Name: "+meta.getDatabaseProductName());
-				System.out.println("Database Version: "+meta.getDatabaseProductVersion());
+				
 				joidMap=prefetchJobNames(oraConnection,"AEDBADMIN");
 				Iterator it = joidMap.entrySet().iterator();
 				
@@ -132,10 +129,7 @@ public class AEDatabaseUtils
 			if(!sqlConnection.isClosed())
 			{
 				logger.info("SQL Server connection open");
-				DatabaseMetaData meta = sqlConnection.getMetaData();
-				System.out.println("Driver Information: "+meta.getDriverName());
-				System.out.println("Vendor Name: "+meta.getDatabaseProductName());
-				System.out.println("Database Version: "+meta.getDatabaseProductVersion());
+				
 				joidMap=prefetchJobNames(sqlConnection,"dbo");
 				Iterator it = joidMap.entrySet().iterator();
 				
@@ -193,10 +187,7 @@ public class AEDatabaseUtils
 			if(!sybConnection.isClosed())
 			{
 				logger.info("Sybase connection open");
-				DatabaseMetaData meta = sybConnection.getMetaData();
-				System.out.println("Driver Information: "+meta.getDriverName());
-				System.out.println("Vendor Name: "+meta.getDatabaseProductName());
-				System.out.println("Database Version: "+meta.getDatabaseProductVersion());
+				
 				prefetchJobNames(sybConnection,"dbo");
 				Iterator it = joidMap.entrySet().iterator();
 				
@@ -342,6 +333,10 @@ public class AEDatabaseUtils
 		
 		logger.info("Connection String: "+connectUrl);
 		oraConnection=DriverManager.getConnection(connectUrl,dbUser,dbPass);
+		DatabaseMetaData meta = oraConnection.getMetaData();
+		System.out.println("Driver Information: "+meta.getDriverName());
+		System.out.println("Vendor Name: "+meta.getDatabaseProductName());
+		System.out.println("Database Version: "+meta.getDatabaseProductVersion());
 		return oraConnection;
 		
 	}
@@ -351,6 +346,10 @@ public class AEDatabaseUtils
 		String connectUrl = "jdbc:jtds:sqlserver://"+dbHost+":"+dbPort+"/"+dbName;
 		logger.info("Connection String: "+connectUrl);
 		sqlConnection=DriverManager.getConnection(connectUrl,dbUser,dbPass);
+		DatabaseMetaData meta = sqlConnection.getMetaData();
+		System.out.println("Driver Information: "+meta.getDriverName());
+		System.out.println("Vendor Name: "+meta.getDatabaseProductName());
+		System.out.println("Database Version: "+meta.getDatabaseProductVersion());
 		return sqlConnection;
 	}
 	public Connection connect2Sybase(String dbHostName, String dbPort, String dbUser, String dbPass, String dbName) throws ClassNotFoundException, SQLException
@@ -360,6 +359,10 @@ public class AEDatabaseUtils
 		String connectUrl="jdbc:jtds:sybase://"+dbHostName+":"+dbPort;
 		logger.info("Connection String: "+connectUrl);
 		sybConnection=DriverManager.getConnection(connectUrl,dbUser,dbPass);
+		DatabaseMetaData meta = sybConnection.getMetaData();
+		System.out.println("Driver Information: "+meta.getDriverName());
+		System.out.println("Vendor Name: "+meta.getDatabaseProductName());
+		System.out.println("Database Version: "+meta.getDatabaseProductVersion());
 		return sybConnection;
 		
 	}

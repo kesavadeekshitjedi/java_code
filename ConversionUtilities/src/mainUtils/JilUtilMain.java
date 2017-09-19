@@ -21,10 +21,10 @@ import org.apache.log4j.PropertyConfigurator;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
-import com.ca.eiam.SafeBackendServerException;
+/*import com.ca.eiam.SafeBackendServerException;
 import com.ca.eiam.SafeException;
 import com.ca.eiam.SafePasswordException;
-
+*/
 import aeUtilities.AEAPIUtils;
 import aeUtilities.AEDatabaseUtils;
 import eemUtils.Connect2EEM;
@@ -47,7 +47,7 @@ public class JilUtilMain
 		BufferedWriter jilWriter = new BufferedWriter(new FileWriter(outputFile));
 		jilWriter.write(line+"\n");
 	}
-	public static void main(String[] args) throws IOException, EncryptedDocumentException, InvalidFormatException, ClassNotFoundException, SQLException, SafePasswordException, SafeBackendServerException, SafeException 
+	public static void main(String[] args) throws IOException, EncryptedDocumentException, InvalidFormatException, ClassNotFoundException, SQLException
 	{
 		now = new Date();
 		sdf = new SimpleDateFormat("YYYY-MM-d-hh-mm-ss");
@@ -199,7 +199,7 @@ public class JilUtilMain
 				break;
 			case 7:
 				Connect2EEM eem = new Connect2EEM();
-				eem.connectToEEM("EEM-POC", "EiamAdmin", "ejmswat1", "WorkloadAutomationAE");
+				//eem.connectToEEM("EEM-POC", "EiamAdmin", "ejmswat1", "WorkloadAutomationAE");
 				break;
 			case 8:
 				ShredJilFile jilShred2 = new ShredJilFile();
