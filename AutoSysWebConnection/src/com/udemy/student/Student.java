@@ -5,11 +5,13 @@ public class Student
 	private String firstName;
 	private String lastName;
 	private String emailAddress;
-	public Student(String firstName, String lastName, String emailAddress) {
+	private int id;
+	public Student(String firstName, String lastName, String emailAddress, int id) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailAddress = emailAddress;
+		this.id = id;
 	}
 	/**
 	 * @return the firstName
@@ -22,6 +24,20 @@ public class Student
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", emailAddress=" + emailAddress + ", id="
+				+ id + "]";
+	}
+	public Student(String firstName, String lastName, String emailAddress) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.emailAddress = emailAddress;
 	}
 	/**
 	 * @return the lastName
@@ -47,6 +63,19 @@ public class Student
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	
 	
 
