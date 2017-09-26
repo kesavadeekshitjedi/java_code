@@ -40,18 +40,21 @@ public class ArchiveReader
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		logger.info("Reading DB.properties for Database connection information");
 		String dbHostName=dbProps.getProperty("AEDB_HOST");
 		String dbPort=dbProps.getProperty("AEDB_DB_PORT");
 		String dbType=dbProps.getProperty("AEDB_DB_TYPE");
 		String dbName=dbProps.getProperty("AEDB_DB_SID");
 		String dbUser=dbProps.getProperty("AEDB_DB_USER");
 		String dbPass = dbProps.getProperty("AEDB_DB_PASS");
+		logger.info("Database type is "+dbType);
 		if(dbType.equalsIgnoreCase("Oracle"))
 		{
 			try
 			{
 				dbConnection=db.connect2Oracle(dbHostName,dbPort,dbUser,dbPass,dbName);
 				logger.info("Oracle Database connection established");
+				logger.info("Checking if jobs exist...");
 			} 
 		
 			catch (ClassNotFoundException | SQLException e) 
