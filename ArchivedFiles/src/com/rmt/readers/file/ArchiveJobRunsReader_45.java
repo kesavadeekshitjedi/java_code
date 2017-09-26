@@ -72,9 +72,11 @@ public class ArchiveJobRunsReader_45
 					archiveFileBuffer = new BufferedReader(archiveFileReader);
 					System.out.println("Reading file: "+file);
 					System.out.println("---------------------");
+					logger.info("Reading file: "+file);
 					Instant start=Instant.now(); 
 					while((currentArchiveLine=archiveFileBuffer.readLine())!=null)
 					{
+						logger.debug(currentArchiveLine);
 						String currentLine=currentArchiveLine.trim();
 						String[] archiveLineTuple=currentLine.split("\\|");
 						logger.debug(archiveLineTuple.length);
@@ -115,6 +117,7 @@ public class ArchiveJobRunsReader_45
 					Duration elapsedTime = Duration.between(start, end);
 					System.out.println("----------------------");
 					System.out.println("Done with file: "+file+" in (ms)"+elapsedTime.toMillis());
+					logger.info("Done reading file: "+file+" in "+elapsedTime.toMillis()+" (ms)");
 						
 				}
 	}
