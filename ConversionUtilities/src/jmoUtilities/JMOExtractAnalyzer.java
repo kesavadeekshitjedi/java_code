@@ -710,7 +710,9 @@ public class JMOExtractAnalyzer
 		int tridIndex=0;
 		int trevIndex=0;
 		int workdayIndex=0;
-		
+		String predecessorJobName="";
+		String predecessorJobsetName="";
+		String predecessorJobNumber="";
 		
 		String tempString="";
 		try
@@ -777,14 +779,41 @@ public class JMOExtractAnalyzer
 						String jobNumber=tempJobTuple[2].replace(")", "");
 						String overallJobName="("+jobsetName+","+jobName+","+jobNumber+")";
 						startIndex=jmoLine.indexOf("PJOB")+"PJOB=".length();
+						// We have the jobpred name.
+						// Now we retrieve the predecessors
+						// Getting the PJOB name.
+						// Get the max of max index
+						int maxIndex=Math.max(pJobsetIndex, Math.max(pJobIndex, pJobNumberIndex));
+						if(workdayIndex!=0)
+						{
+							tempIndex=Math.max(workdayIndex, maxIndex);
+							
+						}
+						if(tempIndex>pJobIndex)
+						{
+							endIndex=tempIndex;
+						}
+						if(maxIndex==pJobNumberIndex)
+						{
+							predecessorJobNumber=jmoLine.substring(maxIndex+"PJNO=".length()).trim();
+						}
+						if(maxIndex==pJobsetIndex)
+						{
+							predecessorJobsetName=jmoLine.substring(maxIndex+"PSET=".length()).trim();
+						}
+						if(maxIndex==pJobIndex)
+						{
+							predecessorJobName=jmoLine.substring(maxIndex+"PJOB=".length()).trim();
+						}
+						
 						endIndex=jmoLine.indexOf("PSET");
-						String predecessorJobName=jmoLine.substring(startIndex,endIndex).trim();
+						predecessorJobName=jmoLine.substring(startIndex,endIndex).trim();
 						startIndex=jmoLine.indexOf("PSET")+"PSET=".length();
 						endIndex=jmoLine.indexOf("PJNO");
-						String predecessorJobsetName=jmoLine.substring(startIndex, endIndex).trim();
+						predecessorJobsetName=jmoLine.substring(startIndex, endIndex).trim();
 						startIndex=jmoLine.indexOf("PJNO")+"PJNO=".length();
 						endIndex=jmoLine.indexOf("WORKDAY");
-						String predecessorJobNumber=jmoLine.substring(startIndex, endIndex).trim();
+						predecessorJobNumber=jmoLine.substring(startIndex, endIndex).trim();
 						String checkString = "("+predecessorJobsetName+","+predecessorJobName+","+predecessorJobNumber+")";
 						logger.info("Checking for "+checkString+" in the file: "+jobFile);
 						boolean doesPredExist = checkIfPredExists(checkString, jobFile);
@@ -1062,6 +1091,10 @@ public class JMOExtractAnalyzer
 			{
 				
 				String jmoLine=currentJMOLine.trim();
+				if(jmoLine.contains("DEFINE JOBSETPRED ID=aar_dashboard_alert_gva WORKDAY=CURRENT PSET=aar_load_batch_gva PJOB=UpdateBatchEndTime PJNO=0591"))
+				{
+					logger.debug("bleeh");
+				}
 				if(jmoLine.contains(jobsetPredDefString))
 				{
 					logger.info("Jobset Predecessor found");
@@ -1130,12 +1163,12 @@ public class JMOExtractAnalyzer
 					}
 					else if(jmoLine.contains("PJOB"))
 					{
-						
-						workdayIndex=jmoLine.indexOf("WORKDAY");
-						if(jmoLine.contains("DEFINE JOBSETPRED ID=aar_dashboard_alert_gva WORKDAY=CURRENT PSET=aar_load_batch_gva PJOB=UpdateBatchEndTime PJNO=0591"))
+						if(jmoLine.contains("DEFINE JOBSETPRED ID=aar_dashboard_alert_cdg PJOB=UpdateBatchEndTime PSET=aar_load_batch_cdg PJNO=0591 WORKDAY=CURRENT"))
 						{
-							System.out.println("bling");
+							logger.debug("blimp");
 						}
+						workdayIndex=jmoLine.indexOf("WORKDAY");
+						
 						startIndex=jmoLine.indexOf(jobsetPredDefString)+jobsetPredDefString.length();
 						pJobIndex=jmoLine.indexOf("PJOB");
 						pJobsetIndex=jmoLine.indexOf("PSET");
@@ -1198,16 +1231,45 @@ public class JMOExtractAnalyzer
 						//endIndex=jmoLine.indexOf("PSET");
 						
 						String predecessorJobName="";
-						if(pJobsetIndex<pJobIndex && pJobsetIndex<pJobNumberIndex && pJobIndex<pJobNumberIndex)
+						//retrieved jobsetname. Now retrieve PJOB, PJOBSET and PJNO
+						// Get the smallest index between PJOBSET, PJNO and WORKDAY
+						
+						tempIndex=Math.min(pJobsetIndex, pJobNumberIndex);
+						if(workdayIndex!=0)
+						{
+							endIndex=Math.min(tempIndex, workdayIndex);
+						}
+						else
+						{
+							endIndex=tempIndex;
+						}
+						/*if(pJobsetIndex<pJobIndex && pJobsetIndex<pJobNumberIndex && pJobIndex<pJobNumberIndex)
 						{
 							endIndex=pJobNumberIndex;
 							predecessorJobName=jmoLine.substring(startIndex,endIndex).trim();
 						}
+						else
+						{
+							predecessorJobName=jmoLine.substring(startIndex,endIndex).trim();
+						}*/
+						predecessorJobName=jmoLine.substring(startIndex,endIndex).trim();
 						
 						startIndex=jmoLine.indexOf("PSET")+"PSET=".length();
 						//endIndex=jmoLine.indexOf("PJNO");
 						String predecessorJobsetName="";
-						if(pJobsetIndex==highestIndex)
+						
+						// Retrieved PJOB. Now get PJOBSET and PJNO
+						// Get the lowest index of PJNO and WORKDAY
+						if(workdayIndex!=0)
+						{
+							endIndex=Math.min(pJobNumberIndex,workdayIndex);
+						}
+						else
+						{
+							endIndex=pJobNumberIndex;
+						}
+						predecessorJobsetName=jmoLine.substring(startIndex,endIndex).trim();
+						/*if(pJobsetIndex==highestIndex)
 						{
 							
 							predecessorJobsetName=jmoLine.substring(startIndex).trim();
@@ -1221,12 +1283,24 @@ public class JMOExtractAnalyzer
 						{
 							endIndex=pJobIndex;
 							predecessorJobsetName=jmoLine.substring(startIndex,endIndex).trim();
-						}
+						}*/
+						String predecessorJobNumber="";
 						
 						startIndex=jmoLine.indexOf("PJNO")+"PJNO=".length();
-						String predecessorJobNumber="";
+						if(workdayIndex!=0)
+						{
+							endIndex=workdayIndex;
+							predecessorJobNumber=jmoLine.substring(startIndex,endIndex).trim();
+						}
+						else
+						{
+							predecessorJobNumber=jmoLine.substring(startIndex).trim();
+						}
+						
+						
+						
 						//endIndex=jmoLine.indexOf("WORKDAY");
-						if(pJobNumberIndex==highestIndex)
+						/*if(pJobNumberIndex==highestIndex)
 						{
 							predecessorJobNumber=jmoLine.substring(startIndex).trim();
 						}
@@ -1234,7 +1308,7 @@ public class JMOExtractAnalyzer
 						{
 							endIndex=pJobNumberIndex;
 							predecessorJobNumber=jmoLine.substring(startIndex,endIndex).trim();
-						}
+						}*/
 						//String predecessorJobNumber=jmoLine.substring(startIndex, endIndex).trim();
 						String checkString="("+predecessorJobsetName+","+predecessorJobName+","+predecessorJobNumber+")";
 						logger.info("Checking for "+checkString+" in the file: "+jmoFile);
