@@ -24,13 +24,76 @@ public class DBUtils
 	private int dbPort;
 	
 	
-
-	public void doesJobExistInAE45(Connection conn, String jobName, int joid) throws SQLException
+	public String getJobName(Connection conn, String joid, String dbType) throws SQLException
 	{
+		String sql="";
+		String dbSchema="autosys.dbo";
+		if(dbType.equalsIgnoreCase("SYBASE")) {
+			dbSchema="autosys.dbo.";
+			sql="select job_name from "+dbSchema+"job where joid="+joid+"";
+		}
+		else if(dbType.equalsIgnoreCase("ORACLE"))
+		{
+			dbSchema="AEDBADMIN."; // for r11. no clue what this will be for 4.5
+			sql="select job_name from "+dbSchema+"job where joid='"+joid+"'";
+		}
+		else if(dbType.equalsIgnoreCase("MSSQL"))
+		{
+			dbSchema = "dbo."; // for r11. no clue what it is for 4.5
+			sql="select job_name from "+dbSchema+"job where joid='"+joid+"'";
+		}
+		String jobName="";
+		logger=Logger.getLogger("ArchivedReaderUtilities.DBUtils.getJobName");
 		
+		logger.debug("SQL String: "+sql);
+		try
+		{
+			sqlStatement = conn.createStatement();
+			sqlResult = sqlStatement.executeQuery(sql);
+			while(sqlResult.next())
+			{
+				
+				jobName=sqlResult.getString("job_name");
+			}
+			
+			
+		}
+		catch(SQLException se)
+		{
+			se.printStackTrace();
+		}
+		finally
+		{
+			sqlResult.close();
+			sqlStatement.close();
+			
+		}
+		
+		return jobName;
+	}
+
+	public boolean doesJobExistInAE45(Connection conn, String jobName, int joid, String dbType) throws SQLException
+	{
+		boolean doesExist=false;
+		String dbSchema="autosys.dbo";
+		String sql="";
+		if(dbType.equalsIgnoreCase("SYBASE")) {
+			dbSchema="autosys.dbo.";
+			sql="select job_name,joid from "+dbSchema+"job where job_name='"+jobName+"'";
+		}
+		else if(dbType.equalsIgnoreCase("ORACLE"))
+		{
+			dbSchema="AEDBADMIN."; // for r11. no clue what this will be for 4.5
+			sql="select job_name,joid from "+dbSchema+"job where job_name='"+jobName+"'";
+		}
+		else if(dbType.equalsIgnoreCase("MSSQL"))
+		{
+			dbSchema = "dbo."; // for r11. no clue what it is for 4.5
+			sql="select job_name,joid from "+dbSchema+"job where job_name='"+jobName+"'";
+		}
 		logger=Logger.getLogger("ArchivedReaderUtilities.DBUtils.doesJobExist");
 		logger.info("Checking for job: "+jobName);
-		String sql="select job_name,joid from job where job_name='"+jobName+"'";
+		//String sql="select job_name,joid from job where job_name='"+jobName+"'";
 		logger.debug(sql);
 		try
 		{
@@ -46,7 +109,12 @@ public class DBUtils
 					if(aejoid==joid)
 					{
 						logger.info("Job exists: "+" JOB: "+jobName+" JOID: "+joid);
-						
+						doesExist=true;
+					}
+					else if(aejoid!=joid)
+					{
+						logger.info("Job exists: "+" JOB: "+jobName+" with a different JOID: "+joid);
+						doesExist=true;
 					}
 				}
 			}
@@ -56,6 +124,8 @@ public class DBUtils
 			sqlStatement.close();
 			sqlResult.close();
 		}
+		
+		return doesExist;
 	}
 	
 

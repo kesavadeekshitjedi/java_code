@@ -16,9 +16,9 @@ import com.rmt.readers.file.ArchiveJobRunsReader_45;
 public class ArchiveReader 
 {
 	static Logger logger = Logger.getRootLogger();
-	static Connection dbConnection;
+	
 
-	public static void main(String[] args) throws FileNotFoundException, IOException 
+	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException 
 	{
 		String log4jLocation = "resources/log4j.properties";
 		PropertyConfigurator.configure(log4jLocation);
@@ -29,107 +29,7 @@ public class ArchiveReader
 		ArchiveJobRunsReader_45 ajobs45 = new ArchiveJobRunsReader_45();
 		ajobs45.readJobRunsArchive(archiveFolder);
 		
-		DBUtils db = new DBUtils();
-		Properties dbProps = new Properties();
-		try 
-		{
-			dbProps.load(new FileInputStream("resources/DB.properties"));
-		} 
-		catch (IOException e1) 
-		{
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		logger.info("Reading DB.properties for Database connection information");
-		String dbHostName=dbProps.getProperty("AEDB_HOST");
-		String dbPort=dbProps.getProperty("AEDB_DB_PORT");
-		String dbType=dbProps.getProperty("AEDB_DB_TYPE");
-		String dbName=dbProps.getProperty("AEDB_DB_SID");
-		String dbUser=dbProps.getProperty("AEDB_DB_USER");
-		String dbPass = dbProps.getProperty("AEDB_DB_PASS");
-		logger.info("Database type is "+dbType);
-		if(dbType.equalsIgnoreCase("Oracle"))
-		{
-			try
-			{
-				dbConnection=db.connect2Oracle(dbHostName,dbPort,dbUser,dbPass,dbName);
-				logger.info("Oracle Database connection established");
-				logger.info("Checking if jobs exist...");
-			} 
 		
-			catch (ClassNotFoundException | SQLException e) 
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			finally
-			{
-				try 
-				{
-					dbConnection.close();
-					logger.info("Oracle Database connection closed");
-				} 
-				catch (SQLException e) 
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-		else if(dbType.equalsIgnoreCase("MSSQL"))
-		{
-			try
-			{
-				dbConnection=db.connect2SQLServer(dbHostName,dbPort,dbUser,dbPass,dbName);
-				logger.info("SQL Server Database connection established");
-			} 
-		
-			catch (ClassNotFoundException | SQLException e) 
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			finally
-			{
-				try 
-				{
-					dbConnection.close();
-					logger.info("SQL Server Database connection closed");
-				} 
-				catch (SQLException e) 
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-		else if(dbType.equalsIgnoreCase("Sybase"))
-		{
-			try
-			{
-				dbConnection=db.connect2Sybase(dbHostName, dbPort, dbUser, dbPass, dbName);
-				logger.info("Sybase Database connection established");
-			} 
-		
-			catch (ClassNotFoundException | SQLException e) 
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			finally
-			{
-				try 
-				{
-					dbConnection.close();
-					logger.info("Sybase Database connection closed");
-				} 
-				catch (SQLException e) 
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
 		
 
 	}
