@@ -1,15 +1,18 @@
 package com.rmt.readers.file;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
@@ -33,22 +36,35 @@ public class ArchiveJobRunsReader_45
 	Map<String, List<String>> archivedJobMap = new HashMap<String, List<String>>();
 	List<String> joidList = new ArrayList<String>();
 	static Connection dbConnection;
-	
+	FileWriter goodJobFileWriter;
+	BufferedWriter goodJobBuffer;
+	FileWriter badJobsFileWriter;
+	BufferedWriter badJobsBuffer;
 	public void close(Connection conn) throws SQLException
 	{
 		logger=Logger.getLogger("ArchivedFileReaderUtils.ArchiveJobRunsReader_45.close");
 		conn.close();
 		logger.info("Database connection closed");
 	}
-	public void readJobRunsArchive(String archiveFolder) throws IOException, SQLException
+	public void readJobRunsArchive() throws IOException, SQLException, ParseException
 	{
 	/*
 	 * This is the order of the columns in AutoSys 4.5 archived_job_runs file
 	 * joid,run_num,ntry,startime,endtime,status,exit_code,runtime,evt_num,machine
 	 * 
 	 */
+		Properties aejobProps = new Properties();
+		aejobProps.load(new FileInputStream("resources/archives.properties"));
+		String archiveFolder=aejobProps.getProperty("ARCHIVE_FOLDER");
+		String goodJobsFile=aejobProps.getProperty("GOOD_JOBLIST");
+		String badJobsFie=aejobProps.getProperty("BAD_JOBLIST");
+		String jobIsOldDate=aejobProps.getProperty("JOB_IGNORE_START_DATE");
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:MM:ss");
+		
+		Date ignoreJobDate=sdf.parse(jobIsOldDate);
+		Date jobStartDate;
+		Date jobEndDate;
 		
 		String currentArchiveLine="";
 		String jobName="";
@@ -179,8 +195,14 @@ public class ArchiveJobRunsReader_45
 							
 							jobStartTime=sdf.format(new Date(Long.parseLong(jobStartTimeEpoch)));
 							jobEndTime=sdf.format(new Date(Long.parseLong(jobEndTimeEpoch)));
+							jobStartDate=sdf.parse(jobStartTime);
+							jobEndDate=sdf.parse(jobEndTime);
 							myJobName=db.getJobName(dbConnection, jobID,dbType);
-							
+							if(jobStartDate.compareTo(ignoreJobDate)<0)
+							{
+								jobStartTime+="(OLD)";
+								jobEndTime+="(OLD)";
+							}
 						}
 						else if(archiveLineTuple.length==9)
 						{
@@ -195,12 +217,18 @@ public class ArchiveJobRunsReader_45
 							jobRunEventNumber=archiveLineTuple[8].trim();
 							jobStartTime=sdf.format(new Date(Long.parseLong(jobStartTimeEpoch)));
 							jobEndTime=sdf.format(new Date(Long.parseLong(jobEndTimeEpoch)));
+							jobStartDate=sdf.parse(jobStartTime);
+							jobEndDate=sdf.parse(jobEndTime);
 							myJobName=db.getJobName(dbConnection, jobID,dbType);
-							
+							if(jobStartDate.compareTo(ignoreJobDate)<0)
+							{
+								jobStartTime+="(OLD)";
+								jobEndTime+="(OLD)";
+							}
 							
 							
 						}
-						jobAttrList.add("JOBNAME: "+myJobName+": RUN_NUM:"+jobRunNumber+": NTRYS:"+jobNtry+": STATUS:"+jobStatus+": START_TIME: "+jobStartTime+": END_TIME"+jobEndTime+": EXIT_CODE: "+jobExitCode);
+						jobAttrList.add("JOBNAME= "+myJobName+"= RUN_NUM= "+jobRunNumber+"= NTRYS= "+jobNtry+"= STATUS= "+jobStatus+"= START_TIME= "+jobStartTime+"= END_TIME= "+jobEndTime+"= EXIT_CODE: "+jobExitCode);
 						if(!archivedJobMap.containsKey(jobID))
 						{
 							archivedJobMap.put(jobID, jobAttrList);
@@ -225,7 +253,12 @@ public class ArchiveJobRunsReader_45
 				
 				String joidJobName="";
 				List<String> joidAttribs;
-				
+				goodJobFileWriter=new FileWriter(goodJobsFile);
+				goodJobBuffer=new BufferedWriter(goodJobFileWriter);
+				badJobsFileWriter = new FileWriter(badJobsFie);
+				badJobsBuffer=new BufferedWriter(badJobsFileWriter);
+				String[] stringSplit;
+				// opening file buffers.
 				for(String k : archivedJobMap.keySet())
 				{
 					String joidAttribString = "";
@@ -237,11 +270,32 @@ public class ArchiveJobRunsReader_45
 					{
 						joidAttribString+=s;
 					}
-					String[] stringSplit=joidAttribString.split(":");
+					stringSplit=joidAttribString.split("=");
 					logger.debug(stringSplit[1]);
 					doesJobExist=db.doesJobExistInAE45(dbConnection, stringSplit[1].trim(), Integer.parseInt(k),dbType);
+					if(doesJobExist==true)
+					{
+						if(!stringSplit[9].contains("(OLD)")) // this is only if Goldman needs to ignore jobs that are also older than a certain date. Otherwise comment this logic and just write to the buffers.
+						{
+							goodJobBuffer.write(joidAttribString.replace("=", "")+" JOID: "+k+"\n");
+						}
+						else
+						{
+							badJobsBuffer.write(joidAttribString.replace("=", "")+" JOID: "+k+"\n");
+						}
+					}
+					else
+					{
+						badJobsBuffer.write(joidAttribString.replace("=", "")+" JOID: "+k+"\n");
+					}
 				}
 				close(dbConnection);
+				goodJobBuffer.close();
+				badJobsBuffer.close();
+				goodJobFileWriter.close();
+				badJobsFileWriter.close();
+				
+				
 	}
 
 }

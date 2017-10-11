@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -18,7 +19,7 @@ public class ArchiveReader
 	static Logger logger = Logger.getRootLogger();
 	
 
-	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException 
+	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException, ParseException 
 	{
 		String log4jLocation = "resources/log4j.properties";
 		PropertyConfigurator.configure(log4jLocation);
@@ -27,7 +28,7 @@ public class ArchiveReader
 		aejobProps.load(new FileInputStream("resources/archives.properties"));
 		String archiveFolder=aejobProps.getProperty("ARCHIVE_FOLDER");
 		ArchiveJobRunsReader_45 ajobs45 = new ArchiveJobRunsReader_45();
-		ajobs45.readJobRunsArchive(archiveFolder);
+		ajobs45.readJobRunsArchive();
 		
 		
 		
