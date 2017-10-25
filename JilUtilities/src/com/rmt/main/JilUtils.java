@@ -45,11 +45,11 @@ public class JilUtils
 		logger.info(myTime);
 		
 		JilFileUtils jf = new JilFileUtils();
-		jobMap1=(HashMap<String, List<String>>) jf.readJobInformation("D:\\jildiff\\file1.txt");
-		jobMap2=jf.readJobInformation("D:\\jildiff\\file2.txt");
+		jobMap1=jf.readJobInformation("D:\\OneDrive-Business\\OneDrive - Robert Mark Technologies\\JPMC-JMO-Conversion\\JMO_Extracts\\Phase4\\From_Hank\\2017.08.19\\JOBS_____.Tranche4.jil");
+		jobMap2=jf.readJobInformation("D:\\OneDrive-Business\\OneDrive - Robert Mark Technologies\\JPMC-JMO-Conversion\\JMO_Extracts\\Phase4\\From_Hank\\2017.09.06\\__Tranche4_20170906_1\\JOBS_____.Tranche4.jil");
 		
 		logger.info("done reading both files");
-		
+		jf.getDifferences(jobMap1, jobMap2);
 		
 		
 		/*JilUtils jUtils = new JilUtils();
