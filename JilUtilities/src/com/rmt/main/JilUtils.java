@@ -1,17 +1,21 @@
 package com.rmt.main;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-import com.rmt.utilities.JilFileUtils;
+import com.rmt.utilities.DBStatusParser;
 
 public class JilUtils 
 {
@@ -33,7 +37,7 @@ public class JilUtils
 	static List<String> attributeList1 = new ArrayList<String>();
 	static List<String> attributeList2 = new ArrayList<String>();
 	
-	public static void main(String[] args) throws IOException 
+	public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException 
 	{
 		
 		String log4jLocation = "resources/log4j.properties";
@@ -44,13 +48,32 @@ public class JilUtils
 		myTime = sdf.format(now);
 		logger.info(myTime);
 		
-		JilFileUtils jf = new JilFileUtils();
+		/*JilFileUtils jf = new JilFileUtils();
 		jobMap1=jf.readJobInformation("D:\\OneDrive-Business\\OneDrive - Robert Mark Technologies\\JPMC-JMO-Conversion\\JMO_Extracts\\Phase4\\From_Hank\\2017.08.19\\JOBS_____.Tranche4.jil");
 		jobMap2=jf.readJobInformation("D:\\OneDrive-Business\\OneDrive - Robert Mark Technologies\\JPMC-JMO-Conversion\\JMO_Extracts\\Phase4\\From_Hank\\2017.09.06\\__Tranche4_20170906_1\\JOBS_____.Tranche4.jil");
 		
 		logger.info("done reading both files");
-		jf.getDifferences(jobMap1, jobMap2);
+		jf.getDifferences(jobMap1, jobMap2);*/
 		
+		Properties dbProps = new Properties();
+		try 
+		{
+			dbProps.load(new FileInputStream("resources/DB.properties"));
+		} 
+		catch (IOException e1) 
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		String dbHostName=dbProps.getProperty("AEDB_HOST");
+		String dbPort=dbProps.getProperty("AEDB_DB_PORT");
+		String dbType=dbProps.getProperty("AEDB_DB_TYPE");
+		String dbName=dbProps.getProperty("AEDB_DB_SID");
+		String dbUser=dbProps.getProperty("AEDB_DB_USER");
+		String dbPass = dbProps.getProperty("AEDB_DB_PASS");
+		DBStatusParser db = new DBStatusParser();
+		Connection conn=db.connect2Sybase(dbHostName, dbPort, dbUser, dbPass, dbName);
+		db.getJobStatus(conn, dbType);
 		
 		/*JilUtils jUtils = new JilUtils();
 		jUtils.getCommandLineArgs(args);*/
