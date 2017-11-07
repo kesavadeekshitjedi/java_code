@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import com.rmt.utilities.DBStatusParser;
+import com.rmt.utilities.JilFileUtils;
 
 public class JilUtils 
 {
@@ -73,7 +74,9 @@ public class JilUtils
 		String dbPass = dbProps.getProperty("AEDB_DB_PASS");
 		DBStatusParser db = new DBStatusParser();
 		Connection conn=db.connect2Sybase(dbHostName, dbPort, dbUser, dbPass, dbName);
-		db.getJobStatus(conn, dbType);
+		//db.getJobStatus(conn, dbType);
+		JilFileUtils jf = new JilFileUtils();
+		jf.replaceJobNamesWithSuffix("D:\\PS-Converter\\PSAdapterConverter\\output_jils\\ALLPeopleSoftConvertedJobs.jil", "D:\\\\PS-Converter\\\\PSAdapterConverter\\\\output_jils\\\\ALLPeopleSoftConvertedJobs_update.jil", "-PSP");
 		
 		/*JilUtils jUtils = new JilUtils();
 		jUtils.getCommandLineArgs(args);*/

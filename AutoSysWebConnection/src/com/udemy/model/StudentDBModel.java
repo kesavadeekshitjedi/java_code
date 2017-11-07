@@ -1,7 +1,9 @@
 package com.udemy.model;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +55,50 @@ public class StudentDBModel
 			dbConn.close();
 		}
 		return myStudentList;
+	}
+
+	public void deleteStudent(Student studentInfo) throws SQLException
+	{
+		
+	}
+	public void updateStudent(Student studentInfo) throws SQLException
+	{
+		Connection dbConn=null;
+		PreparedStatement dbStatement=null;
+		
+		try
+		{
+			dbConn=mySQLServerDS.getConnection();
+			String sql="update StudentTable";
+		}
+		finally
+		{
+			dbStatement.close();
+			dbConn.close();
+		}
+	}
+	public void addStudent(Student studentInfo) throws SQLException 
+	{
+		Connection dbConn = null;
+		PreparedStatement dbStatement = null;
+		String sql="insert into StudentTable (FirstName, LastName, Email) values(?,?,?)";
+		
+		try
+		{
+			dbConn=mySQLServerDS.getConnection();
+			dbStatement=dbConn.prepareStatement(sql);
+			dbStatement.setString(1,studentInfo.getFirstName());
+			dbStatement.setString(2,studentInfo.getLastName());
+			dbStatement.setString(3, studentInfo.getEmailAddress());
+			dbStatement.execute();
+		}
+		finally
+		{
+			dbStatement.close();
+			dbConn.close();
+		}
+		// TODO Auto-generated method stub
+		
 	}
 
 }

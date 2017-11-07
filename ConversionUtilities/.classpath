@@ -17,5 +17,27 @@
 	<classpathentry kind="lib" path="D:/DEV-Libs/poi-bin-3.16-20170419.tar/poi-3.16/lib/commons-collections4-4.1.jar"/>
 	<classpathentry kind="lib" path="D:/DEV-Libs/poi-bin-3.16-20170419.tar/poi-3.16/lib/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="D:/DEV-Libs/poi-bin-3.16-20170419.tar/poi-3.16/lib/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/catalina-ant.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/catalina-ha.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/catalina-storeconfig.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/catalina-tribes.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/commons-lang-2.1.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/commons-logging-api-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/cryptojce-6.2.1.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/cryptojcommon-6.2.1.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/db-resources-1.8.0-423.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/derbyclient-10.12.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/ecj-4.5.1.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/eclipselink-2.3.1.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/eem-safex-12.51.5.24.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/el-api.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/flow-model-1.8.0-423.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/hazelcast-all-2.6.9.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/httpcore-nio-4.2.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/safejars/httpmime-4.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

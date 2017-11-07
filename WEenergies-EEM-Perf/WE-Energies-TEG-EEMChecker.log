@@ -1,0 +1,15 @@
+2017-10-16 16:17:22 INFO  root:39 - Attempting to connect to EEM-POC
+2017-10-16 16:18:05 INFO  root:39 - Attempting to connect to EEM-POC
+2017-10-16 16:18:27 INFO  root:39 - Attempting to connect to EEM-POC
+2017-10-16 16:24:38 INFO  root:60 - Attempting to connect to null
+2017-10-16 16:25:21 INFO  root:61 - Attempting to connect to EEM-POC
+2017-10-16 16:27:01 INFO  root:61 - Attempting to connect to EEM-POC
+2017-10-16 16:27:07 INFO  root:111 - Policy Check tests started @ 454023513282362
+2017-10-16 16:27:07 DEBUG root:131 - Policy Result: false
+2017-10-16 16:28:56 INFO  root:61 - Attempting to connect to EEM-POC
+2017-10-16 16:29:02 INFO  root:111 - Policy Check tests started @ 2017-10-16T21:29:02.285Z
+2017-10-16 16:29:02 DEBUG root:132 - Policy Result: false
+2017-10-16 16:30:35 INFO  root:61 - Attempting to connect to EEM-POC
+2017-10-16 16:31:43 INFO  root:61 - Attempting to connect to EEM-POC
+2017-10-16 16:35:05 INFO  root:61 - Attempting to connect to EEM-POC
+2017-10-16 16:35:34 INFO  root:61 - Attempting to connect to EEM-POC

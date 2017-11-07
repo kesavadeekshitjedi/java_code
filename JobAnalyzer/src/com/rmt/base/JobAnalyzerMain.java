@@ -127,7 +127,14 @@ public class JobAnalyzerMain {
 				logger.debug(joid);
 				String lastRunDateEpochString=dbUtils.getLastRunForJob(dbConnection, joid);
 				logger.debug(lastRunDateEpochString);
+				if(!lastRunDateEpochString.isEmpty())
+				{
 				actualjobLastRunDate=sdf.parse(sdf.format(new Date(Long.parseLong(lastRunDateEpochString))));
+				}
+				else
+				{
+					lastRunDateEpochString="0L";
+				}
 				logger.debug(actualjobLastRunDate);
 				if(actualjobLastRunDate.before(checkjobLastRunDate))
 				{
