@@ -49,7 +49,18 @@ public class JilFileUtils
 	FileWriter differenceReportWriter;
 	BufferedWriter differenceReportBuffer;
 	
+	FileReader jilFileReader = null ;
+	BufferedReader jilFileBuffer = null ;
+	FileWriter outputFileWriter = null ;
+	BufferedWriter outputBuffer = null ;
 	
+	public void close() throws IOException
+	{
+		outputBuffer.close();
+		outputFileWriter.close();
+		jilFileBuffer.close();
+		jilFileReader.close();
+	}
 	public void replaceJobNamesWithSuffix(String inputJil, String outputJil, String jilSuffix) throws IOException
 	{
 		Map<String, String> modifiedJobNameList = new HashMap<String, String>();
@@ -59,87 +70,180 @@ public class JilFileUtils
 		InputStream input=null;
 		OutputStream output = null;
 		logger=Logger.getLogger("JilUtilities.utilities.replaceJobNamesWithSuffix");
-		try
+		
+		
+		 jilFileReader = new FileReader(inputJil);
+		 jilFileBuffer = new BufferedReader(jilFileReader);
+		 outputFileWriter = new FileWriter(outputJil);
+		 outputBuffer = new BufferedWriter(outputFileWriter);
+		
+		logger.info("All Writers and Readers open");
+		
+		/*
+		 * Making a copy of the original file in the next few lines here.
+		 */
+		
+		String targetFile=inputJil+".backup."+dateFormat;
+		input = new FileInputStream(new File(inputJil));
+		output = new FileOutputStream(new File(targetFile));
+		byte[] buff = new byte[1024];
+		int bytesRead;
+		while((bytesRead = input.read(buff))>0)
 		{
-			FileReader jilFileReader = new FileReader(inputJil);
-			BufferedReader jilFileBuffer = new BufferedReader(jilFileReader);
-			FileWriter outputFileWriter = new FileWriter(outputJil);
-			BufferedWriter outputBuffer = new BufferedWriter(outputFileWriter);
-			
-			logger.info("All Writers and Readers open");
-			String targetFile=inputJil+".backup."+dateFormat;
-			input = new FileInputStream(new File(inputJil));
-			output = new FileOutputStream(new File(targetFile));
-			byte[] buff = new byte[1024];
-			int bytesRead;
-			while((bytesRead = input.read(buff))>0)
+			output.write(buff, 0, bytesRead);
+		}
+		
+		logger.info("File copied successfully");
+		// File back up operation complete.
+		
+		// read the file quickly to gather all jobnames from the insert_job line and store the modifiedJobnames
+		
+		String jilFileLine=null;
+		String jobName=null;
+		String attributeName=null;
+		String attributeValue=null;
+		boolean foundNewJob=false;
+		String[] lineSplitter = null;
+		
+		logger.info("attempting to read "+inputJil);
+		while((jilFileLine=jilFileBuffer.readLine())!=null)
+		{
+			String currentJilLine=jilFileLine.trim();
+			if(!currentJilLine.contains("#") && (!currentJilLine.isEmpty() && (!currentJilLine.contains("/*") && (!currentJilLine.contains("//")))))
 			{
-				output.write(buff, 0, bytesRead);
+				logger.debug(jilFileLine);
+				lineSplitter=currentJilLine.split(":");
+				if(lineSplitter.length==3 && lineSplitter[0].contains("insert_job"))
+				{
+					foundNewJob=true;
+					String[] jobLine=lineSplitter[1].trim().split(" ");
+					jobName=jobLine[0].trim();
+					modifiedJobNameList.put(jobName, jobName+jilSuffix);
+				}
 			}
 			
-			logger.info("File copied successfully");
-			Map<String, List<String>> jobInformationMap = readJobInformation(inputJil);
+		}
+		logger.info("Done collecting job names");
+		logger.debug(modifiedJobNameList);
+		jilFileBuffer.close();
+		jilFileReader.close();
+		jobName=null;
+		jilFileReader = new FileReader(inputJil);
+		jilFileBuffer = new BufferedReader(jilFileReader);
+		jilFileLine=null;
+		foundNewJob=false;
+		String modifiedJilLine=null;
+		String conditionString=null;
+		String originalConditionString=null;
+		while((jilFileLine=jilFileBuffer.readLine())!=null)
+		{
+			String currentJilLine=jilFileLine.trim();
+			lineSplitter=currentJilLine.split(":");
+			if(lineSplitter.length==3 && lineSplitter[0].contains("insert_job"))
+			{
+				foundNewJob=true;
+				String[] jobLine=lineSplitter[1].trim().split(" ");
+				jobName=jobLine[0].trim();
+			}
+			if((currentJilLine.contains("condition:") || (currentJilLine.contains("box_success")) || (currentJilLine.contains("box_failure") || (currentJilLine.contains("box_name")))))
+			{
+				
+				originalConditionString=currentJilLine;
+				logger.debug("attribute to change found in "+currentJilLine);
+				List<String> conditionList=parseConditionField(currentJilLine);
+				
+				for(String condition: conditionList)
+				{
+					String retrievedJobName=modifiedJobNameList.get(condition);
+					if(retrievedJobName==null)
+					{
+						retrievedJobName=condition;
+					}
+					String newAttribute = currentJilLine.replace(condition, retrievedJobName);
+					currentJilLine=newAttribute;
+					logger.debug("Replaced string: "+currentJilLine);
+				}
+				modifiedJilLine=currentJilLine;
+				
+			}
+			modifiedJilLine=currentJilLine;
+			outputBuffer.write(modifiedJilLine+"\n");
+		
+		}
+		logger.info("Done with the file");
+		close();
+			
+			/*Map<String, List<String>> jobInformationMap = readJobInformation(inputJil);
 			Iterator jobMapIterator = jobInformationMap.entrySet().iterator();
 			Iterator jobAttributeIterator;
-			String jobNameKey = null;
-			String modifiedJobNameKey = null;
+			
+			 * 1. For each job in the hashmap (jobInformationMap) check if the attribute is condition or box_success or box_failure
+			 * 2. If the condition attribute exists, check if the job has a changed name from the HashMap
+			 * 3. If the job has a changed name, then replace it
+			 *  > Parse the condition field to get everything minus the condition: keyword. 
+			 *  > Split the condition on white space .split(" "). this will give us seperate entities for condition and operator between conditions
+			 *  > For each element in the split array, check if there is a replacement. if there is, replace
+			 *  > At the end, add the condition: keyword back
+			 *  > String str = "condition: "+existingConditionString
+			 *  > 
+			 *  > 
+			 
+			String jobNameKey=null;
+			String modifiedJobName=null;
 			String conditionString=null;
 			while(jobMapIterator.hasNext())
 			{
 				Map.Entry pair = (Map.Entry)jobMapIterator.next();
-				jobNameKey = (String) pair.getKey();
-				List<String> jobAttributeList = (List<String>) pair.getValue();
-				modifiedJobNameKey=jobNameKey+jilSuffix;
-				logger.info("Replacing jobname: "+jobNameKey+" with : "+modifiedJobNameKey);
-				//logger.debug("Searching for jil attributes to see if the jobname exists and replace it with the modified suffix");
-				modifiedJobNameList.put(jobNameKey, modifiedJobNameKey);
+				jobNameKey=(String)pair.getKey();
+				modifiedJobName=jobNameKey+jilSuffix;
+				modifiedJobNameList.put(jobNameKey,modifiedJobName);
+				logger.debug("Job name: "+jobNameKey+" will change to :"+modifiedJobName);
+				logger.debug("Stored into Map");
+				
 				
 			}
-			for(List<String> value: jobInformationMap.values())
+			for(List<String> attributeValues: jobInformationMap.values())
 			{
-				jobAttributeIterator = value.iterator();
-				Iterator modifiedJobNameIterator = modifiedJobNameList.entrySet().iterator();
-				/*while(modifiedJobNameIterator.hasNext())
+				jobAttributeIterator = attributeValues.iterator(); // we have all the attributes for all jobs here.
+				logger.debug(jobNameKey);
+				while(jobAttributeIterator.hasNext())
 				{
-					
-					Map.Entry pair = (Map.Entry)modifiedJobNameIterator.next();
-					String originalJobName=(String) pair.getKey();
-					String modifiedJobName=(String) pair.getValue();*/
-				List<String> keyList =new ArrayList<String>(modifiedJobNameList.keySet());
-					while(jobAttributeIterator.hasNext())
+					//logger.debug(jobAttributeIterator.next());
+					String attribute=(String) jobAttributeIterator.next();
+					String origAttribute=attribute;
+					conditionString=attribute;
+					if((attribute.contains("condition:") || (attribute.contains("box_success:")) || (attribute.contains("box_failure:"))))
 					{
-						String jobAttribute = (String) jobAttributeIterator.next();
-						logger.debug(jobAttribute);
-						
-						for(String key: keyList)
+						List<String> conditionList=parseConditionField(attribute);
+						if(conditionList.size()>=2)
 						{
-							logger.debug(key);
-						
-							if(jobAttribute.contains("condition") || jobAttribute.contains("box_success") || jobAttribute.contains("box_failure"))
-							{
-								List<String> jobConditions;
-								if(jobAttribute.contains("condition:"))
-								{
-									jobConditions=parseConditionField(jobAttribute);
-									logger.debug(jobConditions);
-								}
-								if(jobAttribute.contains(key))
-								jobAttribute.replaceAll(jobNameKey,modifiedJobNameList.get(key) );
-								logger.info(jobAttribute+" is being replaced with "+modifiedJobNameList.get(key));
-								break;
-							}
-							
+							logger.info("test");
 						}
+						for(String condition: conditionList)
+						{
+							String retrievedJobName = modifiedJobNameList.get(condition);
+							logger.debug(attribute+" needs modifications");
+							String newAttrib=attribute.replace(condition, retrievedJobName);
+							conditionString=newAttrib;
+							attribute=conditionString;
+							logger.debug("New Attribute: "+newAttrib);
+						}
+						// get list of attributes for key
+						List<String> attributesForKey = jobInformationMap.get(jobNameKey);
+						int valIdx=attributesForKey.indexOf(origAttribute);
+						// add a # to the attribute
+						attributesForKey.add("#"+origAttribute);
+						attributesForKey.add(conditionString);
+						attributesForKey.remove(valIdx);
+						jobInformationMap.put(jobNameKey, attributesForKey);
 					}
-	
-				//}
-			}
-		}
-		finally
-		{
-			output.close();
-			input.close();
-		}
+					
+					
+					
+				}
+			}*/
+			
+		
 		
 	}
 	

@@ -30,6 +30,7 @@ public class JilUtils
 	String inputJilParameter2;
 	String outputJilParameter;
 	String reportParameter;
+	String replaceSuffixParameter;
 	
 	static int jilCountParameter1;
 	static int jilCountParameter2;
@@ -74,9 +75,9 @@ public class JilUtils
 		String dbPass = dbProps.getProperty("AEDB_DB_PASS");
 		DBStatusParser db = new DBStatusParser();
 		Connection conn=db.connect2Sybase(dbHostName, dbPort, dbUser, dbPass, dbName);
+		JilUtils jilUtils = new JilUtils();
+		jilUtils.getCommandLineArgs(args);
 		//db.getJobStatus(conn, dbType);
-		JilFileUtils jf = new JilFileUtils();
-		jf.replaceJobNamesWithSuffix("D:\\PS-Converter\\PSAdapterConverter\\output_jils\\ALLPeopleSoftConvertedJobs.jil", "D:\\\\PS-Converter\\\\PSAdapterConverter\\\\output_jils\\\\ALLPeopleSoftConvertedJobs_update.jil", "-PSP");
 		
 		/*JilUtils jUtils = new JilUtils();
 		jUtils.getCommandLineArgs(args);*/
@@ -92,7 +93,7 @@ public class JilUtils
 		}*/
 
 	}
-	public void getCommandLineArgs(String[] args)
+	public void getCommandLineArgs(String[] args) throws IOException
 	{
 		logger=Logger.getLogger("JilUtils.getCommandLineArgs");
 		if(args.length==0)
@@ -106,6 +107,34 @@ public class JilUtils
 				argTypeParameter=args[cliArgCnt+1].trim(); 
 				continue;
 			}
+			
+			if(argTypeParameter.equalsIgnoreCase("SUFFIX"))
+			{
+				logger.info(argTypeParameter);
+				if(args.length<4)
+				{
+					showSuffixHelp();
+				}
+				if(args[cliArgCnt+1].equalsIgnoreCase("--inputFile"))
+				{
+					inputJilParameter1=args[cliArgCnt+2].trim();
+					continue;
+				}
+				if(args[cliArgCnt+2].equalsIgnoreCase("--outputFile"))
+				{
+					outputJilParameter=args[cliArgCnt+3].trim();
+					continue;
+				}
+				if(args[cliArgCnt+3].equalsIgnoreCase("--replaceSuffix"))
+				{
+					replaceSuffixParameter=args[cliArgCnt+4].trim();
+					continue;
+				}
+				JilFileUtils jf = new JilFileUtils();
+				jf.replaceJobNamesWithSuffix(inputJilParameter1, outputJilParameter, replaceSuffixParameter);
+				
+			}
+			
 			if(args[cliArgCnt].equalsIgnoreCase("--inputFile1"))
 			{
 				inputJilParameter1=args[cliArgCnt+1].trim();
@@ -137,5 +166,13 @@ public class JilUtils
 		logger.error(("Usage: java -jar JilUtilities.jar --type <program type> --inputFile1 <path_to_jil> --inputFile2 <path_to_jil> --outputFile <path_to_file> --report <path_to_file>"));
 		System.exit(5);
 	}
+	private void showSuffixHelp() 
+	{
+		logger=Logger.getLogger("JilUtils.showSuffixHelp");
+		System.out.println("Usage: java -jar JilUtilities.jar --type SUFFIX --inputFile <path_to_jil> --outputFile <path_to_file> --replaceSuffix <SUFFIX_TO_APPEND>");
+		logger.error(("Usage: java -jar JilUtilities.jar --type SUFFIX --inputFile <path_to_jil> --outputFile <path_to_file> --replaceSuffix <SUFFIX_TO_APPEND>"));
+		System.exit(6);
+	}
+
 
 }
