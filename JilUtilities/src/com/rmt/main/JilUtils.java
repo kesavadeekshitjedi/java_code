@@ -2,6 +2,8 @@ package com.rmt.main;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -15,6 +17,7 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import com.rmt.rest.JerseyGetRequests;
 import com.rmt.utilities.DBStatusParser;
 import com.rmt.utilities.JilFileUtils;
 
@@ -39,7 +42,7 @@ public class JilUtils
 	static List<String> attributeList1 = new ArrayList<String>();
 	static List<String> attributeList2 = new ArrayList<String>();
 	
-	public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException 
+	public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException, KeyManagementException, NoSuchAlgorithmException 
 	{
 		
 		String log4jLocation = "resources/log4j.properties";
@@ -76,7 +79,9 @@ public class JilUtils
 		DBStatusParser db = new DBStatusParser();
 		Connection conn=db.connect2Sybase(dbHostName, dbPort, dbUser, dbPass, dbName);
 		JilUtils jilUtils = new JilUtils();
-		jilUtils.getCommandLineArgs(args);
+		//jilUtils.getCommandLineArgs(args);
+		JerseyGetRequests restReq = new JerseyGetRequests();
+		restReq.getAllJobs("LUMOS");
 		//db.getJobStatus(conn, dbType);
 		
 		/*JilUtils jUtils = new JilUtils();
@@ -125,10 +130,10 @@ public class JilUtils
 					outputJilParameter=args[cliArgCnt+3].trim();
 					continue;
 				}
-				if(args[cliArgCnt+3].equalsIgnoreCase("--replaceSuffix"))
+				if(args[args.length-2].equalsIgnoreCase("--replaceSuffix"))
 				{
 					replaceSuffixParameter=args[cliArgCnt+4].trim();
-					continue;
+					
 				}
 				JilFileUtils jf = new JilFileUtils();
 				jf.replaceJobNamesWithSuffix(inputJilParameter1, outputJilParameter, replaceSuffixParameter);
