@@ -1,11 +1,10 @@
 package com.rmt.main;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,7 +16,6 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-import com.rmt.rest.JerseyGetRequests;
 import com.rmt.utilities.DBStatusParser;
 import com.rmt.utilities.JilFileUtils;
 
@@ -81,28 +79,23 @@ public class JilUtils
 		Map<String, String> jobMap=db.getJobStatusr110(conn, "ORA");
 		
 		JilFileUtils jfu = new JilFileUtils();
-		String inputJil="D:\\JilUtilities\\D01Jobs.txt";
-		String outputJil="D:\\JilUtilities\\D01Jobs-mod.txt";
+		String inputJil="D:\\JilUtilities\\JOBS_____.Geneva_Out.jil";
+		String outputJil="D:\\JilUtilities\\MyJobs.txt";
 		
-		jfu.addStatusLine2JilFile(inputJil, outputJil, jobMap);
-		//jilUtils.getCommandLineArgs(args);
-		/*JerseyGetRequests restReq = new JerseyGetRequests();
-		restReq.getAllJobs("LUMOS");*/
-		//db.getJobStatus(conn, dbType);
+		//jfu.addStatusLine2JilFile(inputJil, outputJil, jobMap);
+		// enable the above line to get the status and create the migration jil.
+		List<String> jobList = new ArrayList<String>();
+		FileReader jobListReader = new FileReader("D:\\JilUtilities\\badjobs.txt");
+		BufferedReader jobListBuffer = new BufferedReader(jobListReader);
+		String currentLine;
+		while((currentLine=jobListBuffer.readLine())!=null)
+		{
+			jobList.add(currentLine);
+		}
+		jfu.getJobsFromFile(inputJil, outputJil, jobList);
 		
-		/*JilUtils jUtils = new JilUtils();
-		jUtils.getCommandLineArgs(args);*/
-		/*DummyJIL dj = new DummyJIL();
-		try 
-		{
-			dj.createDummyJil(15000, "cmd", "localhost");
-			logger.info("Done creating jil");
-		} catch (IOException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-
+		
+		
 	}
 	public void getCommandLineArgs(String[] args) throws IOException
 	{
