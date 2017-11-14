@@ -42,7 +42,7 @@ public class JilUtils
 	static List<String> attributeList1 = new ArrayList<String>();
 	static List<String> attributeList2 = new ArrayList<String>();
 	
-	public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException, KeyManagementException, NoSuchAlgorithmException 
+	public static void main(String[] args) throws Exception 
 	{
 		
 		String log4jLocation = "resources/log4j.properties";
@@ -77,11 +77,17 @@ public class JilUtils
 		String dbUser=dbProps.getProperty("AEDB_DB_USER");
 		String dbPass = dbProps.getProperty("AEDB_DB_PASS");
 		DBStatusParser db = new DBStatusParser();
-		Connection conn=db.connect2Sybase(dbHostName, dbPort, dbUser, dbPass, dbName);
-		JilUtils jilUtils = new JilUtils();
+		Connection conn=db.connect2Oracle(dbHostName, dbPort, dbUser, dbPass, dbName);
+		Map<String, String> jobMap=db.getJobStatusr110(conn, "ORA");
+		
+		JilFileUtils jfu = new JilFileUtils();
+		String inputJil="D:\\JilUtilities\\D01Jobs.txt";
+		String outputJil="D:\\JilUtilities\\D01Jobs-mod.txt";
+		
+		jfu.addStatusLine2JilFile(inputJil, outputJil, jobMap);
 		//jilUtils.getCommandLineArgs(args);
-		JerseyGetRequests restReq = new JerseyGetRequests();
-		restReq.getAllJobs("LUMOS");
+		/*JerseyGetRequests restReq = new JerseyGetRequests();
+		restReq.getAllJobs("LUMOS");*/
 		//db.getJobStatus(conn, dbType);
 		
 		/*JilUtils jUtils = new JilUtils();

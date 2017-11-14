@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -53,13 +54,107 @@ public class JilFileUtils
 	BufferedReader jilFileBuffer = null ;
 	FileWriter outputFileWriter = null ;
 	BufferedWriter outputBuffer = null ;
-	
+	Map<String, String> migrationStatusMap=new HashMap<String, String>();
 	public void close() throws IOException
 	{
 		outputBuffer.close();
 		outputFileWriter.close();
 		jilFileBuffer.close();
 		jilFileReader.close();
+	}
+	public void addStatusLine2JilFile(String inputJil, String outputJil, Map<String, String> jobStatusMap) throws IOException
+	{
+		
+		migrationStatusMap.put("OI", "ON_ICE");
+		migrationStatusMap.put("OH", "ON_HOLD");
+		migrationStatusMap.put("TE", "TERMINATED");
+		migrationStatusMap.put("IN/NE", "NO_EXEC");
+		migrationStatusMap.put("SU", "SUCCESS");
+		migrationStatusMap.put("FA", "FAILURE");
+		migrationStatusMap.put("IN", "INACTIVE");
+		migrationStatusMap.put("PE", "PENDING_MACHINE_REVIEW");
+		
+		logger=Logger.getLogger("JilUtilities.utilities.addStatusLine2JilFile");
+		logger.info("Make a copy of the original jil file");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
+		Date currentDate = new Date();
+		String dateFormat = sdf.format(currentDate);
+		String outputTarget=outputJil+".backup."+dateFormat;
+		FileReader inputJilReader = new FileReader(inputJil);
+		FileWriter outputFileWriter = new FileWriter(outputTarget);
+		BufferedReader inputJilBuffer = new BufferedReader(inputJilReader);
+		BufferedWriter outputJilBuffer = new BufferedWriter(outputFileWriter);
+		/*
+		 * Making a copy of the original file in the next few lines here.
+		 */
+		InputStream input=null;
+		OutputStream output = null;
+		String targetFile=inputJil+".backup."+dateFormat;
+		input = new FileInputStream(new File(inputJil));
+		output = new FileOutputStream(new File(targetFile));
+		byte[] buff = new byte[1024];
+		int bytesRead;
+		while((bytesRead = input.read(buff))>0)
+		{
+			output.write(buff, 0, bytesRead);
+		}
+		output.close();
+		input.close();
+		logger.info("File copied successfully");
+		// File back up operation complete.
+		
+		String jilFileLine=null;
+		String jobName=null;
+		boolean foundNewJob=false;
+		String[] lineSplitter = null;
+		String newLine=null;
+		
+		logger.info("attempting to read "+inputJil);
+		while((jilFileLine=inputJilBuffer.readLine())!=null)
+		{
+			String currentJilLine=jilFileLine.trim();
+			if(!currentJilLine.contains("#") && (!currentJilLine.isEmpty() && (!currentJilLine.contains("/*") && (!currentJilLine.contains("//")))))
+			{
+				logger.debug(jilFileLine);
+				lineSplitter=currentJilLine.split(":");
+				if(lineSplitter.length==3 && lineSplitter[0].contains("insert_job"))
+				{
+					foundNewJob=true;
+					if(lineSplitter.length==3 && lineSplitter[0].contains("insert_job"))
+					{
+						foundNewJob=true;
+						String[] jobLine=lineSplitter[1].trim().split(" ");
+						jobName=jobLine[0].trim();
+					}
+					if(jobName.equals("ACCEJob.28.62"))
+					{
+						logger.info("test");
+					}
+					String currentStatus=jobStatusMap.get(jobName);
+					String migrationStatus=migrationStatusMap.get(currentStatus);
+					if(migrationStatus.equals("") || migrationStatus==null)
+					{
+						migrationStatus="ON_ICE"; // defaulting to an ON_ICE status for jobs in case a weird status exists.
+					}
+					currentJilLine=currentJilLine+" \n"+"status: "+migrationStatus+" \n";
+					logger.debug(currentJilLine);
+				}
+			}
+			if(currentJilLine.contains("insert_job:"))
+			{
+			outputJilBuffer.write(currentJilLine);
+			}
+			else
+			{
+				outputJilBuffer.write(currentJilLine+" \n");
+			}
+		}
+		
+		outputJilBuffer.close();
+		outputFileWriter.close();
+		inputJilBuffer.close();
+		inputJilReader.close();
+		logger.info("All readers and writers closed");
 	}
 	public void replaceJobNamesWithSuffix(String inputJil, String outputJil, String jilSuffix) throws IOException
 	{
