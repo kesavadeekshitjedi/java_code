@@ -65,7 +65,7 @@ public class ArchiveReader
 			{
 				dbConnection=db.connect2Oracle(dbHostName,dbPort,dbUser,dbPass,dbName);
 				logger.info("Oracle Database connection established");
-				db.getCalendarList45(dbConnection, dbType);
+				db.getCalendarList45(dbConnection, dbType,dbName);
 			} 
 		
 			catch (ClassNotFoundException | SQLException e) 
@@ -81,7 +81,7 @@ public class ArchiveReader
 			{
 				dbConnection=db.connect2SQLServer(dbHostName,dbPort,dbUser,dbPass,dbName);
 				logger.info("SQL Server Database connection established");
-				db.getCalendarList45(dbConnection, dbType);
+				db.getCalendarList45(dbConnection, dbType,dbName);
 			} 
 		
 			catch (ClassNotFoundException | SQLException e) 
@@ -97,8 +97,8 @@ public class ArchiveReader
 			{
 				dbConnection=db.connect2Sybase(dbHostName, dbPort, dbUser, dbPass, dbName);
 				logger.info("Sybase Database connection established");
-				List<String> calList=db.getCalendarList45(dbConnection, dbType);
-				Map<String, List<String>> calDates = db.getCalendarDates45(dbConnection, calList, dbType);
+				List<String> calList=db.getCalendarList45(dbConnection, dbType,dbName);
+				Map<String, List<String>> calDates = db.getCalendarDates45(dbConnection, calList, dbType,dbName);
 				System.out.println(calDates);
 			} 
 		

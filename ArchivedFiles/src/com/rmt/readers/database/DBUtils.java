@@ -34,13 +34,13 @@ public class DBUtils
 	private int dbPort;
 	static SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 	
-	public String getJobName(Connection conn, String joid, String dbType) throws SQLException
+	public String getJobName(Connection conn, String joid, String dbType, String dbName) throws SQLException
 	{
 		
 		String sql="";
-		String dbSchema="autosys.dbo";
+		String dbSchema=dbName+".dbo";
 		if(dbType.equalsIgnoreCase("SYBASE")) {
-			dbSchema="autosys.dbo.";
+			dbSchema=dbName+".dbo.";
 			sql="select job_name from "+dbSchema+"job where joid="+joid+"";
 		}
 		else if(dbType.equalsIgnoreCase("ORACLE"))
@@ -143,14 +143,14 @@ public class DBUtils
 		
 		return dates;
 	}
-	public List<String> getUnusedJobs(Connection conn, String dbType, int numDays, String jobPattern)
+	public List<String> getUnusedJobs(Connection conn, String dbType, int numDays, String jobPattern, String dbName)
 	{
 		logger=Logger.getLogger("ArchivedReaderUtilities.DBUtils.getUnusedJobs");
 		List<String> jobsToRetire = new ArrayList<String>();
 		try 
 		{
 			logger.info("Getting jobs with pattern: "+jobPattern);
-			List<String> jobSuperSet = getJobList(conn, dbType, jobPattern);
+			List<String> jobSuperSet = getJobList(conn, dbType, jobPattern,dbName);
 			// got the list of jobs and joids. 
 			// now get teh last run date for the joid
 			// Check if the last run date is beyond X days old
@@ -174,7 +174,7 @@ public class DBUtils
 	{
 		logger=Logger.getLogger("ArchivedReaderUtilities.DBUtils.getLastRunForJob");
 		//String sqlQuery = "select TO_CHAR(TO_DATE('19700101000000', 'YYYYMMDDHH24MISS')+((last_end-18000) /(60*60*24)),'YYYYMMDDHH24MISS') AS LAST_END, TO_CHAR(TO_DATE('19700101000000', 'YYYYMMDDHH24MISS')+((last_start-18000) /(60*60*24)),'YYYYMMDDHH24MISS') AS LAST_START from AEBDADMIN.ujo_jobst where job_name='"+jobName+"'";
-		String sqlQuery="select last_start, last_end from autosys.dbo.job_status where joid="+joid;
+		String sqlQuery="select last_start, last_end from"+dbName+".dbo.job_status where joid="+joid;
     	logger.debug(sqlQuery);
     	try
     	{
@@ -192,7 +192,7 @@ public class DBUtils
     		sqlStatement.close();
     	}
 	}
-	public List<String> getJobList(Connection conn, String dbType, String jobPattern) throws SQLException
+	public List<String> getJobList(Connection conn, String dbType, String jobPattern, String dbName) throws SQLException
 	{
 		logger=Logger.getLogger("ArchivedReaderUtilities.DBUtils.getJobList");
 		List<String> jobList = new ArrayList<String>();
@@ -202,7 +202,7 @@ public class DBUtils
 		String tempjobName="";
 		if(dbType.equalsIgnoreCase("SYBASE")) 
 		{
-			dbSchema="autosys.dbo.";
+			dbSchema=dbName+".dbo.";
 			sql="select job_name,joid from "+dbSchema+"job where job_name like '"+jobPattern+"'";
 			logger.debug(sql);
 		}
@@ -243,7 +243,7 @@ public class DBUtils
 		
 		return jobList;
 	}
-	public Map<String, List<String>> getCalendarDates45(Connection conn, List<String> calList, String dbType) throws SQLException, ParseException
+	public Map<String, List<String>> getCalendarDates45(Connection conn, List<String> calList, String dbType,String dbName) throws SQLException, ParseException
 	{
 		// takes the list of calendars and gets the dates for all calendars.
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
@@ -260,7 +260,7 @@ public class DBUtils
 		String tempDay="";
 		String lastDateInCal="";
 		if(dbType.equalsIgnoreCase("SYBASE")) {
-			dbSchema="autosys.dbo.";
+			dbSchema=dbName+".dbo";
 			//sql="select day from "+dbSchema+"";
 		}
 		else if(dbType.equalsIgnoreCase("ORACLE"))
@@ -331,7 +331,7 @@ public class DBUtils
 		
 		return calendarDates;
 	}
-	public List<String> getCalendarList45(Connection conn, String dbType) throws SQLException
+	public List<String> getCalendarList45(Connection conn, String dbType, String dbName) throws SQLException
 	{
 		logger=Logger.getLogger("ArchivedReaderUtilities.DBUtils.getCalendarList45");
 		List<String> calendarList = new ArrayList<String>();
@@ -340,7 +340,7 @@ public class DBUtils
 		String dbSchema="autosys.dbo";
 		String sql="";
 		if(dbType.equalsIgnoreCase("SYBASE")) {
-			dbSchema="autosys.dbo.";
+			dbSchema=dbName+".dbo";
 			sql="select name from "+dbSchema+"calendar";
 		}
 		else if(dbType.equalsIgnoreCase("ORACLE"))
@@ -377,13 +377,13 @@ public class DBUtils
 		}
 		return calendarList;
 	}
-	public boolean doesJobExistInAE45(Connection conn, String jobName, int joid, String dbType) throws SQLException
+	public boolean doesJobExistInAE45(Connection conn, String jobName, int joid, String dbType, String dbName) throws SQLException
 	{
 		boolean doesExist=false;
 		String dbSchema="autosys.dbo";
 		String sql="";
 		if(dbType.equalsIgnoreCase("SYBASE")) {
-			dbSchema="autosys.dbo.";
+			dbSchema=dbName+".dbo.";
 			sql="select job_name,joid from "+dbSchema+"job where job_name='"+jobName+"'";
 		}
 		else if(dbType.equalsIgnoreCase("ORACLE"))

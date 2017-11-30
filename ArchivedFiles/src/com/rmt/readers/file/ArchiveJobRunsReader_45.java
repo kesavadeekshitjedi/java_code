@@ -197,7 +197,7 @@ public class ArchiveJobRunsReader_45
 							jobEndTime=sdf.format(new Date(Long.parseLong(jobEndTimeEpoch)));
 							jobStartDate=sdf.parse(jobStartTime);
 							jobEndDate=sdf.parse(jobEndTime);
-							myJobName=db.getJobName(dbConnection, jobID,dbType);
+							myJobName=db.getJobName(dbConnection, jobID,dbType,dbName);
 							if(jobStartDate.compareTo(ignoreJobDate)<0)
 							{
 								jobStartTime+="(OLD)";
@@ -219,7 +219,7 @@ public class ArchiveJobRunsReader_45
 							jobEndTime=sdf.format(new Date(Long.parseLong(jobEndTimeEpoch)));
 							jobStartDate=sdf.parse(jobStartTime);
 							jobEndDate=sdf.parse(jobEndTime);
-							myJobName=db.getJobName(dbConnection, jobID,dbType);
+							myJobName=db.getJobName(dbConnection, jobID,dbType,dbName);
 							if(jobStartDate.compareTo(ignoreJobDate)<0)
 							{
 								jobStartTime+="(OLD)";
@@ -272,7 +272,7 @@ public class ArchiveJobRunsReader_45
 					}
 					stringSplit=joidAttribString.split("=");
 					logger.debug(stringSplit[1]);
-					doesJobExist=db.doesJobExistInAE45(dbConnection, stringSplit[1].trim(), Integer.parseInt(k),dbType);
+					doesJobExist=db.doesJobExistInAE45(dbConnection, stringSplit[1].trim(), Integer.parseInt(k),dbType,dbName);
 					if(doesJobExist==true)
 					{
 						if(!stringSplit[9].contains("(OLD)")) // this is only if Goldman needs to ignore jobs that are also older than a certain date. Otherwise comment this logic and just write to the buffers.
