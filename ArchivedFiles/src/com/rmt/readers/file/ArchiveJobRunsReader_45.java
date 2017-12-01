@@ -107,7 +107,7 @@ public class ArchiveJobRunsReader_45
 			{
 				dbConnection=db.connect2Oracle(dbHostName,dbPort,dbUser,dbPass,dbName);
 				logger.info("Oracle Database connection established");
-				logger.info("Checking if jobs exist...");
+				
 			} 
 		
 			catch (ClassNotFoundException | SQLException e) 
@@ -187,6 +187,8 @@ public class ArchiveJobRunsReader_45
 							jobNtry=archiveLineTuple[2].trim();
 							String jobStartTimeEpoch=archiveLineTuple[3].trim();
 							String jobEndTimeEpoch=archiveLineTuple[4].trim();
+							logger.debug(jobStartTimeEpoch);
+							logger.debug(jobEndTimeEpoch);
 							jobStatus=archiveLineTuple[5].trim();
 							jobExitCode=archiveLineTuple[6].trim();
 							jobRunTime=archiveLineTuple[7].trim();
@@ -194,7 +196,9 @@ public class ArchiveJobRunsReader_45
 							jobRunMachine=archiveLineTuple[9].trim();
 							
 							jobStartTime=sdf.format(new Date(Long.parseLong(jobStartTimeEpoch)));
+							
 							jobEndTime=sdf.format(new Date(Long.parseLong(jobEndTimeEpoch)));
+							logger.debug("Job ID: "+jobID+" Job Start: "+jobStartTime+" Job End Time: "+jobEndTime);
 							jobStartDate=sdf.parse(jobStartTime);
 							jobEndDate=sdf.parse(jobEndTime);
 							myJobName=db.getJobName(dbConnection, jobID,dbType,dbName);
@@ -217,6 +221,7 @@ public class ArchiveJobRunsReader_45
 							jobRunEventNumber=archiveLineTuple[8].trim();
 							jobStartTime=sdf.format(new Date(Long.parseLong(jobStartTimeEpoch)));
 							jobEndTime=sdf.format(new Date(Long.parseLong(jobEndTimeEpoch)));
+							logger.debug("Job ID: "+jobID+" Job Start: "+jobStartTime+" Job End Time: "+jobEndTime);
 							jobStartDate=sdf.parse(jobStartTime);
 							jobEndDate=sdf.parse(jobEndTime);
 							myJobName=db.getJobName(dbConnection, jobID,dbType,dbName);

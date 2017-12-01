@@ -34,7 +34,7 @@ public class ArchiveReader
 		String archiveFolder=aejobProps.getProperty("ARCHIVE_FOLDER");
 		ArchiveJobRunsReader_45 ajobs45 = new ArchiveJobRunsReader_45();
 		ajobs45.readJobRunsArchive();
-		DBUtils db = new DBUtils();
+		/*DBUtils db = new DBUtils();
 		Properties dbProps = new Properties();
 		try 
 		{
@@ -108,7 +108,7 @@ public class ArchiveReader
 				e.printStackTrace();
 			}
 			
-		}
+		}*/
 		
 		
 		
