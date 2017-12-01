@@ -187,6 +187,8 @@ public class ArchiveJobRunsReader_45
 							jobNtry=archiveLineTuple[2].trim();
 							String jobStartTimeEpoch=archiveLineTuple[3].trim();
 							String jobEndTimeEpoch=archiveLineTuple[4].trim();
+							Long jobStartLong=Long.parseLong(jobStartTimeEpoch);
+							Long jobEndLong = Long.parseLong(jobEndTimeEpoch);
 							logger.debug(jobStartTimeEpoch);
 							logger.debug(jobEndTimeEpoch);
 							jobStatus=archiveLineTuple[5].trim();
@@ -194,10 +196,14 @@ public class ArchiveJobRunsReader_45
 							jobRunTime=archiveLineTuple[7].trim();
 							jobRunEventNumber=archiveLineTuple[8].trim();
 							jobRunMachine=archiveLineTuple[9].trim();
-							
-							jobStartTime=sdf.format(new Date(Long.parseLong(jobStartTimeEpoch)));
-							
-							jobEndTime=sdf.format(new Date(Long.parseLong(jobEndTimeEpoch)));
+							Date jobStartDateVar = new Date(jobStartLong*1000L);
+							Date jobEndDateVar = new Date(jobStartLong*1000L);
+							//jobStartTime=sdf.format(new Date(Long.parseLong(jobStartTimeEpoch)));
+							logger.debug(sdf.format(jobStartDateVar));
+							logger.debug(sdf.format(jobEndDateVar));
+							//jobEndTime=sdf.format(new Date(Long.parseLong(jobEndTimeEpoch)));
+							jobStartTime=sdf.format(jobStartDateVar);
+							jobEndTime=sdf.format(jobEndDateVar);
 							logger.debug("Job ID: "+jobID+" Job Start: "+jobStartTime+" Job End Time: "+jobEndTime);
 							jobStartDate=sdf.parse(jobStartTime);
 							jobEndDate=sdf.parse(jobEndTime);
@@ -215,15 +221,28 @@ public class ArchiveJobRunsReader_45
 							jobNtry=archiveLineTuple[2].trim();
 							String jobStartTimeEpoch=archiveLineTuple[3].trim();
 							String jobEndTimeEpoch=archiveLineTuple[4].trim();
+							Long jobStartLong=Long.parseLong(jobStartTimeEpoch);
+							Long jobEndLong = Long.parseLong(jobEndTimeEpoch);
+							Date jobStartDateVar = new Date(jobStartLong*1000L);
+							Date jobEndDateVar = new Date(jobStartLong*1000L);
+							
 							jobStatus=archiveLineTuple[5].trim();
 							jobExitCode=archiveLineTuple[6].trim();
 							jobRunTime=archiveLineTuple[7].trim();
 							jobRunEventNumber=archiveLineTuple[8].trim();
-							jobStartTime=sdf.format(new Date(Long.parseLong(jobStartTimeEpoch)));
+							/*jobStartTime=sdf.format(new Date(Long.parseLong(jobStartTimeEpoch)));
 							jobEndTime=sdf.format(new Date(Long.parseLong(jobEndTimeEpoch)));
+							logger.debug("Job ID: "+jobID+" Job Start: "+jobStartTime+" Job End Time: "+jobEndTime);*/
+
+							logger.debug(sdf.format(jobStartDateVar));
+							logger.debug(sdf.format(jobEndDateVar));
+							//jobEndTime=sdf.format(new Date(Long.parseLong(jobEndTimeEpoch)));
+							jobStartTime=sdf.format(jobStartDateVar);
+							jobEndTime=sdf.format(jobEndDateVar);
 							logger.debug("Job ID: "+jobID+" Job Start: "+jobStartTime+" Job End Time: "+jobEndTime);
+							
 							jobStartDate=sdf.parse(jobStartTime);
-							jobEndDate=sdf.parse(jobEndTime);
+							jobEndDate=sdf.parse(jobEndTime);							
 							myJobName=db.getJobName(dbConnection, jobID,dbType,dbName);
 							if(jobStartDate.compareTo(ignoreJobDate)<0)
 							{
