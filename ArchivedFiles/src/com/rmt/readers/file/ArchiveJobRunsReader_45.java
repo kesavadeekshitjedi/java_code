@@ -244,8 +244,10 @@ public class ArchiveJobRunsReader_45
 							jobStartDate=sdf.parse(jobStartTime);
 							jobEndDate=sdf.parse(jobEndTime);							
 							myJobName=db.getJobName(dbConnection, jobID,dbType,dbName);
+							logger.info("Actual job Start: "+jobStartDate+" Compare to properties file max start date: "+ignoreJobDate+" for Job: "+myJobName+" >> JOID: "+jobID);
 							if(jobStartDate.compareTo(ignoreJobDate)<0)
 							{
+								
 								jobStartTime+="(OLD)";
 								jobEndTime+="(OLD)";
 							}

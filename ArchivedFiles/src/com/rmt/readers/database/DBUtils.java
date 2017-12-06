@@ -56,7 +56,7 @@ public class DBUtils
 		String jobName="";
 		logger=Logger.getLogger("ArchivedReaderUtilities.DBUtils.getJobName");
 		
-		logger.debug("SQL String: "+sql);
+		logger.debug("getJobName SQL String: "+sql);
 		try
 		{
 			sqlStatement = conn.createStatement();
@@ -65,6 +65,7 @@ public class DBUtils
 			{
 				
 				jobName=sqlResult.getString("job_name");
+				logger.info("Job ID: "+joid+" belongs to JOB: "+jobName);
 			}
 			
 			
