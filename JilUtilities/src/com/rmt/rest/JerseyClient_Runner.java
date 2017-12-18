@@ -9,6 +9,7 @@ public class JerseyClient_Runner {
 
 
 		JerseyGetRequests jr = new JerseyGetRequests();
+		JerseyPostRequest jp = new JerseyPostRequest();
 		try 
 		{
 			JerseyGetRequests.getJobDetails("LUMOS","job1");

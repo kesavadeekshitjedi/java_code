@@ -312,6 +312,14 @@ public class JilFileUtils
 				String[] jobLine=lineSplitter[1].trim().split(" ");
 				jobName=jobLine[0].trim();
 			}
+			if(currentJilLine.contains("insert_job"))
+			{
+				String retrievedJobName = modifiedJobNameList.get(jobName);
+				logger.debug("attribute to change found in "+currentJilLine);
+				String newAttribute = currentJilLine.replace(jobName, retrievedJobName);
+				currentJilLine=newAttribute;
+				logger.debug("Replaced string: "+currentJilLine);
+			}
 			if((currentJilLine.contains("condition:") || (currentJilLine.contains("box_success")) || (currentJilLine.contains("box_failure") || (currentJilLine.contains("box_name")))))
 			{
 				

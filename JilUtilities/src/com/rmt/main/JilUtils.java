@@ -51,13 +51,15 @@ public class JilUtils
 		myTime = sdf.format(now);
 		logger.info(myTime);
 		
-		/*JilFileUtils jf = new JilFileUtils();
-		jobMap1=jf.readJobInformation("D:\\OneDrive-Business\\OneDrive - Robert Mark Technologies\\JPMC-JMO-Conversion\\JMO_Extracts\\Phase4\\From_Hank\\2017.08.19\\JOBS_____.Tranche4.jil");
+		JilFileUtils jf = new JilFileUtils();
+		/*jobMap1=jf.readJobInformation("D:\\OneDrive-Business\\OneDrive - Robert Mark Technologies\\JPMC-JMO-Conversion\\JMO_Extracts\\Phase4\\From_Hank\\2017.08.19\\JOBS_____.Tranche4.jil");
 		jobMap2=jf.readJobInformation("D:\\OneDrive-Business\\OneDrive - Robert Mark Technologies\\JPMC-JMO-Conversion\\JMO_Extracts\\Phase4\\From_Hank\\2017.09.06\\__Tranche4_20170906_1\\JOBS_____.Tranche4.jil");
 		
 		logger.info("done reading both files");
 		jf.getDifferences(jobMap1, jobMap2);*/
 		
+		jf.replaceJobNamesWithSuffix("D:\\PS-Converter\\PSAdapterConverter\\output_jils\\ALLPeopleSoftConvertedJobs.jil", "D:\\PS-Converter\\PSAdapterConverter\\ps_suffix.txt2", "-PS");
+		logger.info("done conversion");
 		Properties dbProps = new Properties();
 		try 
 		{
