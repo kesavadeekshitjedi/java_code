@@ -100,7 +100,7 @@ public class JerseyGetRequests
     EntityTag e = cResp.getEntityTag();
     String entity=cResp.getEntity(String.class);
     System.out.println("First One: "+entity);*/
-    System.out.println("Second one: "+response);
+    System.out.println(response+"\n");
     
     
     
@@ -185,7 +185,7 @@ public class JerseyGetRequests
     ClientResponse cResp = res.get(ClientResponse.class);
     EntityTag e = cResp.getEntityTag();
     String entity=cResp.getEntity(String.class);
-    System.out.println(entity);
+    System.out.println(entity+"\n");
 	}
 	
 	public static void getAllJobs(String server) throws NoSuchAlgorithmException, KeyManagementException
@@ -263,7 +263,7 @@ public class JerseyGetRequests
     ClientResponse cResp = res.get(ClientResponse.class);
     EntityTag e = cResp.getEntityTag();
     String entity=cResp.getEntity(String.class);
-    System.out.println(entity);
+    System.out.println(entity+"\n");
 	}
 	
 	public static void getJobRunInfo(String server, String jobName) throws NoSuchAlgorithmException, KeyManagementException
@@ -341,7 +341,7 @@ public class JerseyGetRequests
     ClientResponse cResp = res.get(ClientResponse.class);
     EntityTag e = cResp.getEntityTag();
     String entity=cResp.getEntity(String.class);
-    System.out.println(entity);
+    System.out.println(entity+"\n");
 	}
 	public static void getAllJobRunInfo(String server) throws NoSuchAlgorithmException, KeyManagementException
 	{
@@ -418,6 +418,6 @@ public class JerseyGetRequests
     ClientResponse cResp = res.get(ClientResponse.class);
     EntityTag e = cResp.getEntityTag();
     String entity=cResp.getEntity(String.class);
-    System.out.println(entity);
+    System.out.println(entity+"\n");
 	}
 }
