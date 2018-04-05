@@ -164,6 +164,7 @@ public class ArchiveJobRunsReader_45
 				};
 				File f = new File(archiveFolder);
 				File[] files = f.listFiles(textFilter);
+				List<String> processedJobIDList = new ArrayList<String>();
 				for(File file : files)
 				{
 					archiveFileReader = new FileReader(file);
@@ -207,12 +208,23 @@ public class ArchiveJobRunsReader_45
 							logger.debug("Job ID: "+jobID+" Job Start: "+jobStartTime+" Job End Time: "+jobEndTime);
 							jobStartDate=sdf.parse(jobStartTime);
 							jobEndDate=sdf.parse(jobEndTime);
-							myJobName=db.getJobName(dbConnection, jobID,dbType,dbName);
-							if(jobStartDate.compareTo(ignoreJobDate)<0)
+							if(!processedJobIDList.contains(jobID))
 							{
-								jobStartTime+="(OLD)";
-								jobEndTime+="(OLD)";
+								processedJobIDList.add(jobID);
+								myJobName=db.getJobName(dbConnection, jobID,dbType,dbName);
+								if(jobStartDate.compareTo(ignoreJobDate)<0)
+								{
+									jobStartTime+="(OLD)";
+									jobEndTime+="(OLD)";
+									logger.info("Job : "+myJobName+" JOID: "+jobID+" ran before "+ignoreJobDate);
+								}
+								logger.info("JOB ID: "+jobID+" added to list");
 							}
+							else
+							{
+								logger.info("JOB ID: "+jobID+" already processed");
+							}
+							
 						}
 						else if(archiveLineTuple.length==9)
 						{
@@ -242,16 +254,27 @@ public class ArchiveJobRunsReader_45
 							logger.debug("Job ID: "+jobID+" Job Start: "+jobStartTime+" Job End Time: "+jobEndTime);
 							
 							jobStartDate=sdf.parse(jobStartTime);
-							jobEndDate=sdf.parse(jobEndTime);							
-							myJobName=db.getJobName(dbConnection, jobID,dbType,dbName);
-							logger.info("Actual job Start: "+jobStartDate+" Compare to properties file max start date: "+ignoreJobDate+" for Job: "+myJobName+" >> JOID: "+jobID);
-							if(jobStartDate.compareTo(ignoreJobDate)<0)
+							jobEndDate=sdf.parse(jobEndTime);
+							if(!processedJobIDList.contains(jobID))
 							{
-								
-								jobStartTime+="(OLD)";
-								jobEndTime+="(OLD)";
+								processedJobIDList.add(jobID);
+								logger.info("JOB ID: "+jobID+" added to list");
+								myJobName=db.getJobName(dbConnection, jobID,dbType,dbName);
+								logger.info("Actual job Start: "+jobStartDate+" Compare to properties file max start date: "+ignoreJobDate+" for Job: "+myJobName+" >> JOID: "+jobID);
+								if(jobStartDate.compareTo(ignoreJobDate)<0)
+								{
+									
+									jobStartTime+="(OLD)";
+									jobEndTime+="(OLD)";
+									logger.info("Job : "+myJobName+" JOID: "+jobID+" ran before "+ignoreJobDate);
+								}
+								logger.info("JOB ID: "+jobID+" added to list");
 							}
 							
+							else
+							{
+								logger.info("JOB ID: "+jobID+" already processed");
+							}
 							
 						}
 						jobAttrList.add("JOBNAME= "+myJobName+"= RUN_NUM= "+jobRunNumber+"= NTRYS= "+jobNtry+"= STATUS= "+jobStatus+"= START_TIME= "+jobStartTime+"= END_TIME= "+jobEndTime+"= EXIT_CODE: "+jobExitCode);
@@ -290,30 +313,39 @@ public class ArchiveJobRunsReader_45
 					String joidAttribString = "";
 					//joidAttribs=new ArrayList<String>();
 					logger.debug("Getting value for joid: "+k);
-					joidAttribs=archivedJobMap.get(k);
-					StringBuilder sb = new StringBuilder();
-					for(String s: joidAttribs)
+					/*if(!processedJobIDList.contains(k)) // dont process a joid that has already been processed from other files
 					{
-						joidAttribString+=s;
-					}
-					stringSplit=joidAttribString.split("=");
-					logger.debug(stringSplit[1]);
-					doesJobExist=db.doesJobExistInAE45(dbConnection, stringSplit[1].trim(), Integer.parseInt(k),dbType,dbName);
-					if(doesJobExist==true)
-					{
-						if(!stringSplit[9].contains("(OLD)")) // this is only if Goldman needs to ignore jobs that are also older than a certain date. Otherwise comment this logic and just write to the buffers.
+						processedJobIDList.add(k);
+					*/
+						joidAttribs=archivedJobMap.get(k);
+						StringBuilder sb = new StringBuilder();
+						for(String s: joidAttribs)
 						{
-							goodJobBuffer.write(joidAttribString.replace("=", "")+" JOID: "+k+"\n");
+							joidAttribString+=s;
+						}
+						stringSplit=joidAttribString.split("=");
+						logger.debug(stringSplit[1]);
+						doesJobExist=db.doesJobExistInAE45(dbConnection, stringSplit[1].trim(), Integer.parseInt(k),dbType,dbName);
+						if(doesJobExist==true)
+						{
+							if(!stringSplit[9].contains("(OLD)")) // this is only if Goldman needs to ignore jobs that are also older than a certain date. Otherwise comment this logic and just write to the buffers.
+							{
+								goodJobBuffer.write(joidAttribString.replace("=", "")+" JOID: "+k+"\n");
+							}
+							else
+							{
+								badJobsBuffer.write(joidAttribString.replace("=", "")+" JOID: "+k+"\n");
+							}
 						}
 						else
 						{
 							badJobsBuffer.write(joidAttribString.replace("=", "")+" JOID: "+k+"\n");
 						}
-					}
-					else
+					//}
+					/*else
 					{
-						badJobsBuffer.write(joidAttribString.replace("=", "")+" JOID: "+k+"\n");
-					}
+						logger.info("JOID: "+k+" already processed." );
+					}*/
 				}
 				close(dbConnection);
 				goodJobBuffer.close();

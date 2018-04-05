@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/poi-3.14-beta1/ooxml-schemas-1.3.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/poi-3.14-beta1/poi-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/poi-3.14-beta1/poi-examples-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/poi-3.14-beta1/poi-excelant-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/poi-3.14-beta1/poi-ooxml-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/poi-3.14-beta1/poi-ooxml-schemas-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="lib" path="D:/DEV-Libs/poi-3.14-beta1/poi-scratchpad-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
