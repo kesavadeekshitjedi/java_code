@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
+import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -14,6 +15,7 @@ import javax.ws.rs.core.EntityTag;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.ssl.HostnameVerifier;
+import org.codehaus.jettison.json.JSONException;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -24,7 +26,7 @@ import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 
 public class JerseyGetRequests 
 {
-	public static void getJobDetails(String server, String jobName) throws NoSuchAlgorithmException, KeyManagementException
+	public static List<String> getJobDetails(String server, String jobName) throws NoSuchAlgorithmException, KeyManagementException, JSONException
 	{
 		TrustManager[] trustAllCerts = new TrustManager[] {new X509TrustManager() {
             public java.security.cert.X509Certificate[] getAcceptedIssuers() {
@@ -100,7 +102,10 @@ public class JerseyGetRequests
     EntityTag e = cResp.getEntityTag();
     String entity=cResp.getEntity(String.class);
     System.out.println("First One: "+entity);*/
-    System.out.println(response+"\n");
+    //System.out.println(response+"\n");
+    AEJsonParser aejson = new AEJsonParser();
+    List<String> aeJobInfo = aejson.parseAEJsonObject(aejson.returnJsonObject(response));
+	return aeJobInfo;
     
     
     
