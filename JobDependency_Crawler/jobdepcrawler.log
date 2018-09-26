@@ -10,3 +10,1665 @@
 2018-09-26 02:00:37 INFO  main:45 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
 2018-09-26 02:00:37 INFO  main:46 - Vendor Name: Microsoft SQL Server
 2018-09-26 02:00:37 INFO  main:47 - Database Version: 10.50.1600
+2018-09-26 02:10:14 INFO  main:41 - Application Logging Initialized...
+2018-09-26 02:10:14 INFO  main:50 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 11:44:01 INFO  main:43 - Application Logging Initialized...
+2018-09-26 11:44:01 INFO  main:52 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 11:44:02 INFO  main:57 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 11:44:02 INFO  main:58 - Vendor Name: Microsoft SQL Server
+2018-09-26 11:44:02 INFO  main:59 - Database Version: 10.50.1600
+2018-09-26 11:44:02 DEBUG getJobID:75 - Connection open.
+2018-09-26 11:44:02 DEBUG getJobID:77 - select joid from ujo_job where job_name='job1 and is_active='1' and is_currver='1'
+2018-09-26 11:44:02 ERROR getJobID:89 - java.sql.SQLException: Invalid SQL statement or JDBC escape, terminating ''' not found.
+2018-09-26 11:44:21 INFO  main:43 - Application Logging Initialized...
+2018-09-26 11:44:21 INFO  main:52 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 11:44:22 INFO  main:57 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 11:44:22 INFO  main:58 - Vendor Name: Microsoft SQL Server
+2018-09-26 11:44:22 INFO  main:59 - Database Version: 10.50.1600
+2018-09-26 11:44:22 DEBUG getJobID:75 - Connection open.
+2018-09-26 11:44:22 DEBUG getJobID:77 - select joid from ujo_job where job_name='job1 and is_active='1' and is_currver='1'
+2018-09-26 11:44:22 ERROR getJobID:89 - java.sql.SQLException: Invalid SQL statement or JDBC escape, terminating ''' not found.
+2018-09-26 11:44:49 INFO  main:43 - Application Logging Initialized...
+2018-09-26 11:44:49 INFO  main:52 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 11:44:49 INFO  main:57 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 11:44:49 INFO  main:58 - Vendor Name: Microsoft SQL Server
+2018-09-26 11:44:49 INFO  main:59 - Database Version: 10.50.1600
+2018-09-26 11:44:49 DEBUG getJobID:75 - Connection open.
+2018-09-26 11:44:49 DEBUG getJobID:77 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 11:44:49 ERROR getJobID:89 - java.sql.SQLException: Invalid object name 'ujo_job'.
+2018-09-26 11:45:08 INFO  main:43 - Application Logging Initialized...
+2018-09-26 11:45:08 INFO  main:52 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 11:45:08 INFO  main:57 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 11:45:08 INFO  main:58 - Vendor Name: Microsoft SQL Server
+2018-09-26 11:45:08 INFO  main:59 - Database Version: 10.50.1600
+2018-09-26 11:45:08 DEBUG getJobID:75 - Connection open.
+2018-09-26 11:45:08 DEBUG getJobID:77 - select joid from dbo.ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 11:45:08 ERROR getJobID:89 - java.sql.SQLException: Invalid object name 'dbo.ujo_job'.
+2018-09-26 11:45:42 INFO  main:43 - Application Logging Initialized...
+2018-09-26 11:45:42 INFO  main:52 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 11:45:42 INFO  main:57 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 11:45:42 INFO  main:58 - Vendor Name: Microsoft SQL Server
+2018-09-26 11:45:42 INFO  main:59 - Database Version: 10.50.1600
+2018-09-26 11:45:42 DEBUG getJobID:75 - Connection open.
+2018-09-26 11:45:42 DEBUG getJobID:77 - select JOID from dbo.UJO_JOB where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 11:45:42 ERROR getJobID:89 - java.sql.SQLException: Invalid object name 'dbo.UJO_JOB'.
+2018-09-26 11:46:22 INFO  main:43 - Application Logging Initialized...
+2018-09-26 11:46:22 INFO  main:52 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 11:46:23 INFO  main:57 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 11:46:23 INFO  main:58 - Vendor Name: Microsoft SQL Server
+2018-09-26 11:46:23 INFO  main:59 - Database Version: 10.50.1600
+2018-09-26 11:46:23 DEBUG getJobID:75 - Connection open.
+2018-09-26 11:46:23 DEBUG getJobID:77 - select JOID from dbo.UJO_JOB where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 11:46:23 ERROR getJobID:89 - java.sql.SQLException: Invalid object name 'dbo.UJO_JOB'.
+2018-09-26 11:48:09 INFO  main:43 - Application Logging Initialized...
+2018-09-26 11:48:09 INFO  main:52 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 11:48:09 DEBUG main:53 - SB-EM1.RMT.com
+2018-09-26 11:48:09 DEBUG main:54 - 1433
+2018-09-26 11:48:09 DEBUG main:55 - AEDB
+2018-09-26 11:48:10 INFO  main:60 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 11:48:10 INFO  main:61 - Vendor Name: Microsoft SQL Server
+2018-09-26 11:48:10 INFO  main:62 - Database Version: 10.50.1600
+2018-09-26 11:48:10 DEBUG getJobID:78 - Connection open.
+2018-09-26 11:48:10 DEBUG getJobID:80 - select JOID from dbo.UJO_JOB where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 11:48:10 ERROR getJobID:92 - java.sql.SQLException: Invalid object name 'dbo.UJO_JOB'.
+2018-09-26 11:51:23 INFO  main:43 - Application Logging Initialized...
+2018-09-26 11:51:23 INFO  main:52 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 11:51:23 DEBUG main:53 - SB-EM1.RMT.com
+2018-09-26 11:51:23 DEBUG main:54 - 1433
+2018-09-26 11:51:23 DEBUG main:55 - AEDB
+2018-09-26 11:51:23 INFO  main:60 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 11:51:23 INFO  main:61 - Vendor Name: Microsoft SQL Server
+2018-09-26 11:51:23 INFO  main:62 - Database Version: 10.50.1600
+2018-09-26 11:51:23 DEBUG getJobID:78 - Connection open.
+2018-09-26 11:51:23 DEBUG getJobID:80 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 11:51:23 DEBUG getJobID:86 - Joid for job: job1 is: 6720
+2018-09-26 12:00:40 INFO  main:43 - Application Logging Initialized...
+2018-09-26 12:00:40 INFO  main:52 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:00:40 DEBUG main:53 - SB-EM1.RMT.com
+2018-09-26 12:00:40 DEBUG main:54 - 1433
+2018-09-26 12:00:40 DEBUG main:55 - AEDB
+2018-09-26 12:00:40 INFO  main:60 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:00:40 INFO  main:61 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:00:40 INFO  main:62 - Database Version: 10.50.1600
+2018-09-26 12:00:40 INFO  getDependentJobs:101 - Attempting to retrieve joid for job1
+2018-09-26 12:00:40 DEBUG getJobID:78 - Connection open.
+2018-09-26 12:00:40 DEBUG getJobID:80 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:00:40 DEBUG getJobID:86 - Joid for job: job1 is: 6720
+2018-09-26 12:00:40 INFO  getJobID:103 - JOID retrieved...6720
+2018-09-26 12:00:40 DEBUG getJobID:110 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:00:40 DEBUG getJobID:116 - Job: job1 has a dependency: dep2
+2018-09-26 12:00:40 DEBUG getJobID:116 - Job: job1 has a dependency: dep1
+2018-09-26 12:00:40 DEBUG getJobID:116 - Job: job1 has a dependency: dep3
+2018-09-26 12:00:40 DEBUG getJobID:116 - Job: job1 has a dependency: dep4
+2018-09-26 12:00:40 DEBUG getJobID:116 - Job: job1 has a dependency: dep5
+2018-09-26 12:08:06 INFO  main:44 - Application Logging Initialized...
+2018-09-26 12:08:06 INFO  main:53 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:08:06 DEBUG main:54 - SB-EM1.RMT.com
+2018-09-26 12:08:06 DEBUG main:55 - 1433
+2018-09-26 12:08:06 DEBUG main:56 - AEDB
+2018-09-26 12:08:07 INFO  main:61 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:08:07 INFO  main:62 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:08:07 INFO  main:63 - Database Version: 10.50.1600
+2018-09-26 12:08:07 INFO  getDependentJobs:102 - Attempting to retrieve joid for job1
+2018-09-26 12:08:07 DEBUG getJobID:79 - Connection open.
+2018-09-26 12:08:07 DEBUG getJobID:81 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:08:07 DEBUG getJobID:87 - Joid for job: job1 is: 6720
+2018-09-26 12:08:07 INFO  getJobID:104 - JOID retrieved...6720
+2018-09-26 12:08:07 DEBUG getJobID:112 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:08:07 DEBUG getJobID:118 - Job: job1 has a dependency: dep2
+2018-09-26 12:08:07 DEBUG getJobID:118 - Job: job1 has a dependency: dep1
+2018-09-26 12:08:07 DEBUG getJobID:118 - Job: job1 has a dependency: dep3
+2018-09-26 12:08:07 DEBUG getJobID:118 - Job: job1 has a dependency: dep4
+2018-09-26 12:08:07 DEBUG getJobID:118 - Job: job1 has a dependency: dep5
+2018-09-26 12:08:07 INFO  getJobID:125 - job1,dep2,0
+2018-09-26 12:08:07 INFO  getJobID:125 - job1,dep1,0
+2018-09-26 12:08:07 INFO  getJobID:125 - job1,dep3,0
+2018-09-26 12:08:07 INFO  getJobID:125 - job1,dep4,0
+2018-09-26 12:08:07 INFO  getJobID:125 - job1,dep5,0
+2018-09-26 12:08:27 INFO  main:44 - Application Logging Initialized...
+2018-09-26 12:08:27 INFO  main:53 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:08:27 DEBUG main:54 - SB-EM1.RMT.com
+2018-09-26 12:08:27 DEBUG main:55 - 1433
+2018-09-26 12:08:27 DEBUG main:56 - AEDB
+2018-09-26 12:08:28 INFO  main:61 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:08:28 INFO  main:62 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:08:28 INFO  main:63 - Database Version: 10.50.1600
+2018-09-26 12:08:28 INFO  getDependentJobs:102 - Attempting to retrieve joid for job1
+2018-09-26 12:08:28 DEBUG getJobID:79 - Connection open.
+2018-09-26 12:08:28 DEBUG getJobID:81 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:08:28 DEBUG getJobID:87 - Joid for job: job1 is: 6720
+2018-09-26 12:08:28 INFO  getJobID:104 - JOID retrieved...6720
+2018-09-26 12:08:28 DEBUG getJobID:112 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:08:28 DEBUG getJobID:118 - Job: job1 has a dependency: dep2
+2018-09-26 12:08:28 DEBUG getJobID:118 - Job: job1 has a dependency: dep1
+2018-09-26 12:08:28 DEBUG getJobID:118 - Job: job1 has a dependency: dep3
+2018-09-26 12:08:28 DEBUG getJobID:118 - Job: job1 has a dependency: dep4
+2018-09-26 12:08:28 DEBUG getJobID:118 - Job: job1 has a dependency: dep5
+2018-09-26 12:08:28 INFO  getJobID:125 - job1,dep2,0
+2018-09-26 12:08:28 INFO  getJobID:125 - job1,dep1,0
+2018-09-26 12:08:28 INFO  getJobID:125 - job1,dep3,0
+2018-09-26 12:08:28 INFO  getJobID:125 - job1,dep4,0
+2018-09-26 12:08:28 INFO  getJobID:125 - job1,dep5,0
+2018-09-26 12:12:23 INFO  main:44 - Application Logging Initialized...
+2018-09-26 12:12:23 INFO  main:53 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:12:23 DEBUG main:54 - SB-EM1.RMT.com
+2018-09-26 12:12:23 DEBUG main:55 - 1433
+2018-09-26 12:12:23 DEBUG main:56 - AEDB
+2018-09-26 12:12:24 INFO  main:61 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:12:24 INFO  main:62 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:12:24 INFO  main:63 - Database Version: 10.50.1600
+2018-09-26 12:12:24 INFO  getDependentJobs:112 - Attempting to retrieve joid for job1
+2018-09-26 12:12:24 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:24 DEBUG getJobID:91 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:12:24 DEBUG getJobID:97 - Joid for job: job1 is: 6720
+2018-09-26 12:12:24 INFO  getJobID:114 - JOID retrieved...6720
+2018-09-26 12:12:24 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: job1 has a dependency: dep2
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: job1 has a dependency: dep1
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: job1 has a dependency: dep3
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: job1 has a dependency: dep4
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: job1 has a dependency: dep5
+2018-09-26 12:12:24 INFO  getJobID:67 - Getting dependent jobs for :dep2
+2018-09-26 12:12:24 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep2
+2018-09-26 12:12:24 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:24 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:12:24 DEBUG getJobID:97 - Joid for job: dep2 is: 6723
+2018-09-26 12:12:24 INFO  getJobID:114 - JOID retrieved...6723
+2018-09-26 12:12:24 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep2 has a dependency: dd1
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep2 has a dependency: dd2
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep2 has a dependency: dd3
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep2 has a dependency: dd4
+2018-09-26 12:12:24 INFO  getJobID:67 - Getting dependent jobs for :dep1
+2018-09-26 12:12:24 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep3
+2018-09-26 12:12:24 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:24 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep3' and is_active='1' and is_currver='1'
+2018-09-26 12:12:24 DEBUG getJobID:97 - Joid for job: dep3 is: 6724
+2018-09-26 12:12:24 INFO  getJobID:114 - JOID retrieved...6724
+2018-09-26 12:12:24 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6724' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep3 has a dependency: dd11
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep3 has a dependency: dd12
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep3 has a dependency: dd13
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep3 has a dependency: dd14
+2018-09-26 12:12:24 INFO  getJobID:67 - Getting dependent jobs for :dep3
+2018-09-26 12:12:24 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep5
+2018-09-26 12:12:24 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:24 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep5' and is_active='1' and is_currver='1'
+2018-09-26 12:12:24 DEBUG getJobID:97 - Joid for job: dep5 is: 6726
+2018-09-26 12:12:24 INFO  getJobID:114 - JOID retrieved...6726
+2018-09-26 12:12:24 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6726' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5111
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5112
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5113
+2018-09-26 12:12:24 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5114
+2018-09-26 12:12:24 INFO  getJobID:67 - Getting dependent jobs for :dep4
+2018-09-26 12:12:24 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd2
+2018-09-26 12:12:24 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:24 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd2' and is_active='1' and is_currver='1'
+2018-09-26 12:12:24 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:24 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:24 INFO  getJobID:67 - Getting dependent jobs for :dep5
+2018-09-26 12:12:24 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd4
+2018-09-26 12:12:24 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:24 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd4' and is_active='1' and is_currver='1'
+2018-09-26 12:12:24 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:24 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:24 INFO  getJobID:67 - Getting dependent jobs for :dd1
+2018-09-26 12:12:24 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd12
+2018-09-26 12:12:24 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:24 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd12' and is_active='1' and is_currver='1'
+2018-09-26 12:12:24 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:24 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:24 INFO  getJobID:67 - Getting dependent jobs for :dd2
+2018-09-26 12:12:24 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd14
+2018-09-26 12:12:24 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:24 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd14' and is_active='1' and is_currver='1'
+2018-09-26 12:12:24 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:24 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:24 INFO  getJobID:67 - Getting dependent jobs for :dd3
+2018-09-26 12:12:24 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd5112
+2018-09-26 12:12:24 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:24 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd5112' and is_active='1' and is_currver='1'
+2018-09-26 12:12:24 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:24 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:24 INFO  getJobID:67 - Getting dependent jobs for :dd4
+2018-09-26 12:12:24 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd5114
+2018-09-26 12:12:24 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:24 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd5114' and is_active='1' and is_currver='1'
+2018-09-26 12:12:24 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:24 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:24 INFO  getJobID:73 - job1,dep2,0
+2018-09-26 12:12:24 INFO  getJobID:73 - job1,dep1,0
+2018-09-26 12:12:24 INFO  getJobID:73 - job1,dep3,0
+2018-09-26 12:12:24 INFO  getJobID:73 - job1,dep4,0
+2018-09-26 12:12:24 INFO  getJobID:73 - job1,dep5,0
+2018-09-26 12:12:24 INFO  getJobID:73 - dep2,dd1,1
+2018-09-26 12:12:24 INFO  getJobID:73 - dep2,dd2,1
+2018-09-26 12:12:24 INFO  getJobID:73 - dep2,dd3,1
+2018-09-26 12:12:24 INFO  getJobID:73 - dep2,dd4,1
+2018-09-26 12:12:24 INFO  getJobID:73 - dep3,dd11,2
+2018-09-26 12:12:24 INFO  getJobID:73 - dep3,dd12,2
+2018-09-26 12:12:24 INFO  getJobID:73 - dep3,dd13,2
+2018-09-26 12:12:24 INFO  getJobID:73 - dep3,dd14,2
+2018-09-26 12:12:24 INFO  getJobID:73 - dep5,dd5111,3
+2018-09-26 12:12:24 INFO  getJobID:73 - dep5,dd5112,3
+2018-09-26 12:12:24 INFO  getJobID:73 - dep5,dd5113,3
+2018-09-26 12:12:24 INFO  getJobID:73 - dep5,dd5114,3
+2018-09-26 12:12:33 INFO  main:44 - Application Logging Initialized...
+2018-09-26 12:12:33 INFO  main:53 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:12:33 DEBUG main:54 - SB-EM1.RMT.com
+2018-09-26 12:12:33 DEBUG main:55 - 1433
+2018-09-26 12:12:33 DEBUG main:56 - AEDB
+2018-09-26 12:12:33 INFO  main:61 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:12:33 INFO  main:62 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:12:33 INFO  main:63 - Database Version: 10.50.1600
+2018-09-26 12:12:33 INFO  getDependentJobs:112 - Attempting to retrieve joid for job1
+2018-09-26 12:12:33 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:33 DEBUG getJobID:91 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:12:33 DEBUG getJobID:97 - Joid for job: job1 is: 6720
+2018-09-26 12:12:33 INFO  getJobID:114 - JOID retrieved...6720
+2018-09-26 12:12:33 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: job1 has a dependency: dep2
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: job1 has a dependency: dep1
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: job1 has a dependency: dep3
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: job1 has a dependency: dep4
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: job1 has a dependency: dep5
+2018-09-26 12:12:33 INFO  getJobID:67 - Getting dependent jobs for :dep2
+2018-09-26 12:12:33 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep2
+2018-09-26 12:12:33 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:33 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:12:33 DEBUG getJobID:97 - Joid for job: dep2 is: 6723
+2018-09-26 12:12:33 INFO  getJobID:114 - JOID retrieved...6723
+2018-09-26 12:12:33 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: dep2 has a dependency: dd1
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: dep2 has a dependency: dd2
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: dep2 has a dependency: dd3
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: dep2 has a dependency: dd4
+2018-09-26 12:12:33 INFO  getJobID:67 - Getting dependent jobs for :dep1
+2018-09-26 12:12:33 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep3
+2018-09-26 12:12:33 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:33 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep3' and is_active='1' and is_currver='1'
+2018-09-26 12:12:33 DEBUG getJobID:97 - Joid for job: dep3 is: 6724
+2018-09-26 12:12:33 INFO  getJobID:114 - JOID retrieved...6724
+2018-09-26 12:12:33 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6724' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: dep3 has a dependency: dd11
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: dep3 has a dependency: dd12
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: dep3 has a dependency: dd13
+2018-09-26 12:12:33 DEBUG getJobID:128 - Job: dep3 has a dependency: dd14
+2018-09-26 12:12:33 INFO  getJobID:67 - Getting dependent jobs for :dep3
+2018-09-26 12:12:33 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep5
+2018-09-26 12:12:33 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:33 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep5' and is_active='1' and is_currver='1'
+2018-09-26 12:12:33 DEBUG getJobID:97 - Joid for job: dep5 is: 6726
+2018-09-26 12:12:33 INFO  getJobID:114 - JOID retrieved...6726
+2018-09-26 12:12:33 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6726' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:34 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5111
+2018-09-26 12:12:34 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5112
+2018-09-26 12:12:34 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5113
+2018-09-26 12:12:34 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5114
+2018-09-26 12:12:34 INFO  getJobID:67 - Getting dependent jobs for :dep4
+2018-09-26 12:12:34 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd2
+2018-09-26 12:12:34 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:34 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd2' and is_active='1' and is_currver='1'
+2018-09-26 12:12:34 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:34 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:34 INFO  getJobID:67 - Getting dependent jobs for :dep5
+2018-09-26 12:12:34 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd4
+2018-09-26 12:12:34 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:34 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd4' and is_active='1' and is_currver='1'
+2018-09-26 12:12:34 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:34 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:34 INFO  getJobID:67 - Getting dependent jobs for :dd1
+2018-09-26 12:12:34 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd12
+2018-09-26 12:12:34 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:34 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd12' and is_active='1' and is_currver='1'
+2018-09-26 12:12:34 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:34 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:34 INFO  getJobID:67 - Getting dependent jobs for :dd2
+2018-09-26 12:12:34 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd14
+2018-09-26 12:12:34 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:34 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd14' and is_active='1' and is_currver='1'
+2018-09-26 12:12:34 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:34 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:34 INFO  getJobID:67 - Getting dependent jobs for :dd3
+2018-09-26 12:12:34 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd5112
+2018-09-26 12:12:34 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:34 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd5112' and is_active='1' and is_currver='1'
+2018-09-26 12:12:34 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:34 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:34 INFO  getJobID:67 - Getting dependent jobs for :dd4
+2018-09-26 12:12:34 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd5114
+2018-09-26 12:12:34 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:12:34 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd5114' and is_active='1' and is_currver='1'
+2018-09-26 12:12:34 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:12:34 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:12:34 INFO  getJobID:73 - job1,dep2,0
+2018-09-26 12:12:34 INFO  getJobID:73 - job1,dep1,0
+2018-09-26 12:12:34 INFO  getJobID:73 - job1,dep3,0
+2018-09-26 12:12:34 INFO  getJobID:73 - job1,dep4,0
+2018-09-26 12:12:34 INFO  getJobID:73 - job1,dep5,0
+2018-09-26 12:12:34 INFO  getJobID:73 - dep2,dd1,1
+2018-09-26 12:12:34 INFO  getJobID:73 - dep2,dd2,1
+2018-09-26 12:12:34 INFO  getJobID:73 - dep2,dd3,1
+2018-09-26 12:12:34 INFO  getJobID:73 - dep2,dd4,1
+2018-09-26 12:12:34 INFO  getJobID:73 - dep3,dd11,2
+2018-09-26 12:12:34 INFO  getJobID:73 - dep3,dd12,2
+2018-09-26 12:12:34 INFO  getJobID:73 - dep3,dd13,2
+2018-09-26 12:12:34 INFO  getJobID:73 - dep3,dd14,2
+2018-09-26 12:12:34 INFO  getJobID:73 - dep5,dd5111,3
+2018-09-26 12:12:34 INFO  getJobID:73 - dep5,dd5112,3
+2018-09-26 12:12:34 INFO  getJobID:73 - dep5,dd5113,3
+2018-09-26 12:12:34 INFO  getJobID:73 - dep5,dd5114,3
+2018-09-26 12:16:50 INFO  main:44 - Application Logging Initialized...
+2018-09-26 12:16:50 INFO  main:53 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:16:50 DEBUG main:54 - SB-EM1.RMT.com
+2018-09-26 12:16:50 DEBUG main:55 - 1433
+2018-09-26 12:16:50 DEBUG main:56 - AEDB
+2018-09-26 12:16:51 INFO  main:61 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:16:51 INFO  main:62 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:16:51 INFO  main:63 - Database Version: 10.50.1600
+2018-09-26 12:16:51 INFO  getDependentJobs:112 - Attempting to retrieve joid for job1
+2018-09-26 12:16:51 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:16:51 DEBUG getJobID:91 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:16:51 DEBUG getJobID:97 - Joid for job: job1 is: 6720
+2018-09-26 12:16:51 INFO  getJobID:114 - JOID retrieved...6720
+2018-09-26 12:16:51 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:16:51 DEBUG getJobID:128 - Job: job1 has a dependency: dep2
+2018-09-26 12:16:51 DEBUG getJobID:128 - Job: job1 has a dependency: dep1
+2018-09-26 12:16:51 DEBUG getJobID:128 - Job: job1 has a dependency: dep3
+2018-09-26 12:16:51 DEBUG getJobID:128 - Job: job1 has a dependency: dep4
+2018-09-26 12:16:51 DEBUG getJobID:128 - Job: job1 has a dependency: dep5
+2018-09-26 12:17:01 INFO  getJobID:67 - Getting dependent jobs for :dep2
+2018-09-26 12:17:17 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep2
+2018-09-26 12:17:17 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:17:17 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:17:17 DEBUG getJobID:97 - Joid for job: dep2 is: 6723
+2018-09-26 12:17:17 INFO  getJobID:114 - JOID retrieved...6723
+2018-09-26 12:17:17 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:17:18 DEBUG getJobID:128 - Job: dep2 has a dependency: dd1
+2018-09-26 12:17:18 DEBUG getJobID:128 - Job: dep2 has a dependency: dd2
+2018-09-26 12:17:18 DEBUG getJobID:128 - Job: dep2 has a dependency: dd3
+2018-09-26 12:17:18 DEBUG getJobID:128 - Job: dep2 has a dependency: dd4
+2018-09-26 12:18:04 INFO  getJobID:67 - Getting dependent jobs for :dep1
+2018-09-26 12:18:29 INFO  main:44 - Application Logging Initialized...
+2018-09-26 12:18:29 INFO  main:53 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:18:29 DEBUG main:54 - SB-EM1.RMT.com
+2018-09-26 12:18:29 DEBUG main:55 - 1433
+2018-09-26 12:18:29 DEBUG main:56 - AEDB
+2018-09-26 12:18:29 INFO  main:61 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:18:29 INFO  main:62 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:18:29 INFO  main:63 - Database Version: 10.50.1600
+2018-09-26 12:18:29 INFO  getDependentJobs:112 - Attempting to retrieve joid for job1
+2018-09-26 12:18:29 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:29 DEBUG getJobID:91 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:18:29 DEBUG getJobID:97 - Joid for job: job1 is: 6720
+2018-09-26 12:18:29 INFO  getJobID:114 - JOID retrieved...6720
+2018-09-26 12:18:29 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:29 DEBUG getJobID:128 - Job: job1 has a dependency: dep2
+2018-09-26 12:18:29 DEBUG getJobID:128 - Job: job1 has a dependency: dep1
+2018-09-26 12:18:29 DEBUG getJobID:128 - Job: job1 has a dependency: dep3
+2018-09-26 12:18:29 DEBUG getJobID:128 - Job: job1 has a dependency: dep4
+2018-09-26 12:18:29 DEBUG getJobID:128 - Job: job1 has a dependency: dep5
+2018-09-26 12:18:29 INFO  getJobID:67 - Getting dependent jobs for :dep2
+2018-09-26 12:18:29 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep2
+2018-09-26 12:18:29 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:29 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:18:29 DEBUG getJobID:97 - Joid for job: dep2 is: 6723
+2018-09-26 12:18:29 INFO  getJobID:114 - JOID retrieved...6723
+2018-09-26 12:18:29 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:29 DEBUG getJobID:128 - Job: dep2 has a dependency: dd1
+2018-09-26 12:18:29 DEBUG getJobID:128 - Job: dep2 has a dependency: dd2
+2018-09-26 12:18:29 DEBUG getJobID:128 - Job: dep2 has a dependency: dd3
+2018-09-26 12:18:29 DEBUG getJobID:128 - Job: dep2 has a dependency: dd4
+2018-09-26 12:18:29 INFO  getJobID:67 - Getting dependent jobs for :dep1
+2018-09-26 12:18:29 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep1
+2018-09-26 12:18:29 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:29 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep1' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 DEBUG getJobID:97 - Joid for job: dep1 is: 6722
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...6722
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6722' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep1 has a dependency: job1
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep1 has a dependency: job3
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :dep3
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep3
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep3' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 DEBUG getJobID:97 - Joid for job: dep3 is: 6724
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...6724
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6724' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep3 has a dependency: dd11
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep3 has a dependency: dd12
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep3 has a dependency: dd13
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep3 has a dependency: dd14
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :dep4
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep4
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep4' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 DEBUG getJobID:97 - Joid for job: dep4 is: 6725
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...6725
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6725' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep4 has a dependency: dd111
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep4 has a dependency: dd112
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep4 has a dependency: dd113
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep4 has a dependency: dd114
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :dep5
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for dep5
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='dep5' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 DEBUG getJobID:97 - Joid for job: dep5 is: 6726
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...6726
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6726' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5111
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5112
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5113
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: dep5 has a dependency: dd5114
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :dd1
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd1
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd1' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :dd2
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd2
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd2' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :dd3
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd3
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd3' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :dd4
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd4
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd4' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :job1
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for job1
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 DEBUG getJobID:97 - Joid for job: job1 is: 6720
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...6720
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: job1 has a dependency: dep2
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: job1 has a dependency: dep1
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: job1 has a dependency: dep3
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: job1 has a dependency: dep4
+2018-09-26 12:18:30 DEBUG getJobID:128 - Job: job1 has a dependency: dep5
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :job3
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for job3
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='job3' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :dd11
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd11
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd11' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :dd12
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd12
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd12' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 INFO  getJobID:67 - Getting dependent jobs for :dd13
+2018-09-26 12:18:30 INFO  getDependentJobs:112 - Attempting to retrieve joid for dd13
+2018-09-26 12:18:30 DEBUG getJobID:89 - Connection open.
+2018-09-26 12:18:30 DEBUG getJobID:91 - select joid from ujo_job where job_name='dd13' and is_active='1' and is_currver='1'
+2018-09-26 12:18:30 INFO  getJobID:114 - JOID retrieved...0
+2018-09-26 12:18:30 DEBUG getJobID:122 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:18:30 INFO  getJobID:73 - job1,dep2,0
+2018-09-26 12:18:30 INFO  getJobID:73 - job1,dep1,0
+2018-09-26 12:18:30 INFO  getJobID:73 - job1,dep3,0
+2018-09-26 12:18:30 INFO  getJobID:73 - job1,dep4,0
+2018-09-26 12:18:30 INFO  getJobID:73 - job1,dep5,0
+2018-09-26 12:18:30 INFO  getJobID:73 - dep2,dd1,1
+2018-09-26 12:18:30 INFO  getJobID:73 - dep2,dd2,1
+2018-09-26 12:18:30 INFO  getJobID:73 - dep2,dd3,1
+2018-09-26 12:18:30 INFO  getJobID:73 - dep2,dd4,1
+2018-09-26 12:18:30 INFO  getJobID:73 - dep1,job1,2
+2018-09-26 12:18:30 INFO  getJobID:73 - dep1,job3,2
+2018-09-26 12:18:30 INFO  getJobID:73 - dep3,dd11,3
+2018-09-26 12:18:30 INFO  getJobID:73 - dep3,dd12,3
+2018-09-26 12:18:30 INFO  getJobID:73 - dep3,dd13,3
+2018-09-26 12:18:30 INFO  getJobID:73 - dep3,dd14,3
+2018-09-26 12:18:30 INFO  getJobID:73 - dep4,dd111,4
+2018-09-26 12:18:30 INFO  getJobID:73 - dep4,dd112,4
+2018-09-26 12:18:30 INFO  getJobID:73 - dep4,dd113,4
+2018-09-26 12:18:30 INFO  getJobID:73 - dep4,dd114,4
+2018-09-26 12:18:30 INFO  getJobID:73 - dep5,dd5111,5
+2018-09-26 12:18:30 INFO  getJobID:73 - dep5,dd5112,5
+2018-09-26 12:18:30 INFO  getJobID:73 - dep5,dd5113,5
+2018-09-26 12:18:30 INFO  getJobID:73 - dep5,dd5114,5
+2018-09-26 12:18:30 INFO  getJobID:73 - job1,dep2,10
+2018-09-26 12:18:30 INFO  getJobID:73 - job1,dep1,10
+2018-09-26 12:18:30 INFO  getJobID:73 - job1,dep3,10
+2018-09-26 12:18:30 INFO  getJobID:73 - job1,dep4,10
+2018-09-26 12:18:30 INFO  getJobID:73 - job1,dep5,10
+2018-09-26 12:21:32 INFO  main:44 - Application Logging Initialized...
+2018-09-26 12:21:32 INFO  main:53 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:21:32 DEBUG main:54 - SB-EM1.RMT.com
+2018-09-26 12:21:32 DEBUG main:55 - 1433
+2018-09-26 12:21:32 DEBUG main:56 - AEDB
+2018-09-26 12:21:33 INFO  main:61 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:21:33 INFO  main:62 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:21:33 INFO  main:63 - Database Version: 10.50.1600
+2018-09-26 12:21:33 INFO  getDependentJobs:122 - Attempting to retrieve joid for job1
+2018-09-26 12:21:33 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:33 DEBUG getJobID:101 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:21:33 DEBUG getJobID:107 - Joid for job: job1 is: 6720
+2018-09-26 12:21:33 INFO  getJobID:124 - JOID retrieved...6720
+2018-09-26 12:21:33 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: job1 has a dependency: dep2
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: job1 has a dependency: dep1
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: job1 has a dependency: dep3
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: job1 has a dependency: dep4
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: job1 has a dependency: dep5
+2018-09-26 12:21:33 INFO  getJobID:67 - Getting dependent jobs for :dep2
+2018-09-26 12:21:33 INFO  getDependentJobs:122 - Attempting to retrieve joid for dep2
+2018-09-26 12:21:33 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:33 DEBUG getJobID:101 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:21:33 DEBUG getJobID:107 - Joid for job: dep2 is: 6723
+2018-09-26 12:21:33 INFO  getJobID:124 - JOID retrieved...6723
+2018-09-26 12:21:33 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep2 has a dependency: dd1
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep2 has a dependency: dd2
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep2 has a dependency: dd3
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep2 has a dependency: dd4
+2018-09-26 12:21:33 INFO  getJobID:67 - Getting dependent jobs for :dep1
+2018-09-26 12:21:33 INFO  getDependentJobs:122 - Attempting to retrieve joid for dep1
+2018-09-26 12:21:33 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:33 DEBUG getJobID:101 - select joid from ujo_job where job_name='dep1' and is_active='1' and is_currver='1'
+2018-09-26 12:21:33 DEBUG getJobID:107 - Joid for job: dep1 is: 6722
+2018-09-26 12:21:33 INFO  getJobID:124 - JOID retrieved...6722
+2018-09-26 12:21:33 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6722' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep1 has a dependency: job1
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep1 has a dependency: job3
+2018-09-26 12:21:33 INFO  getJobID:67 - Getting dependent jobs for :dep3
+2018-09-26 12:21:33 INFO  getDependentJobs:122 - Attempting to retrieve joid for dep3
+2018-09-26 12:21:33 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:33 DEBUG getJobID:101 - select joid from ujo_job where job_name='dep3' and is_active='1' and is_currver='1'
+2018-09-26 12:21:33 DEBUG getJobID:107 - Joid for job: dep3 is: 6724
+2018-09-26 12:21:33 INFO  getJobID:124 - JOID retrieved...6724
+2018-09-26 12:21:33 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6724' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep3 has a dependency: dd11
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep3 has a dependency: dd12
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep3 has a dependency: dd13
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep3 has a dependency: dd14
+2018-09-26 12:21:33 INFO  getJobID:67 - Getting dependent jobs for :dep4
+2018-09-26 12:21:33 INFO  getDependentJobs:122 - Attempting to retrieve joid for dep4
+2018-09-26 12:21:33 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:33 DEBUG getJobID:101 - select joid from ujo_job where job_name='dep4' and is_active='1' and is_currver='1'
+2018-09-26 12:21:33 DEBUG getJobID:107 - Joid for job: dep4 is: 6725
+2018-09-26 12:21:33 INFO  getJobID:124 - JOID retrieved...6725
+2018-09-26 12:21:33 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6725' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep4 has a dependency: dd111
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep4 has a dependency: dd112
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep4 has a dependency: dd113
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep4 has a dependency: dd114
+2018-09-26 12:21:33 INFO  getJobID:67 - Getting dependent jobs for :dep5
+2018-09-26 12:21:33 INFO  getDependentJobs:122 - Attempting to retrieve joid for dep5
+2018-09-26 12:21:33 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:33 DEBUG getJobID:101 - select joid from ujo_job where job_name='dep5' and is_active='1' and is_currver='1'
+2018-09-26 12:21:33 DEBUG getJobID:107 - Joid for job: dep5 is: 6726
+2018-09-26 12:21:33 INFO  getJobID:124 - JOID retrieved...6726
+2018-09-26 12:21:33 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6726' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep5 has a dependency: dd5111
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep5 has a dependency: dd5112
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep5 has a dependency: dd5113
+2018-09-26 12:21:33 DEBUG getJobID:138 - Job: dep5 has a dependency: dd5114
+2018-09-26 12:21:33 INFO  getJobID:67 - Getting dependent jobs for :dd1
+2018-09-26 12:21:33 INFO  getDependentJobs:122 - Attempting to retrieve joid for dd1
+2018-09-26 12:21:33 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:33 DEBUG getJobID:101 - select joid from ujo_job where job_name='dd1' and is_active='1' and is_currver='1'
+2018-09-26 12:21:33 INFO  getJobID:124 - JOID retrieved...0
+2018-09-26 12:21:33 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:33 INFO  getJobID:67 - Getting dependent jobs for :dd2
+2018-09-26 12:21:33 INFO  getDependentJobs:122 - Attempting to retrieve joid for dd2
+2018-09-26 12:21:33 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:33 DEBUG getJobID:101 - select joid from ujo_job where job_name='dd2' and is_active='1' and is_currver='1'
+2018-09-26 12:21:33 INFO  getJobID:124 - JOID retrieved...0
+2018-09-26 12:21:33 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:34 INFO  getJobID:67 - Getting dependent jobs for :dd3
+2018-09-26 12:21:34 INFO  getDependentJobs:122 - Attempting to retrieve joid for dd3
+2018-09-26 12:21:34 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:34 DEBUG getJobID:101 - select joid from ujo_job where job_name='dd3' and is_active='1' and is_currver='1'
+2018-09-26 12:21:34 INFO  getJobID:124 - JOID retrieved...0
+2018-09-26 12:21:34 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:34 INFO  getJobID:67 - Getting dependent jobs for :dd4
+2018-09-26 12:21:34 INFO  getDependentJobs:122 - Attempting to retrieve joid for dd4
+2018-09-26 12:21:34 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:34 DEBUG getJobID:101 - select joid from ujo_job where job_name='dd4' and is_active='1' and is_currver='1'
+2018-09-26 12:21:34 INFO  getJobID:124 - JOID retrieved...0
+2018-09-26 12:21:34 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:34 INFO  getJobID:67 - Getting dependent jobs for :job1
+2018-09-26 12:21:34 INFO  getDependentJobs:122 - Attempting to retrieve joid for job1
+2018-09-26 12:21:34 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:34 DEBUG getJobID:101 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:21:34 DEBUG getJobID:107 - Joid for job: job1 is: 6720
+2018-09-26 12:21:34 INFO  getJobID:124 - JOID retrieved...6720
+2018-09-26 12:21:34 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:34 DEBUG getJobID:138 - Job: job1 has a dependency: dep2
+2018-09-26 12:21:34 DEBUG getJobID:138 - Job: job1 has a dependency: dep1
+2018-09-26 12:21:34 DEBUG getJobID:138 - Job: job1 has a dependency: dep3
+2018-09-26 12:21:34 DEBUG getJobID:138 - Job: job1 has a dependency: dep4
+2018-09-26 12:21:34 DEBUG getJobID:138 - Job: job1 has a dependency: dep5
+2018-09-26 12:21:34 INFO  getJobID:67 - Getting dependent jobs for :job3
+2018-09-26 12:21:34 INFO  getDependentJobs:122 - Attempting to retrieve joid for job3
+2018-09-26 12:21:34 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:34 DEBUG getJobID:101 - select joid from ujo_job where job_name='job3' and is_active='1' and is_currver='1'
+2018-09-26 12:21:34 INFO  getJobID:124 - JOID retrieved...0
+2018-09-26 12:21:34 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:34 INFO  getJobID:67 - Getting dependent jobs for :dd11
+2018-09-26 12:21:34 INFO  getDependentJobs:122 - Attempting to retrieve joid for dd11
+2018-09-26 12:21:34 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:34 DEBUG getJobID:101 - select joid from ujo_job where job_name='dd11' and is_active='1' and is_currver='1'
+2018-09-26 12:21:34 INFO  getJobID:124 - JOID retrieved...0
+2018-09-26 12:21:34 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:34 INFO  getJobID:67 - Getting dependent jobs for :dd12
+2018-09-26 12:21:34 INFO  getDependentJobs:122 - Attempting to retrieve joid for dd12
+2018-09-26 12:21:34 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:34 DEBUG getJobID:101 - select joid from ujo_job where job_name='dd12' and is_active='1' and is_currver='1'
+2018-09-26 12:21:34 INFO  getJobID:124 - JOID retrieved...0
+2018-09-26 12:21:34 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:34 INFO  getJobID:67 - Getting dependent jobs for :dd13
+2018-09-26 12:21:34 INFO  getDependentJobs:122 - Attempting to retrieve joid for dd13
+2018-09-26 12:21:34 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:21:34 DEBUG getJobID:101 - select joid from ujo_job where job_name='dd13' and is_active='1' and is_currver='1'
+2018-09-26 12:21:34 INFO  getJobID:124 - JOID retrieved...0
+2018-09-26 12:21:34 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:21:34 INFO  getJobID:83 - job1,dep2,0
+2018-09-26 12:21:34 INFO  getJobID:83 - job1,dep1,0
+2018-09-26 12:21:34 INFO  getJobID:83 - job1,dep3,0
+2018-09-26 12:21:34 INFO  getJobID:83 - job1,dep4,0
+2018-09-26 12:21:34 INFO  getJobID:83 - job1,dep5,0
+2018-09-26 12:21:34 INFO  getJobID:83 - dep2,dd1,1
+2018-09-26 12:21:34 INFO  getJobID:83 - dep2,dd2,1
+2018-09-26 12:21:34 INFO  getJobID:83 - dep2,dd3,1
+2018-09-26 12:21:34 INFO  getJobID:83 - dep2,dd4,1
+2018-09-26 12:21:34 INFO  getJobID:83 - dep1,job1,2
+2018-09-26 12:21:34 INFO  getJobID:83 - dep1,job3,2
+2018-09-26 12:21:34 INFO  getJobID:83 - dep3,dd11,3
+2018-09-26 12:21:34 INFO  getJobID:83 - dep3,dd12,3
+2018-09-26 12:21:34 INFO  getJobID:83 - dep3,dd13,3
+2018-09-26 12:21:34 INFO  getJobID:83 - dep3,dd14,3
+2018-09-26 12:21:34 INFO  getJobID:83 - dep4,dd111,4
+2018-09-26 12:21:34 INFO  getJobID:83 - dep4,dd112,4
+2018-09-26 12:21:34 INFO  getJobID:83 - dep4,dd113,4
+2018-09-26 12:21:34 INFO  getJobID:83 - dep4,dd114,4
+2018-09-26 12:21:34 INFO  getJobID:83 - dep5,dd5111,5
+2018-09-26 12:21:34 INFO  getJobID:83 - dep5,dd5112,5
+2018-09-26 12:21:34 INFO  getJobID:83 - dep5,dd5113,5
+2018-09-26 12:21:34 INFO  getJobID:83 - dep5,dd5114,5
+2018-09-26 12:21:34 INFO  getJobID:83 - job1,dep2,10
+2018-09-26 12:21:34 INFO  getJobID:83 - job1,dep1,10
+2018-09-26 12:21:34 INFO  getJobID:83 - job1,dep3,10
+2018-09-26 12:21:34 INFO  getJobID:83 - job1,dep4,10
+2018-09-26 12:21:34 INFO  getJobID:83 - job1,dep5,10
+2018-09-26 12:22:12 INFO  main:44 - Application Logging Initialized...
+2018-09-26 12:22:12 INFO  main:53 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:22:12 DEBUG main:54 - SB-EM1.RMT.com
+2018-09-26 12:22:12 DEBUG main:55 - 1433
+2018-09-26 12:22:12 DEBUG main:56 - AEDB
+2018-09-26 12:22:13 INFO  main:61 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:22:13 INFO  main:62 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:22:13 INFO  main:63 - Database Version: 10.50.1600
+2018-09-26 12:22:13 INFO  getDependentJobs:122 - Attempting to retrieve joid for job1
+2018-09-26 12:22:13 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:22:13 DEBUG getJobID:101 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:22:13 DEBUG getJobID:107 - Joid for job: job1 is: 6720
+2018-09-26 12:22:13 INFO  getJobID:124 - JOID retrieved...6720
+2018-09-26 12:22:13 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:22:13 DEBUG getJobID:138 - Job: job1 has a dependency: dep2
+2018-09-26 12:22:13 DEBUG getJobID:138 - Job: job1 has a dependency: dep1
+2018-09-26 12:22:13 DEBUG getJobID:138 - Job: job1 has a dependency: dep3
+2018-09-26 12:22:13 DEBUG getJobID:138 - Job: job1 has a dependency: dep4
+2018-09-26 12:22:13 DEBUG getJobID:138 - Job: job1 has a dependency: dep5
+2018-09-26 12:22:23 INFO  getJobID:67 - Getting dependent jobs for :dep2
+2018-09-26 12:22:30 INFO  getDependentJobs:122 - Attempting to retrieve joid for dep2
+2018-09-26 12:22:30 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:22:30 DEBUG getJobID:101 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:22:30 DEBUG getJobID:107 - Joid for job: dep2 is: 6723
+2018-09-26 12:22:30 INFO  getJobID:124 - JOID retrieved...6723
+2018-09-26 12:22:30 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:22:30 DEBUG getJobID:138 - Job: dep2 has a dependency: dd1
+2018-09-26 12:22:30 DEBUG getJobID:138 - Job: dep2 has a dependency: dd2
+2018-09-26 12:22:30 DEBUG getJobID:138 - Job: dep2 has a dependency: dd3
+2018-09-26 12:22:30 DEBUG getJobID:138 - Job: dep2 has a dependency: dd4
+2018-09-26 12:22:38 INFO  getJobID:67 - Getting dependent jobs for :dep1
+2018-09-26 12:22:45 INFO  getDependentJobs:122 - Attempting to retrieve joid for dep1
+2018-09-26 12:22:45 DEBUG getJobID:99 - Connection open.
+2018-09-26 12:22:45 DEBUG getJobID:101 - select joid from ujo_job where job_name='dep1' and is_active='1' and is_currver='1'
+2018-09-26 12:22:45 DEBUG getJobID:107 - Joid for job: dep1 is: 6722
+2018-09-26 12:22:45 INFO  getJobID:124 - JOID retrieved...6722
+2018-09-26 12:22:45 DEBUG getJobID:132 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6722' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:22:45 DEBUG getJobID:138 - Job: dep1 has a dependency: job1
+2018-09-26 12:22:45 DEBUG getJobID:138 - Job: dep1 has a dependency: job3
+2018-09-26 12:25:16 INFO  main:44 - Application Logging Initialized...
+2018-09-26 12:25:16 INFO  main:53 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:25:16 DEBUG main:54 - SB-EM1.RMT.com
+2018-09-26 12:25:16 DEBUG main:55 - 1433
+2018-09-26 12:25:16 DEBUG main:56 - AEDB
+2018-09-26 12:25:22 INFO  main:61 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:25:23 INFO  main:62 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:25:23 INFO  main:63 - Database Version: 10.50.1600
+2018-09-26 12:28:08 INFO  main:46 - Application Logging Initialized...
+2018-09-26 12:28:08 INFO  main:55 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:28:08 DEBUG main:56 - SB-EM1.RMT.com
+2018-09-26 12:28:08 DEBUG main:57 - 1433
+2018-09-26 12:28:08 DEBUG main:58 - AEDB
+2018-09-26 12:28:15 INFO  main:63 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:28:15 INFO  main:64 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:28:16 INFO  main:65 - Database Version: 10.50.1600
+2018-09-26 12:28:27 INFO  main:70 - Retrieve job dependency tree for job: job1
+2018-09-26 12:28:53 INFO  main:46 - Application Logging Initialized...
+2018-09-26 12:28:53 INFO  main:55 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:28:53 DEBUG main:56 - SB-EM1.RMT.com
+2018-09-26 12:28:53 DEBUG main:57 - 1433
+2018-09-26 12:28:53 DEBUG main:58 - AEDB
+2018-09-26 12:28:53 INFO  main:63 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:28:53 INFO  main:64 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:28:53 INFO  main:65 - Database Version: 10.50.1600
+2018-09-26 12:28:58 INFO  main:70 - Retrieve job dependency tree for job: job1
+2018-09-26 12:28:58 INFO  getDependentJobs:130 - Attempting to retrieve joid for job1
+2018-09-26 12:28:58 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:58 DEBUG getJobID:109 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:28:58 DEBUG getJobID:115 - Joid for job: job1 is: 6720
+2018-09-26 12:28:58 INFO  getJobID:132 - JOID retrieved...6720
+2018-09-26 12:28:58 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:58 DEBUG getJobID:146 - Job: job1 has a dependency: dep2
+2018-09-26 12:28:58 DEBUG getJobID:146 - Job: job1 has a dependency: dep1
+2018-09-26 12:28:58 DEBUG getJobID:146 - Job: job1 has a dependency: dep3
+2018-09-26 12:28:58 DEBUG getJobID:146 - Job: job1 has a dependency: dep4
+2018-09-26 12:28:58 DEBUG getJobID:146 - Job: job1 has a dependency: dep5
+2018-09-26 12:28:58 INFO  getJobID:75 - Getting dependent jobs for :dep2
+2018-09-26 12:28:58 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep2
+2018-09-26 12:28:58 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:58 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:28:58 DEBUG getJobID:115 - Joid for job: dep2 is: 6723
+2018-09-26 12:28:58 INFO  getJobID:132 - JOID retrieved...6723
+2018-09-26 12:28:58 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep2 has a dependency: dd1
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep2 has a dependency: dd2
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep2 has a dependency: dd3
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep2 has a dependency: dd4
+2018-09-26 12:28:59 INFO  getJobID:75 - Getting dependent jobs for :dep1
+2018-09-26 12:28:59 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep1
+2018-09-26 12:28:59 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:59 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep1' and is_active='1' and is_currver='1'
+2018-09-26 12:28:59 DEBUG getJobID:115 - Joid for job: dep1 is: 6722
+2018-09-26 12:28:59 INFO  getJobID:132 - JOID retrieved...6722
+2018-09-26 12:28:59 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6722' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep1 has a dependency: job1
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep1 has a dependency: job3
+2018-09-26 12:28:59 INFO  getJobID:75 - Getting dependent jobs for :dep3
+2018-09-26 12:28:59 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep3
+2018-09-26 12:28:59 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:59 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep3' and is_active='1' and is_currver='1'
+2018-09-26 12:28:59 DEBUG getJobID:115 - Joid for job: dep3 is: 6724
+2018-09-26 12:28:59 INFO  getJobID:132 - JOID retrieved...6724
+2018-09-26 12:28:59 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6724' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep3 has a dependency: dd11
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep3 has a dependency: dd12
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep3 has a dependency: dd13
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep3 has a dependency: dd14
+2018-09-26 12:28:59 INFO  getJobID:75 - Getting dependent jobs for :dep4
+2018-09-26 12:28:59 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep4
+2018-09-26 12:28:59 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:59 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep4' and is_active='1' and is_currver='1'
+2018-09-26 12:28:59 DEBUG getJobID:115 - Joid for job: dep4 is: 6725
+2018-09-26 12:28:59 INFO  getJobID:132 - JOID retrieved...6725
+2018-09-26 12:28:59 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6725' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep4 has a dependency: dd111
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep4 has a dependency: dd112
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep4 has a dependency: dd113
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep4 has a dependency: dd114
+2018-09-26 12:28:59 INFO  getJobID:75 - Getting dependent jobs for :dep5
+2018-09-26 12:28:59 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep5
+2018-09-26 12:28:59 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:59 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep5' and is_active='1' and is_currver='1'
+2018-09-26 12:28:59 DEBUG getJobID:115 - Joid for job: dep5 is: 6726
+2018-09-26 12:28:59 INFO  getJobID:132 - JOID retrieved...6726
+2018-09-26 12:28:59 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6726' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5111
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5112
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5113
+2018-09-26 12:28:59 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5114
+2018-09-26 12:28:59 INFO  getJobID:75 - Getting dependent jobs for :dd1
+2018-09-26 12:28:59 INFO  getDependentJobs:130 - Attempting to retrieve joid for dd1
+2018-09-26 12:28:59 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:59 DEBUG getJobID:109 - select joid from ujo_job where job_name='dd1' and is_active='1' and is_currver='1'
+2018-09-26 12:28:59 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:28:59 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:59 INFO  getJobID:75 - Getting dependent jobs for :dd2
+2018-09-26 12:28:59 INFO  getDependentJobs:130 - Attempting to retrieve joid for dd2
+2018-09-26 12:28:59 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:59 DEBUG getJobID:109 - select joid from ujo_job where job_name='dd2' and is_active='1' and is_currver='1'
+2018-09-26 12:28:59 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:28:59 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:59 INFO  getJobID:75 - Getting dependent jobs for :dd3
+2018-09-26 12:28:59 INFO  getDependentJobs:130 - Attempting to retrieve joid for dd3
+2018-09-26 12:28:59 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:59 DEBUG getJobID:109 - select joid from ujo_job where job_name='dd3' and is_active='1' and is_currver='1'
+2018-09-26 12:28:59 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:28:59 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:59 INFO  getJobID:75 - Getting dependent jobs for :dd4
+2018-09-26 12:28:59 INFO  getDependentJobs:130 - Attempting to retrieve joid for dd4
+2018-09-26 12:28:59 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:59 DEBUG getJobID:109 - select joid from ujo_job where job_name='dd4' and is_active='1' and is_currver='1'
+2018-09-26 12:28:59 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:28:59 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:59 INFO  getJobID:75 - Getting dependent jobs for :job1
+2018-09-26 12:28:59 INFO  getJobID:85 - Job: job1 already processed for dependencies
+2018-09-26 12:28:59 INFO  getJobID:75 - Getting dependent jobs for :job3
+2018-09-26 12:28:59 INFO  getDependentJobs:130 - Attempting to retrieve joid for job3
+2018-09-26 12:28:59 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:59 DEBUG getJobID:109 - select joid from ujo_job where job_name='job3' and is_active='1' and is_currver='1'
+2018-09-26 12:28:59 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:28:59 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:59 INFO  getJobID:75 - Getting dependent jobs for :dd11
+2018-09-26 12:28:59 INFO  getDependentJobs:130 - Attempting to retrieve joid for dd11
+2018-09-26 12:28:59 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:28:59 DEBUG getJobID:109 - select joid from ujo_job where job_name='dd11' and is_active='1' and is_currver='1'
+2018-09-26 12:28:59 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:28:59 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:28:59 INFO  getJobID:91 - job1,dep2,0
+2018-09-26 12:28:59 INFO  getJobID:91 - job1,dep1,0
+2018-09-26 12:28:59 INFO  getJobID:91 - job1,dep3,0
+2018-09-26 12:28:59 INFO  getJobID:91 - job1,dep4,0
+2018-09-26 12:28:59 INFO  getJobID:91 - job1,dep5,0
+2018-09-26 12:28:59 INFO  getJobID:91 - dep2,dd1,1
+2018-09-26 12:28:59 INFO  getJobID:91 - dep2,dd2,1
+2018-09-26 12:28:59 INFO  getJobID:91 - dep2,dd3,1
+2018-09-26 12:28:59 INFO  getJobID:91 - dep2,dd4,1
+2018-09-26 12:28:59 INFO  getJobID:91 - dep1,job1,2
+2018-09-26 12:28:59 INFO  getJobID:91 - dep1,job3,2
+2018-09-26 12:28:59 INFO  getJobID:91 - dep3,dd11,3
+2018-09-26 12:28:59 INFO  getJobID:91 - dep3,dd12,3
+2018-09-26 12:28:59 INFO  getJobID:91 - dep3,dd13,3
+2018-09-26 12:28:59 INFO  getJobID:91 - dep3,dd14,3
+2018-09-26 12:28:59 INFO  getJobID:91 - dep4,dd111,4
+2018-09-26 12:28:59 INFO  getJobID:91 - dep4,dd112,4
+2018-09-26 12:28:59 INFO  getJobID:91 - dep4,dd113,4
+2018-09-26 12:28:59 INFO  getJobID:91 - dep4,dd114,4
+2018-09-26 12:28:59 INFO  getJobID:91 - dep5,dd5111,5
+2018-09-26 12:28:59 INFO  getJobID:91 - dep5,dd5112,5
+2018-09-26 12:28:59 INFO  getJobID:91 - dep5,dd5113,5
+2018-09-26 12:28:59 INFO  getJobID:91 - dep5,dd5114,5
+2018-09-26 12:30:02 INFO  main:46 - Application Logging Initialized...
+2018-09-26 12:30:02 INFO  main:55 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:30:02 DEBUG main:56 - SB-EM1.RMT.com
+2018-09-26 12:30:02 DEBUG main:57 - 1433
+2018-09-26 12:30:02 DEBUG main:58 - AEDB
+2018-09-26 12:30:11 INFO  main:63 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:30:11 INFO  main:64 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:30:11 INFO  main:65 - Database Version: 10.50.1600
+2018-09-26 12:30:25 INFO  main:70 - Retrieve job dependency tree for job: job1
+2018-09-26 12:30:25 INFO  getDependentJobs:130 - Attempting to retrieve joid for job1
+2018-09-26 12:30:25 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:30:25 DEBUG getJobID:109 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:30:25 DEBUG getJobID:115 - Joid for job: job1 is: 6720
+2018-09-26 12:30:25 INFO  getJobID:132 - JOID retrieved...6720
+2018-09-26 12:30:25 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:30:25 DEBUG getJobID:146 - Job: job1 has a dependency: dep2
+2018-09-26 12:30:25 DEBUG getJobID:146 - Job: job1 has a dependency: dep1
+2018-09-26 12:30:25 DEBUG getJobID:146 - Job: job1 has a dependency: dep3
+2018-09-26 12:30:25 DEBUG getJobID:146 - Job: job1 has a dependency: dep4
+2018-09-26 12:30:25 DEBUG getJobID:146 - Job: job1 has a dependency: dep5
+2018-09-26 12:30:56 INFO  getJobID:75 - Getting dependent jobs for :dep2
+2018-09-26 12:31:02 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep2
+2018-09-26 12:31:02 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:31:02 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:31:02 DEBUG getJobID:115 - Joid for job: dep2 is: 6723
+2018-09-26 12:31:02 INFO  getJobID:132 - JOID retrieved...6723
+2018-09-26 12:31:02 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:31:02 DEBUG getJobID:146 - Job: dep2 has a dependency: dd1
+2018-09-26 12:31:02 DEBUG getJobID:146 - Job: dep2 has a dependency: dd2
+2018-09-26 12:31:02 DEBUG getJobID:146 - Job: dep2 has a dependency: dd3
+2018-09-26 12:31:02 DEBUG getJobID:146 - Job: dep2 has a dependency: dd4
+2018-09-26 12:31:24 INFO  getJobID:75 - Getting dependent jobs for :dep1
+2018-09-26 12:32:11 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep1
+2018-09-26 12:32:11 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:32:11 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep1' and is_active='1' and is_currver='1'
+2018-09-26 12:32:11 DEBUG getJobID:115 - Joid for job: dep1 is: 6722
+2018-09-26 12:32:11 INFO  getJobID:132 - JOID retrieved...6722
+2018-09-26 12:32:11 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6722' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:32:11 DEBUG getJobID:146 - Job: dep1 has a dependency: job1
+2018-09-26 12:32:11 DEBUG getJobID:146 - Job: dep1 has a dependency: job3
+2018-09-26 12:32:49 INFO  getJobID:75 - Getting dependent jobs for :dep3
+2018-09-26 12:32:59 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep3
+2018-09-26 12:32:59 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:32:59 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep3' and is_active='1' and is_currver='1'
+2018-09-26 12:33:00 DEBUG getJobID:115 - Joid for job: dep3 is: 6724
+2018-09-26 12:33:00 INFO  getJobID:132 - JOID retrieved...6724
+2018-09-26 12:33:00 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6724' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:33:00 DEBUG getJobID:146 - Job: dep3 has a dependency: dd11
+2018-09-26 12:33:00 DEBUG getJobID:146 - Job: dep3 has a dependency: dd12
+2018-09-26 12:33:00 DEBUG getJobID:146 - Job: dep3 has a dependency: dd13
+2018-09-26 12:33:00 DEBUG getJobID:146 - Job: dep3 has a dependency: dd14
+2018-09-26 12:33:21 INFO  getJobID:75 - Getting dependent jobs for :dep4
+2018-09-26 12:33:30 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep4
+2018-09-26 12:33:30 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:33:30 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep4' and is_active='1' and is_currver='1'
+2018-09-26 12:33:30 DEBUG getJobID:115 - Joid for job: dep4 is: 6725
+2018-09-26 12:33:30 INFO  getJobID:132 - JOID retrieved...6725
+2018-09-26 12:33:30 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6725' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:33:30 DEBUG getJobID:146 - Job: dep4 has a dependency: dd111
+2018-09-26 12:33:30 DEBUG getJobID:146 - Job: dep4 has a dependency: dd112
+2018-09-26 12:33:30 DEBUG getJobID:146 - Job: dep4 has a dependency: dd113
+2018-09-26 12:33:30 DEBUG getJobID:146 - Job: dep4 has a dependency: dd114
+2018-09-26 12:33:43 INFO  getJobID:75 - Getting dependent jobs for :dep5
+2018-09-26 12:33:45 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep5
+2018-09-26 12:33:45 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:33:45 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep5' and is_active='1' and is_currver='1'
+2018-09-26 12:33:45 DEBUG getJobID:115 - Joid for job: dep5 is: 6726
+2018-09-26 12:33:45 INFO  getJobID:132 - JOID retrieved...6726
+2018-09-26 12:33:45 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6726' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:33:45 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5111
+2018-09-26 12:33:45 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5112
+2018-09-26 12:33:45 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5113
+2018-09-26 12:33:45 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5114
+2018-09-26 12:34:12 INFO  getJobID:75 - Getting dependent jobs for :dd1
+2018-09-26 12:35:46 INFO  main:46 - Application Logging Initialized...
+2018-09-26 12:35:46 INFO  main:55 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:35:46 DEBUG main:56 - SB-EM1.RMT.com
+2018-09-26 12:35:46 DEBUG main:57 - 1433
+2018-09-26 12:35:46 DEBUG main:58 - AEDB
+2018-09-26 12:35:46 INFO  main:63 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:35:46 INFO  main:64 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:35:46 INFO  main:65 - Database Version: 10.50.1600
+2018-09-26 12:35:50 INFO  main:70 - Retrieve job dependency tree for job: OTC_B_NA_DY_pss001dys
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for OTC_B_NA_DY_pss001dys
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='OTC_B_NA_DY_pss001dys' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: OTC_B_NA_DY_pss001dys is: 2284
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...2284
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2284' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss001dys has a dependency: FIN_B_NA_DY_hfi010dys
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss001dys has a dependency: FIN_B_NA_QT_hfi010qts
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss001dys has a dependency: FIN_B_NA_DY_pfi010dys
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss001dys has a dependency: FIN_B_NA_QT_pfi010qts
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss001dys has a dependency: OTC_B_NA_DY_psd024dys
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss001dys has a dependency: OTC_B_NA_DY_psd128dys
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss001dys has a dependency: FIN_B_NA_DY_ufi010dys
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss001dys has a dependency: FIN_B_NA_QT_ufi010qts
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss001dys has a dependency: OTC_B_NA_DY_usd159dys
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss001dys has a dependency: OTC_B_NA_DY_usd183dys
+2018-09-26 12:35:50 INFO  getJobID:75 - Getting dependent jobs for :FIN_B_NA_DY_hfi010dys
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_B_NA_DY_hfi010dys
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_B_NA_DY_hfi010dys' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: FIN_B_NA_DY_hfi010dys is: 2317
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...2317
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2317' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_hfi010dys has a dependency: OTC_B_NA_DY_pss031dys
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_hfi010dys has a dependency: OTC_B_NA_MT_pss031mts
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_hfi010dys has a dependency: FIN_C_NA_DY_hfi010dysa
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_hfi010dys has a dependency: FIN_C_NA_DY_hfi010dysb
+2018-09-26 12:35:50 INFO  getJobID:75 - Getting dependent jobs for :FIN_B_NA_QT_hfi010qts
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_B_NA_QT_hfi010qts
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_B_NA_QT_hfi010qts' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: FIN_B_NA_QT_hfi010qts is: 2323
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...2323
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2323' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_QT_hfi010qts has a dependency: FIN_B_NA_QT_hfi010qts
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_QT_hfi010qts has a dependency: OTC_B_NA_DY_psd178dys
+2018-09-26 12:35:50 INFO  getJobID:75 - Getting dependent jobs for :FIN_B_NA_DY_pfi010dys
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_B_NA_DY_pfi010dys
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_B_NA_DY_pfi010dys' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: FIN_B_NA_DY_pfi010dys is: 1842
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...1842
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='1842' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_pfi010dys has a dependency: OTC_B_NA_DY_pss031dys
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_pfi010dys has a dependency: OTC_B_NA_MT_pss031mts
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_pfi010dys has a dependency: FIN_C_NA_DY_pfi010dysa
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_pfi010dys has a dependency: FIN_C_NA_DY_pfi010dysb
+2018-09-26 12:35:50 INFO  getJobID:75 - Getting dependent jobs for :FIN_B_NA_QT_pfi010qts
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_B_NA_QT_pfi010qts
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_B_NA_QT_pfi010qts' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: FIN_B_NA_QT_pfi010qts is: 2326
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...2326
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2326' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_QT_pfi010qts has a dependency: FIN_B_NA_DY_pfi010dys
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_QT_pfi010qts has a dependency: FIN_C_NA_QT_pfi010qtsa
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_QT_pfi010qts has a dependency: FIN_C_NA_QT_pfi010qtsb
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_QT_pfi010qts has a dependency: OTC_B_NA_DY_psd178dys
+2018-09-26 12:35:50 INFO  getJobID:75 - Getting dependent jobs for :OTC_B_NA_DY_psd024dys
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for OTC_B_NA_DY_psd024dys
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='OTC_B_NA_DY_psd024dys' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: OTC_B_NA_DY_psd024dys is: 2265
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...2265
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2265' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: OTC_B_NA_DY_psd024dys has a dependency: OTC_B_NA_DY_psd024dys
+2018-09-26 12:35:50 INFO  getJobID:75 - Getting dependent jobs for :OTC_B_NA_DY_psd128dys
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for OTC_B_NA_DY_psd128dys
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='OTC_B_NA_DY_psd128dys' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: OTC_B_NA_DY_psd128dys is: 1659
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...1659
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='1659' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:50 INFO  getJobID:75 - Getting dependent jobs for :FIN_B_NA_DY_ufi010dys
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_B_NA_DY_ufi010dys
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_B_NA_DY_ufi010dys' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: FIN_B_NA_DY_ufi010dys is: 2338
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...2338
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2338' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_ufi010dys has a dependency: OTC_B_NA_DY_pss031dys
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_ufi010dys has a dependency: OTC_B_NA_MT_pss031mts
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_ufi010dys has a dependency: FIN_C_NA_DY_ufi010dysa
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_DY_ufi010dys has a dependency: FIN_C_NA_DY_ufi010dysb
+2018-09-26 12:35:50 INFO  getJobID:75 - Getting dependent jobs for :FIN_B_NA_QT_ufi010qts
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_B_NA_QT_ufi010qts
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_B_NA_QT_ufi010qts' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: FIN_B_NA_QT_ufi010qts is: 2344
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...2344
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2344' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_QT_ufi010qts has a dependency: FIN_B_NA_QT_ufi010qts
+2018-09-26 12:35:50 DEBUG getJobID:146 - Job: FIN_B_NA_QT_ufi010qts has a dependency: OTC_B_NA_DY_psd178dys
+2018-09-26 12:35:50 INFO  getJobID:75 - Getting dependent jobs for :OTC_B_NA_DY_usd159dys
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for OTC_B_NA_DY_usd159dys
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='OTC_B_NA_DY_usd159dys' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: OTC_B_NA_DY_usd159dys is: 1335
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...1335
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='1335' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:50 INFO  getJobID:75 - Getting dependent jobs for :OTC_B_NA_DY_usd183dys
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for OTC_B_NA_DY_usd183dys
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='OTC_B_NA_DY_usd183dys' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: OTC_B_NA_DY_usd183dys is: 1536
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...1536
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='1536' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:50 INFO  getJobID:75 - Getting dependent jobs for :OTC_B_NA_DY_pss031dys
+2018-09-26 12:35:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for OTC_B_NA_DY_pss031dys
+2018-09-26 12:35:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='OTC_B_NA_DY_pss031dys' and is_active='1' and is_currver='1'
+2018-09-26 12:35:50 DEBUG getJobID:115 - Joid for job: OTC_B_NA_DY_pss031dys is: 2477
+2018-09-26 12:35:50 INFO  getJobID:132 - JOID retrieved...2477
+2018-09-26 12:35:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2477' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss031dys has a dependency: OTC_B_NA_DY_pss027dys
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss031dys has a dependency: OTC_B_NA_DY_pss028dys
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss031dys has a dependency: OTC_C_NA_DY_pss031dysa
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_DY_pss031dys has a dependency: OTC_C_NA_DY_pss031dysb
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :OTC_B_NA_MT_pss031mts
+2018-09-26 12:35:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for OTC_B_NA_MT_pss031mts
+2018-09-26 12:35:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='OTC_B_NA_MT_pss031mts' and is_active='1' and is_currver='1'
+2018-09-26 12:35:51 DEBUG getJobID:115 - Joid for job: OTC_B_NA_MT_pss031mts is: 2480
+2018-09-26 12:35:51 INFO  getJobID:132 - JOID retrieved...2480
+2018-09-26 12:35:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2480' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_MT_pss031mts has a dependency: OTC_B_NA_MT_pss027mts
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_MT_pss031mts has a dependency: OTC_B_NA_MT_pss028mts
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_MT_pss031mts has a dependency: OTC_C_NA_MT_pss031mtsa
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_MT_pss031mts has a dependency: OTC_C_NA_MT_pss031mtsb
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :FIN_C_NA_DY_hfi010dysa
+2018-09-26 12:35:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_C_NA_DY_hfi010dysa
+2018-09-26 12:35:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_C_NA_DY_hfi010dysa' and is_active='1' and is_currver='1'
+2018-09-26 12:35:51 DEBUG getJobID:115 - Joid for job: FIN_C_NA_DY_hfi010dysa is: 2318
+2018-09-26 12:35:51 INFO  getJobID:132 - JOID retrieved...2318
+2018-09-26 12:35:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2318' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :FIN_C_NA_DY_hfi010dysb
+2018-09-26 12:35:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_C_NA_DY_hfi010dysb
+2018-09-26 12:35:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_C_NA_DY_hfi010dysb' and is_active='1' and is_currver='1'
+2018-09-26 12:35:51 DEBUG getJobID:115 - Joid for job: FIN_C_NA_DY_hfi010dysb is: 2319
+2018-09-26 12:35:51 INFO  getJobID:132 - JOID retrieved...2319
+2018-09-26 12:35:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2319' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: FIN_C_NA_DY_hfi010dysb has a dependency: FIN_C_NA_DY_hfi010dysa
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :FIN_B_NA_QT_hfi010qts
+2018-09-26 12:35:51 INFO  getJobID:85 - Job: FIN_B_NA_QT_hfi010qts already processed for dependencies
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :OTC_B_NA_DY_psd178dys
+2018-09-26 12:35:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for OTC_B_NA_DY_psd178dys
+2018-09-26 12:35:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='OTC_B_NA_DY_psd178dys' and is_active='1' and is_currver='1'
+2018-09-26 12:35:51 DEBUG getJobID:115 - Joid for job: OTC_B_NA_DY_psd178dys is: 2347
+2018-09-26 12:35:51 INFO  getJobID:132 - JOID retrieved...2347
+2018-09-26 12:35:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2347' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_DY_psd178dys has a dependency: OTC_B_NA_DY_psd178dys
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_DY_psd178dys has a dependency: FIN_B_NA_DY_hfi010dys
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_DY_psd178dys has a dependency: FIN_B_NA_DY_pfi010dys
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_DY_psd178dys has a dependency: FIN_B_NA_DY_ufi010dys
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_DY_psd178dys has a dependency: FIN_B_NA_DY_hfi005dys
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_DY_psd178dys has a dependency: FIN_B_NA_DY_pfi005dys
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: OTC_B_NA_DY_psd178dys has a dependency: FIN_B_NA_DY_pfi018dys
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :OTC_B_NA_DY_pss031dys
+2018-09-26 12:35:51 INFO  getJobID:85 - Job: OTC_B_NA_DY_pss031dys already processed for dependencies
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :OTC_B_NA_MT_pss031mts
+2018-09-26 12:35:51 INFO  getJobID:85 - Job: OTC_B_NA_MT_pss031mts already processed for dependencies
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :FIN_C_NA_DY_pfi010dysa
+2018-09-26 12:35:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_C_NA_DY_pfi010dysa
+2018-09-26 12:35:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_C_NA_DY_pfi010dysa' and is_active='1' and is_currver='1'
+2018-09-26 12:35:51 DEBUG getJobID:115 - Joid for job: FIN_C_NA_DY_pfi010dysa is: 1843
+2018-09-26 12:35:51 INFO  getJobID:132 - JOID retrieved...1843
+2018-09-26 12:35:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='1843' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :FIN_C_NA_DY_pfi010dysb
+2018-09-26 12:35:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_C_NA_DY_pfi010dysb
+2018-09-26 12:35:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_C_NA_DY_pfi010dysb' and is_active='1' and is_currver='1'
+2018-09-26 12:35:51 DEBUG getJobID:115 - Joid for job: FIN_C_NA_DY_pfi010dysb is: 1844
+2018-09-26 12:35:51 INFO  getJobID:132 - JOID retrieved...1844
+2018-09-26 12:35:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='1844' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: FIN_C_NA_DY_pfi010dysb has a dependency: FIN_C_NA_DY_pfi010dysa
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :FIN_B_NA_DY_pfi010dys
+2018-09-26 12:35:51 INFO  getJobID:85 - Job: FIN_B_NA_DY_pfi010dys already processed for dependencies
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :FIN_C_NA_QT_pfi010qtsa
+2018-09-26 12:35:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_C_NA_QT_pfi010qtsa
+2018-09-26 12:35:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_C_NA_QT_pfi010qtsa' and is_active='1' and is_currver='1'
+2018-09-26 12:35:51 DEBUG getJobID:115 - Joid for job: FIN_C_NA_QT_pfi010qtsa is: 2327
+2018-09-26 12:35:51 INFO  getJobID:132 - JOID retrieved...2327
+2018-09-26 12:35:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2327' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :FIN_C_NA_QT_pfi010qtsb
+2018-09-26 12:35:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for FIN_C_NA_QT_pfi010qtsb
+2018-09-26 12:35:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:35:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='FIN_C_NA_QT_pfi010qtsb' and is_active='1' and is_currver='1'
+2018-09-26 12:35:51 DEBUG getJobID:115 - Joid for job: FIN_C_NA_QT_pfi010qtsb is: 2328
+2018-09-26 12:35:51 INFO  getJobID:132 - JOID retrieved...2328
+2018-09-26 12:35:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='2328' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:35:51 DEBUG getJobID:146 - Job: FIN_C_NA_QT_pfi010qtsb has a dependency: FIN_C_NA_QT_pfi010qtsa
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :OTC_B_NA_DY_psd178dys
+2018-09-26 12:35:51 INFO  getJobID:85 - Job: OTC_B_NA_DY_psd178dys already processed for dependencies
+2018-09-26 12:35:51 INFO  getJobID:75 - Getting dependent jobs for :OTC_B_NA_DY_psd024dys
+2018-09-26 12:35:51 INFO  getJobID:85 - Job: OTC_B_NA_DY_psd024dys already processed for dependencies
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss001dys,FIN_B_NA_DY_hfi010dys,0
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss001dys,FIN_B_NA_QT_hfi010qts,0
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss001dys,FIN_B_NA_DY_pfi010dys,0
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss001dys,FIN_B_NA_QT_pfi010qts,0
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss001dys,OTC_B_NA_DY_psd024dys,0
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss001dys,OTC_B_NA_DY_psd128dys,0
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss001dys,FIN_B_NA_DY_ufi010dys,0
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss001dys,FIN_B_NA_QT_ufi010qts,0
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss001dys,OTC_B_NA_DY_usd159dys,0
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss001dys,OTC_B_NA_DY_usd183dys,0
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_hfi010dys,OTC_B_NA_DY_pss031dys,1
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_hfi010dys,OTC_B_NA_MT_pss031mts,1
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_hfi010dys,FIN_C_NA_DY_hfi010dysa,1
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_hfi010dys,FIN_C_NA_DY_hfi010dysb,1
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_QT_hfi010qts,FIN_B_NA_QT_hfi010qts,2
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_QT_hfi010qts,OTC_B_NA_DY_psd178dys,2
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_pfi010dys,OTC_B_NA_DY_pss031dys,3
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_pfi010dys,OTC_B_NA_MT_pss031mts,3
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_pfi010dys,FIN_C_NA_DY_pfi010dysa,3
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_pfi010dys,FIN_C_NA_DY_pfi010dysb,3
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_QT_pfi010qts,FIN_B_NA_DY_pfi010dys,4
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_QT_pfi010qts,FIN_C_NA_QT_pfi010qtsa,4
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_QT_pfi010qts,FIN_C_NA_QT_pfi010qtsb,4
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_QT_pfi010qts,OTC_B_NA_DY_psd178dys,4
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_psd024dys,OTC_B_NA_DY_psd024dys,5
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_ufi010dys,OTC_B_NA_DY_pss031dys,7
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_ufi010dys,OTC_B_NA_MT_pss031mts,7
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_ufi010dys,FIN_C_NA_DY_ufi010dysa,7
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_DY_ufi010dys,FIN_C_NA_DY_ufi010dysb,7
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_QT_ufi010qts,FIN_B_NA_QT_ufi010qts,8
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_B_NA_QT_ufi010qts,OTC_B_NA_DY_psd178dys,8
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss031dys,OTC_B_NA_DY_pss027dys,11
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss031dys,OTC_B_NA_DY_pss028dys,11
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss031dys,OTC_C_NA_DY_pss031dysa,11
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_pss031dys,OTC_C_NA_DY_pss031dysb,11
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_MT_pss031mts,OTC_B_NA_MT_pss027mts,12
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_MT_pss031mts,OTC_B_NA_MT_pss028mts,12
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_MT_pss031mts,OTC_C_NA_MT_pss031mtsa,12
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_MT_pss031mts,OTC_C_NA_MT_pss031mtsb,12
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_C_NA_DY_hfi010dysb,FIN_C_NA_DY_hfi010dysa,14
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_psd178dys,OTC_B_NA_DY_psd178dys,15
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_psd178dys,FIN_B_NA_DY_hfi010dys,15
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_psd178dys,FIN_B_NA_DY_pfi010dys,15
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_psd178dys,FIN_B_NA_DY_ufi010dys,15
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_psd178dys,FIN_B_NA_DY_hfi005dys,15
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_psd178dys,FIN_B_NA_DY_pfi005dys,15
+2018-09-26 12:35:51 INFO  getJobID:91 - OTC_B_NA_DY_psd178dys,FIN_B_NA_DY_pfi018dys,15
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_C_NA_DY_pfi010dysb,FIN_C_NA_DY_pfi010dysa,17
+2018-09-26 12:35:51 INFO  getJobID:91 - FIN_C_NA_QT_pfi010qtsb,FIN_C_NA_QT_pfi010qtsa,19
+2018-09-26 12:53:53 INFO  main:46 - Application Logging Initialized...
+2018-09-26 12:53:53 INFO  main:55 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:53:53 DEBUG main:56 - SB-EM1.RMT.com
+2018-09-26 12:53:53 DEBUG main:57 - 1433
+2018-09-26 12:53:53 DEBUG main:58 - AEDB
+2018-09-26 12:53:54 INFO  main:63 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:53:54 INFO  main:64 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:53:54 INFO  main:65 - Database Version: 10.50.1600
+2018-09-26 12:54:02 INFO  main:74 - Getting Job Dependency information for: job1
+2018-09-26 12:54:02 INFO  getDependentJobs:126 - Attempting to retrieve joid for job1
+2018-09-26 12:54:02 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:02 DEBUG getJobID:105 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:54:02 DEBUG getJobID:111 - Joid for job: job1 is: 6720
+2018-09-26 12:54:02 INFO  getJobID:128 - JOID retrieved...6720
+2018-09-26 12:54:02 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: job1 has a dependency: dep2
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: job1 has a dependency: dep1
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: job1 has a dependency: dep3
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: job1 has a dependency: dep4
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: job1 has a dependency: dep5
+2018-09-26 12:54:02 INFO  getJobID:79 - Getting Job Dependency information for :dep2
+2018-09-26 12:54:02 INFO  getDependentJobs:126 - Attempting to retrieve joid for dep2
+2018-09-26 12:54:02 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:02 DEBUG getJobID:105 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:54:02 DEBUG getJobID:111 - Joid for job: dep2 is: 6723
+2018-09-26 12:54:02 INFO  getJobID:128 - JOID retrieved...6723
+2018-09-26 12:54:02 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep2 has a dependency: dd1
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep2 has a dependency: dd2
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep2 has a dependency: dd3
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep2 has a dependency: dd4
+2018-09-26 12:54:02 INFO  getJobID:79 - Getting Job Dependency information for :dep1
+2018-09-26 12:54:02 INFO  getDependentJobs:126 - Attempting to retrieve joid for dep1
+2018-09-26 12:54:02 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:02 DEBUG getJobID:105 - select joid from ujo_job where job_name='dep1' and is_active='1' and is_currver='1'
+2018-09-26 12:54:02 DEBUG getJobID:111 - Joid for job: dep1 is: 6722
+2018-09-26 12:54:02 INFO  getJobID:128 - JOID retrieved...6722
+2018-09-26 12:54:02 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6722' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep1 has a dependency: job1
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep1 has a dependency: job3
+2018-09-26 12:54:02 INFO  getJobID:79 - Getting Job Dependency information for :dep3
+2018-09-26 12:54:02 INFO  getDependentJobs:126 - Attempting to retrieve joid for dep3
+2018-09-26 12:54:02 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:02 DEBUG getJobID:105 - select joid from ujo_job where job_name='dep3' and is_active='1' and is_currver='1'
+2018-09-26 12:54:02 DEBUG getJobID:111 - Joid for job: dep3 is: 6724
+2018-09-26 12:54:02 INFO  getJobID:128 - JOID retrieved...6724
+2018-09-26 12:54:02 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6724' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep3 has a dependency: dd11
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep3 has a dependency: dd12
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep3 has a dependency: dd13
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep3 has a dependency: dd14
+2018-09-26 12:54:02 INFO  getJobID:79 - Getting Job Dependency information for :dep4
+2018-09-26 12:54:02 INFO  getDependentJobs:126 - Attempting to retrieve joid for dep4
+2018-09-26 12:54:02 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:02 DEBUG getJobID:105 - select joid from ujo_job where job_name='dep4' and is_active='1' and is_currver='1'
+2018-09-26 12:54:02 DEBUG getJobID:111 - Joid for job: dep4 is: 6725
+2018-09-26 12:54:02 INFO  getJobID:128 - JOID retrieved...6725
+2018-09-26 12:54:02 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6725' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep4 has a dependency: dd111
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep4 has a dependency: dd112
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep4 has a dependency: dd113
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep4 has a dependency: dd114
+2018-09-26 12:54:02 INFO  getJobID:79 - Getting Job Dependency information for :dep5
+2018-09-26 12:54:02 INFO  getDependentJobs:126 - Attempting to retrieve joid for dep5
+2018-09-26 12:54:02 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:02 DEBUG getJobID:105 - select joid from ujo_job where job_name='dep5' and is_active='1' and is_currver='1'
+2018-09-26 12:54:02 DEBUG getJobID:111 - Joid for job: dep5 is: 6726
+2018-09-26 12:54:02 INFO  getJobID:128 - JOID retrieved...6726
+2018-09-26 12:54:02 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6726' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep5 has a dependency: dd5111
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep5 has a dependency: dd5112
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep5 has a dependency: dd5113
+2018-09-26 12:54:02 DEBUG getJobID:142 - Job: dep5 has a dependency: dd5114
+2018-09-26 12:54:02 INFO  getJobID:79 - Getting Job Dependency information for :dd1
+2018-09-26 12:54:02 INFO  getDependentJobs:126 - Attempting to retrieve joid for dd1
+2018-09-26 12:54:02 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:02 DEBUG getJobID:105 - select joid from ujo_job where job_name='dd1' and is_active='1' and is_currver='1'
+2018-09-26 12:54:02 INFO  getJobID:128 - JOID retrieved...0
+2018-09-26 12:54:02 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:54:02 INFO  getJobID:79 - Getting Job Dependency information for :dd2
+2018-09-26 12:54:02 INFO  getDependentJobs:126 - Attempting to retrieve joid for dd2
+2018-09-26 12:54:02 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:02 DEBUG getJobID:105 - select joid from ujo_job where job_name='dd2' and is_active='1' and is_currver='1'
+2018-09-26 12:54:02 INFO  getJobID:128 - JOID retrieved...0
+2018-09-26 12:54:02 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:54:03 INFO  getJobID:79 - Getting Job Dependency information for :dd3
+2018-09-26 12:54:03 INFO  getDependentJobs:126 - Attempting to retrieve joid for dd3
+2018-09-26 12:54:03 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:03 DEBUG getJobID:105 - select joid from ujo_job where job_name='dd3' and is_active='1' and is_currver='1'
+2018-09-26 12:54:03 INFO  getJobID:128 - JOID retrieved...0
+2018-09-26 12:54:03 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:54:03 INFO  getJobID:79 - Getting Job Dependency information for :dd4
+2018-09-26 12:54:03 INFO  getDependentJobs:126 - Attempting to retrieve joid for dd4
+2018-09-26 12:54:03 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:03 DEBUG getJobID:105 - select joid from ujo_job where job_name='dd4' and is_active='1' and is_currver='1'
+2018-09-26 12:54:03 INFO  getJobID:128 - JOID retrieved...0
+2018-09-26 12:54:03 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:54:03 INFO  getJobID:79 - Getting Job Dependency information for :job1
+2018-09-26 12:54:03 INFO  getJobID:79 - Getting Job Dependency information for :job3
+2018-09-26 12:54:03 INFO  getDependentJobs:126 - Attempting to retrieve joid for job3
+2018-09-26 12:54:03 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:03 DEBUG getJobID:105 - select joid from ujo_job where job_name='job3' and is_active='1' and is_currver='1'
+2018-09-26 12:54:03 INFO  getJobID:128 - JOID retrieved...0
+2018-09-26 12:54:03 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:54:03 INFO  getJobID:79 - Getting Job Dependency information for :dd11
+2018-09-26 12:54:03 INFO  getDependentJobs:126 - Attempting to retrieve joid for dd11
+2018-09-26 12:54:03 DEBUG getJobID:103 - Connection open.
+2018-09-26 12:54:03 DEBUG getJobID:105 - select joid from ujo_job where job_name='dd11' and is_active='1' and is_currver='1'
+2018-09-26 12:54:03 INFO  getJobID:128 - JOID retrieved...0
+2018-09-26 12:54:03 DEBUG getJobID:136 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:40 INFO  main:46 - Application Logging Initialized...
+2018-09-26 12:55:40 INFO  main:55 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:55:40 DEBUG main:56 - SB-EM1.RMT.com
+2018-09-26 12:55:40 DEBUG main:57 - 1433
+2018-09-26 12:55:40 DEBUG main:58 - AEDB
+2018-09-26 12:55:41 INFO  main:63 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:55:41 INFO  main:64 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:55:41 INFO  main:65 - Database Version: 10.50.1600
+2018-09-26 12:55:50 INFO  main:74 - Getting Job Dependency information for: job1
+2018-09-26 12:55:50 INFO  getDependentJobs:130 - Attempting to retrieve joid for job1
+2018-09-26 12:55:50 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:50 DEBUG getJobID:109 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:55:50 DEBUG getJobID:115 - Joid for job: job1 is: 6720
+2018-09-26 12:55:50 INFO  getJobID:132 - JOID retrieved...6720
+2018-09-26 12:55:50 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: job1 has a dependency: dep2
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: job1 has a dependency: dep1
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: job1 has a dependency: dep3
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: job1 has a dependency: dep4
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: job1 has a dependency: dep5
+2018-09-26 12:55:51 INFO  getJobID:79 - Getting Job Dependency information for :dep2
+2018-09-26 12:55:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep2
+2018-09-26 12:55:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:55:51 DEBUG getJobID:115 - Joid for job: dep2 is: 6723
+2018-09-26 12:55:51 INFO  getJobID:132 - JOID retrieved...6723
+2018-09-26 12:55:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep2 has a dependency: dd1
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep2 has a dependency: dd2
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep2 has a dependency: dd3
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep2 has a dependency: dd4
+2018-09-26 12:55:51 INFO  getJobID:79 - Getting Job Dependency information for :dep1
+2018-09-26 12:55:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep1
+2018-09-26 12:55:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep1' and is_active='1' and is_currver='1'
+2018-09-26 12:55:51 DEBUG getJobID:115 - Joid for job: dep1 is: 6722
+2018-09-26 12:55:51 INFO  getJobID:132 - JOID retrieved...6722
+2018-09-26 12:55:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6722' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep1 has a dependency: job1
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep1 has a dependency: job3
+2018-09-26 12:55:51 INFO  getJobID:79 - Getting Job Dependency information for :dep3
+2018-09-26 12:55:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep3
+2018-09-26 12:55:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep3' and is_active='1' and is_currver='1'
+2018-09-26 12:55:51 DEBUG getJobID:115 - Joid for job: dep3 is: 6724
+2018-09-26 12:55:51 INFO  getJobID:132 - JOID retrieved...6724
+2018-09-26 12:55:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6724' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep3 has a dependency: dd11
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep3 has a dependency: dd12
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep3 has a dependency: dd13
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep3 has a dependency: dd14
+2018-09-26 12:55:51 INFO  getJobID:79 - Getting Job Dependency information for :dep4
+2018-09-26 12:55:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep4
+2018-09-26 12:55:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep4' and is_active='1' and is_currver='1'
+2018-09-26 12:55:51 DEBUG getJobID:115 - Joid for job: dep4 is: 6725
+2018-09-26 12:55:51 INFO  getJobID:132 - JOID retrieved...6725
+2018-09-26 12:55:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6725' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep4 has a dependency: dd111
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep4 has a dependency: dd112
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep4 has a dependency: dd113
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep4 has a dependency: dd114
+2018-09-26 12:55:51 INFO  getJobID:79 - Getting Job Dependency information for :dep5
+2018-09-26 12:55:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for dep5
+2018-09-26 12:55:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='dep5' and is_active='1' and is_currver='1'
+2018-09-26 12:55:51 DEBUG getJobID:115 - Joid for job: dep5 is: 6726
+2018-09-26 12:55:51 INFO  getJobID:132 - JOID retrieved...6726
+2018-09-26 12:55:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6726' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5111
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5112
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5113
+2018-09-26 12:55:51 DEBUG getJobID:146 - Job: dep5 has a dependency: dd5114
+2018-09-26 12:55:51 INFO  getJobID:79 - Getting Job Dependency information for :dd1
+2018-09-26 12:55:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for dd1
+2018-09-26 12:55:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='dd1' and is_active='1' and is_currver='1'
+2018-09-26 12:55:51 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:55:51 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:51 INFO  getJobID:79 - Getting Job Dependency information for :dd2
+2018-09-26 12:55:51 INFO  getDependentJobs:130 - Attempting to retrieve joid for dd2
+2018-09-26 12:55:51 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:51 DEBUG getJobID:109 - select joid from ujo_job where job_name='dd2' and is_active='1' and is_currver='1'
+2018-09-26 12:55:52 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:55:52 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:52 INFO  getJobID:79 - Getting Job Dependency information for :dd3
+2018-09-26 12:55:52 INFO  getDependentJobs:130 - Attempting to retrieve joid for dd3
+2018-09-26 12:55:52 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:52 DEBUG getJobID:109 - select joid from ujo_job where job_name='dd3' and is_active='1' and is_currver='1'
+2018-09-26 12:55:52 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:55:52 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:52 INFO  getJobID:79 - Getting Job Dependency information for :dd4
+2018-09-26 12:55:52 INFO  getDependentJobs:130 - Attempting to retrieve joid for dd4
+2018-09-26 12:55:52 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:52 DEBUG getJobID:109 - select joid from ujo_job where job_name='dd4' and is_active='1' and is_currver='1'
+2018-09-26 12:55:52 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:55:52 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:52 INFO  getJobID:79 - Getting Job Dependency information for :job1
+2018-09-26 12:55:52 INFO  getJobID:79 - Getting Job Dependency information for :job3
+2018-09-26 12:55:52 INFO  getDependentJobs:130 - Attempting to retrieve joid for job3
+2018-09-26 12:55:52 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:52 DEBUG getJobID:109 - select joid from ujo_job where job_name='job3' and is_active='1' and is_currver='1'
+2018-09-26 12:55:52 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:55:52 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:55:52 INFO  getJobID:79 - Getting Job Dependency information for :dd11
+2018-09-26 12:55:52 INFO  getDependentJobs:130 - Attempting to retrieve joid for dd11
+2018-09-26 12:55:52 DEBUG getJobID:107 - Connection open.
+2018-09-26 12:55:52 DEBUG getJobID:109 - select joid from ujo_job where job_name='dd11' and is_active='1' and is_currver='1'
+2018-09-26 12:55:52 INFO  getJobID:132 - JOID retrieved...0
+2018-09-26 12:55:52 DEBUG getJobID:140 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:26 INFO  main:46 - Application Logging Initialized...
+2018-09-26 12:56:26 INFO  main:55 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:56:26 DEBUG main:56 - SB-EM1.RMT.com
+2018-09-26 12:56:26 DEBUG main:57 - 1433
+2018-09-26 12:56:26 DEBUG main:58 - AEDB
+2018-09-26 12:56:27 INFO  main:63 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:56:27 INFO  main:64 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:56:27 INFO  main:65 - Database Version: 10.50.1600
+2018-09-26 12:56:32 INFO  main:75 - Getting Job Dependency information for: job1
+2018-09-26 12:56:32 INFO  getDependentJobs:131 - Attempting to retrieve joid for job1
+2018-09-26 12:56:32 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:32 DEBUG getJobID:110 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:56:33 DEBUG getJobID:116 - Joid for job: job1 is: 6720
+2018-09-26 12:56:33 INFO  getJobID:133 - JOID retrieved...6720
+2018-09-26 12:56:33 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:33 DEBUG getJobID:147 - Job: job1 has a dependency: dep2
+2018-09-26 12:56:33 DEBUG getJobID:147 - Job: job1 has a dependency: dep1
+2018-09-26 12:56:33 DEBUG getJobID:147 - Job: job1 has a dependency: dep3
+2018-09-26 12:56:33 DEBUG getJobID:147 - Job: job1 has a dependency: dep4
+2018-09-26 12:56:33 DEBUG getJobID:147 - Job: job1 has a dependency: dep5
+2018-09-26 12:56:33 INFO  getJobID:80 - Getting Job Dependency information for :dep2
+2018-09-26 12:56:33 INFO  getDependentJobs:131 - Attempting to retrieve joid for dep2
+2018-09-26 12:56:33 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:33 DEBUG getJobID:110 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:56:33 DEBUG getJobID:116 - Joid for job: dep2 is: 6723
+2018-09-26 12:56:33 INFO  getJobID:133 - JOID retrieved...6723
+2018-09-26 12:56:33 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:33 DEBUG getJobID:147 - Job: dep2 has a dependency: dd1
+2018-09-26 12:56:33 DEBUG getJobID:147 - Job: dep2 has a dependency: dd2
+2018-09-26 12:56:33 DEBUG getJobID:147 - Job: dep2 has a dependency: dd3
+2018-09-26 12:56:33 DEBUG getJobID:147 - Job: dep2 has a dependency: dd4
+2018-09-26 12:56:33 INFO  getJobID:80 - Getting Job Dependency information for :dep1
+2018-09-26 12:56:33 INFO  getDependentJobs:131 - Attempting to retrieve joid for dep1
+2018-09-26 12:56:33 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:33 DEBUG getJobID:110 - select joid from ujo_job where job_name='dep1' and is_active='1' and is_currver='1'
+2018-09-26 12:56:33 DEBUG getJobID:116 - Joid for job: dep1 is: 6722
+2018-09-26 12:56:33 INFO  getJobID:133 - JOID retrieved...6722
+2018-09-26 12:56:33 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6722' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep1 has a dependency: job1
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep1 has a dependency: job3
+2018-09-26 12:56:34 INFO  getJobID:80 - Getting Job Dependency information for :dep3
+2018-09-26 12:56:34 INFO  getDependentJobs:131 - Attempting to retrieve joid for dep3
+2018-09-26 12:56:34 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:34 DEBUG getJobID:110 - select joid from ujo_job where job_name='dep3' and is_active='1' and is_currver='1'
+2018-09-26 12:56:34 DEBUG getJobID:116 - Joid for job: dep3 is: 6724
+2018-09-26 12:56:34 INFO  getJobID:133 - JOID retrieved...6724
+2018-09-26 12:56:34 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6724' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep3 has a dependency: dd11
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep3 has a dependency: dd12
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep3 has a dependency: dd13
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep3 has a dependency: dd14
+2018-09-26 12:56:34 INFO  getJobID:80 - Getting Job Dependency information for :dep4
+2018-09-26 12:56:34 INFO  getDependentJobs:131 - Attempting to retrieve joid for dep4
+2018-09-26 12:56:34 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:34 DEBUG getJobID:110 - select joid from ujo_job where job_name='dep4' and is_active='1' and is_currver='1'
+2018-09-26 12:56:34 DEBUG getJobID:116 - Joid for job: dep4 is: 6725
+2018-09-26 12:56:34 INFO  getJobID:133 - JOID retrieved...6725
+2018-09-26 12:56:34 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6725' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep4 has a dependency: dd111
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep4 has a dependency: dd112
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep4 has a dependency: dd113
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep4 has a dependency: dd114
+2018-09-26 12:56:34 INFO  getJobID:80 - Getting Job Dependency information for :dep5
+2018-09-26 12:56:34 INFO  getDependentJobs:131 - Attempting to retrieve joid for dep5
+2018-09-26 12:56:34 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:34 DEBUG getJobID:110 - select joid from ujo_job where job_name='dep5' and is_active='1' and is_currver='1'
+2018-09-26 12:56:34 DEBUG getJobID:116 - Joid for job: dep5 is: 6726
+2018-09-26 12:56:34 INFO  getJobID:133 - JOID retrieved...6726
+2018-09-26 12:56:34 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6726' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep5 has a dependency: dd5111
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep5 has a dependency: dd5112
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep5 has a dependency: dd5113
+2018-09-26 12:56:34 DEBUG getJobID:147 - Job: dep5 has a dependency: dd5114
+2018-09-26 12:56:34 INFO  getJobID:80 - Getting Job Dependency information for :dd1
+2018-09-26 12:56:34 INFO  getDependentJobs:131 - Attempting to retrieve joid for dd1
+2018-09-26 12:56:34 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:34 DEBUG getJobID:110 - select joid from ujo_job where job_name='dd1' and is_active='1' and is_currver='1'
+2018-09-26 12:56:34 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:56:34 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:34 INFO  getJobID:80 - Getting Job Dependency information for :dd2
+2018-09-26 12:56:34 INFO  getDependentJobs:131 - Attempting to retrieve joid for dd2
+2018-09-26 12:56:34 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:34 DEBUG getJobID:110 - select joid from ujo_job where job_name='dd2' and is_active='1' and is_currver='1'
+2018-09-26 12:56:34 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:56:34 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:34 INFO  getJobID:80 - Getting Job Dependency information for :dd3
+2018-09-26 12:56:34 INFO  getDependentJobs:131 - Attempting to retrieve joid for dd3
+2018-09-26 12:56:34 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:34 DEBUG getJobID:110 - select joid from ujo_job where job_name='dd3' and is_active='1' and is_currver='1'
+2018-09-26 12:56:34 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:56:34 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:34 INFO  getJobID:80 - Getting Job Dependency information for :dd4
+2018-09-26 12:56:34 INFO  getDependentJobs:131 - Attempting to retrieve joid for dd4
+2018-09-26 12:56:34 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:34 DEBUG getJobID:110 - select joid from ujo_job where job_name='dd4' and is_active='1' and is_currver='1'
+2018-09-26 12:56:34 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:56:34 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:34 INFO  getJobID:80 - Getting Job Dependency information for :job1
+2018-09-26 12:56:34 INFO  getJobID:80 - Getting Job Dependency information for :job3
+2018-09-26 12:56:34 INFO  getDependentJobs:131 - Attempting to retrieve joid for job3
+2018-09-26 12:56:34 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:34 DEBUG getJobID:110 - select joid from ujo_job where job_name='job3' and is_active='1' and is_currver='1'
+2018-09-26 12:56:34 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:56:34 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:56:34 INFO  getJobID:80 - Getting Job Dependency information for :dd11
+2018-09-26 12:56:34 INFO  getDependentJobs:131 - Attempting to retrieve joid for dd11
+2018-09-26 12:56:34 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:56:34 DEBUG getJobID:110 - select joid from ujo_job where job_name='dd11' and is_active='1' and is_currver='1'
+2018-09-26 12:56:34 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:56:34 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:32 INFO  main:46 - Application Logging Initialized...
+2018-09-26 12:58:32 INFO  main:55 - Retrieved Connection details. Attempting to establish connection.
+2018-09-26 12:58:32 DEBUG main:56 - SB-EM1.RMT.com
+2018-09-26 12:58:32 DEBUG main:57 - 1433
+2018-09-26 12:58:32 DEBUG main:58 - AEDB
+2018-09-26 12:58:32 INFO  main:63 - Driver Information: jTDS Type 4 JDBC Driver for MS SQL Server and Sybase
+2018-09-26 12:58:32 INFO  main:64 - Vendor Name: Microsoft SQL Server
+2018-09-26 12:58:32 INFO  main:65 - Database Version: 10.50.1600
+2018-09-26 12:58:40 INFO  main:75 - Getting Job Dependency information for: job1
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for job1
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='job1' and is_active='1' and is_currver='1'
+2018-09-26 12:58:40 DEBUG getJobID:116 - Joid for job: job1 is: 6720
+2018-09-26 12:58:40 INFO  getJobID:133 - JOID retrieved...6720
+2018-09-26 12:58:40 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6720' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: job1 has a dependency: dep2
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: job1 has a dependency: dep1
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: job1 has a dependency: dep3
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: job1 has a dependency: dep4
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: job1 has a dependency: dep5
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :dep2
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for dep2
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='dep2' and is_active='1' and is_currver='1'
+2018-09-26 12:58:40 DEBUG getJobID:116 - Joid for job: dep2 is: 6723
+2018-09-26 12:58:40 INFO  getJobID:133 - JOID retrieved...6723
+2018-09-26 12:58:40 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6723' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep2 has a dependency: dd1
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep2 has a dependency: dd2
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep2 has a dependency: dd3
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep2 has a dependency: dd4
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :dep1
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for dep1
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='dep1' and is_active='1' and is_currver='1'
+2018-09-26 12:58:40 DEBUG getJobID:116 - Joid for job: dep1 is: 6722
+2018-09-26 12:58:40 INFO  getJobID:133 - JOID retrieved...6722
+2018-09-26 12:58:40 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6722' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep1 has a dependency: job1
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep1 has a dependency: job3
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :dep3
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for dep3
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='dep3' and is_active='1' and is_currver='1'
+2018-09-26 12:58:40 DEBUG getJobID:116 - Joid for job: dep3 is: 6724
+2018-09-26 12:58:40 INFO  getJobID:133 - JOID retrieved...6724
+2018-09-26 12:58:40 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6724' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep3 has a dependency: dd11
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep3 has a dependency: dd12
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep3 has a dependency: dd13
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep3 has a dependency: dd14
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :dep4
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for dep4
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='dep4' and is_active='1' and is_currver='1'
+2018-09-26 12:58:40 DEBUG getJobID:116 - Joid for job: dep4 is: 6725
+2018-09-26 12:58:40 INFO  getJobID:133 - JOID retrieved...6725
+2018-09-26 12:58:40 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6725' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep4 has a dependency: dd111
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep4 has a dependency: dd112
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep4 has a dependency: dd113
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep4 has a dependency: dd114
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :dep5
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for dep5
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='dep5' and is_active='1' and is_currver='1'
+2018-09-26 12:58:40 DEBUG getJobID:116 - Joid for job: dep5 is: 6726
+2018-09-26 12:58:40 INFO  getJobID:133 - JOID retrieved...6726
+2018-09-26 12:58:40 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='6726' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep5 has a dependency: dd5111
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep5 has a dependency: dd5112
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep5 has a dependency: dd5113
+2018-09-26 12:58:40 DEBUG getJobID:147 - Job: dep5 has a dependency: dd5114
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :dd1
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for dd1
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='dd1' and is_active='1' and is_currver='1'
+2018-09-26 12:58:40 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:58:40 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :dd2
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for dd2
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='dd2' and is_active='1' and is_currver='1'
+2018-09-26 12:58:40 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:58:40 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :dd3
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for dd3
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='dd3' and is_active='1' and is_currver='1'
+2018-09-26 12:58:40 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:58:40 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :dd4
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for dd4
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='dd4' and is_active='1' and is_currver='1'
+2018-09-26 12:58:40 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:58:40 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :job1
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :job3
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for job3
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='job3' and is_active='1' and is_currver='1'
+2018-09-26 12:58:40 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:58:40 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
+2018-09-26 12:58:40 INFO  getJobID:80 - Getting Job Dependency information for :dd11
+2018-09-26 12:58:40 INFO  getDependentJobs:131 - Attempting to retrieve joid for dd11
+2018-09-26 12:58:40 DEBUG getJobID:108 - Connection open.
+2018-09-26 12:58:40 DEBUG getJobID:110 - select joid from ujo_job where job_name='dd11' and is_active='1' and is_currver='1'
+2018-09-26 12:58:41 INFO  getJobID:133 - JOID retrieved...0
+2018-09-26 12:58:41 DEBUG getJobID:141 - select cond.cond_job_name from ujo_job_cond cond,ujo_job job where cond.joid=job.joid and cond.joid='0' and (type='s' or type='S' or type='f' or type='F' or type='t' or type='T' or type='n' or type='N' or type='d' or type='D' or type='e' or type='E') and (job.is_active='1' and job.is_currver='1')
