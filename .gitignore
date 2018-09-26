@@ -12,3 +12,6 @@
 hs_err_pid*
 /build/
 /target/
+/.metadata/
+/JobDependency_Crawler/nbproject/private/
+/JobDependency_Crawler/build/
