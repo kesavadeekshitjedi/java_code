@@ -21,6 +21,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -41,7 +42,7 @@ public class AEDependencyCrawler
     static int upstreamLevelCounter = -1;
     static BufferedWriter depWriter;
     static FileWriter fw;
-    public static void main(String args[]) throws FileNotFoundException, IOException, ClassNotFoundException, SQLException
+    public static void main(String args[]) throws FileNotFoundException, IOException, ClassNotFoundException, SQLException, InterruptedException
     {
         String log4jLocation = "resources/log4j.properties";
 	PropertyConfigurator.configure(log4jLocation);
@@ -76,8 +77,45 @@ public class AEDependencyCrawler
         depWriter = new BufferedWriter(fw);
         depWriter.write("JOB,JOB_DEPENDENCY,LEVEL"+" \n");
         logger.info("Getting Job Dependency information for: "+depJob);
+        // Creating threads here to see if things will speed up.
+        
+        Thread downstreamThread = new Thread()
+        {
+            public void run()
+            {
+                try 
+                {
+                    AEDependencyCrawler.getDependentJobList(sqlConnection, depJob);
+                } 
+                catch (SQLException ex) 
+                {
+                    java.util.logging.Logger.getLogger(AEDependencyCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        };
+        Thread upstreamThread = new Thread()
+        {
+            public void run()
+            {
+                try 
+                {
+                    AEDependencyCrawler.getUpstreamDepedencyJobList(sqlConnection, depJob);
+                } 
+                catch (SQLException ex) 
+                {
+                    java.util.logging.Logger.getLogger(AEDependencyCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        };
+        downstreamThread.start();
+        upstreamThread.start();
+        downstreamThread.join();
+        upstreamThread.join();
+
+        /*
         AEDependencyCrawler.getDependentJobList(sqlConnection, depJob);
         AEDependencyCrawler.getUpstreamDepedencyJobList(sqlConnection, depJob);
+        */
         processedJobList.add(depJob);
         for(int i=0;i<=dependentJobList.size()-1;i++)
         {
