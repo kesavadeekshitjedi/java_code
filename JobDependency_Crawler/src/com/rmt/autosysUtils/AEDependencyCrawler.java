@@ -35,7 +35,10 @@ public class AEDependencyCrawler
     static List<String> processedJobList = new ArrayList<String>();
     static List<String> masterJobDepList = new ArrayList<String>();
     static List<String> dependentJobList = new ArrayList<String>();
+    static List<String> upstreamDepJobList = new ArrayList<String>();
+    static List<String> upstreamProcList = new ArrayList<String>();
     static int levelCounter=0;
+    static int upstreamLevelCounter = -1;
     static BufferedWriter depWriter;
     static FileWriter fw;
     public static void main(String args[]) throws FileNotFoundException, IOException, ClassNotFoundException, SQLException
@@ -74,6 +77,7 @@ public class AEDependencyCrawler
         depWriter.write("JOB,JOB_DEPENDENCY,LEVEL"+" \n");
         logger.info("Getting Job Dependency information for: "+depJob);
         AEDependencyCrawler.getDependentJobList(sqlConnection, depJob);
+        AEDependencyCrawler.getUpstreamDepedencyJobList(sqlConnection, depJob);
         processedJobList.add(depJob);
         for(int i=0;i<=dependentJobList.size()-1;i++)
         {
@@ -85,6 +89,18 @@ public class AEDependencyCrawler
                 
             }
             dependentJobList.remove(dependentJobList.get(0));
+        }
+        logger.info(("Done getting downstream Dependencies"));
+        for(int k=0;k<=upstreamDepJobList.size()-1;k++)
+        {
+            logger.info("Getting Job Dependency information for :"+upstreamDepJobList.get(0));
+            if(!upstreamProcList.contains(upstreamDepJobList.get(0)))
+            {
+                AEDependencyCrawler.getUpstreamDepedencyJobList(sqlConnection, upstreamDepJobList.get(0));
+                upstreamProcList.add(upstreamDepJobList.get(0));
+                
+            }
+            upstreamDepJobList.remove(upstreamDepJobList.get(0));
         }
         for(int j=0;j<=masterJobDepList.size()-1;j++)
         {
@@ -154,5 +170,30 @@ public class AEDependencyCrawler
         
     }
     
+    private static void getUpstreamDepedencyJobList(Connection sqlConn, String jobName) throws SQLException
+    {
+        logger= Logger.getLogger("AEDependencyCrawler.getUpstreamDependencies");
+        logger.info("Getting upstream dependencies");
+        //int joid = AEDependencyCrawler.getJobID(sqlConn, jobName);
+        //logger.debug("Job ID "+joid+" retrieved for job: "+jobName);
+        String getUpstreamSQL = null;
+        Statement getUpstreamStmt = null;
+        ResultSet getUpstreamResult = null;
+        String condJobName="NO_FURTHER_DEPENDENCIES";
+        if(!sqlConn.isClosed())
+        {
+            getUpstreamSQL="select job.job_name from ujo_job job,ujo_job_cond cond where job.joid=cond.joid and job.is_active='1' and job.is_currver='1' and cond.job_ver=job.job_ver and cond_job_name='"+jobName+"'";
+            getUpstreamStmt=sqlConn.createStatement();
+            getUpstreamResult = getUpstreamStmt.executeQuery(getUpstreamSQL);
+            while(getUpstreamResult.next())
+            {
+                condJobName = getUpstreamResult.getString("job_name");
+                logger.debug("Job: "+jobName+" has an upstream dependency: "+condJobName);
+                upstreamDepJobList.add(condJobName);
+                masterJobDepList.add(jobName+","+condJobName+","+upstreamLevelCounter);
+            }
+            upstreamLevelCounter--;
+        }
+    }
     
 }
