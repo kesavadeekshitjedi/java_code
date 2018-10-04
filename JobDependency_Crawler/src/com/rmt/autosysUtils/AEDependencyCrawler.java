@@ -201,8 +201,9 @@ public class AEDependencyCrawler
                 logger.debug("Job: "+jobName+" has a dependency: "+condJobName);
                 dependentJobList.add(condJobName);
                 masterJobDepList.add(jobName+","+condJobName+","+levelCounter);
+                levelCounter++;
             }
-            levelCounter++;
+            
            
         }
         
@@ -229,8 +230,9 @@ public class AEDependencyCrawler
                 logger.debug("Job: "+jobName+" has an upstream dependency: "+condJobName);
                 upstreamDepJobList.add(condJobName);
                 masterJobDepList.add(jobName+","+condJobName+","+upstreamLevelCounter);
+                upstreamLevelCounter--;
             }
-            upstreamLevelCounter--;
+            
         }
     }
     
